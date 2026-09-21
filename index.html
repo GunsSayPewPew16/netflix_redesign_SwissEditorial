@@ -78,6 +78,25 @@
             letter-spacing: -0.05em;
         }
 
+        /* Featured hero keeps a fixed height: long titles shrink to fit their box,
+           so the giant type never wraps or changes the section height. */
+        #hero-giant-title {
+            display: block;
+            width: 100%;
+            white-space: nowrap;
+            overflow: visible;
+        }
+
+        /* Fixed-height hero: synopsis always occupies six lines, so shorter
+           blurbs don't shrink the section and longer ones never grow it */
+        #hero-description {
+            display: -webkit-box;
+            -webkit-line-clamp: 6;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+            min-height: calc(6 * 1.625em);
+        }
+
         .giant-header {
             font-size: clamp(2.5rem, 7vw, 7.5rem);
             line-height: 0.85;
@@ -1020,6 +1039,24 @@
             updateHeroDisplay(FEATURED_BY_TAB[tab]);
         }
 
+        // Shrink the giant hero title until it fits its container width,
+        // keeping the featured section at a constant height for every title.
+        function fitHeroTitle() {
+            const el = document.getElementById('hero-giant-title');
+            if (!el) return;
+            el.style.fontSize = '';            // reset to the CSS clamp baseline
+            const box = el.parentElement;      // the banner wrapper spans the full column
+            const available = box.clientWidth;
+            if (!available) return;
+            let size = parseFloat(window.getComputedStyle(el).fontSize);
+            let guard = 0;
+            while (el.scrollWidth > available && size > 12 && guard++ < 80) {
+                size *= Math.max(0.9, available / el.scrollWidth);
+                el.style.fontSize = Math.floor(size) + 'px';
+            }
+        }
+        window.addEventListener('resize', fitHeroTitle);
+
         // UPDATE HERO DISPLAY
         function selectShow(showId) {
             currentShowId = showId;
@@ -1048,6 +1085,7 @@
             if (issueRef) issueRef.innerText = `FIG ${show.code}.A — ${show.title.toUpperCase()}`;
             const formatEl = document.getElementById('hero-format');
             if (formatEl) formatEl.innerText = show.type === 'movies' ? 'FEATURE FILM' : 'EPISODIC DRAMA';
+            fitHeroTitle();
             
             const listBtn = document.getElementById('hero-add-btn');
             if (listBtn) {
