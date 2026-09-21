@@ -78,13 +78,14 @@
             letter-spacing: -0.05em;
         }
 
-        /* Featured hero keeps a fixed height: long titles shrink to fit their box,
-           so the giant type never wraps or changes the section height. */
+        /* Featured hero keeps a fixed height: long titles wrap onto up to
+           three lines (then shrink to fit), so the section never grows. */
         #hero-giant-title {
-            display: block;
+            display: -webkit-box;
             width: 100%;
-            white-space: nowrap;
-            overflow: visible;
+            -webkit-line-clamp: 3;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
         }
 
         /* Fixed-height hero: synopsis always occupies six lines, so shorter
@@ -1039,8 +1040,9 @@
             updateHeroDisplay(FEATURED_BY_TAB[tab]);
         }
 
-        // Shrink the giant hero title until it fits its container width,
-        // keeping the featured section at a constant height for every title.
+        // Fit the giant hero title: let it wrap to at most 3 lines, shrinking the
+        // font until it does, and reserve exactly three baseline lines of height
+        // in the banner so the featured section stays a constant height.
         function fitHeroTitle() {
             const el = document.getElementById('hero-giant-title');
             if (!el) return;
@@ -1048,10 +1050,13 @@
             const box = el.parentElement;      // the banner wrapper spans the full column
             const available = box.clientWidth;
             if (!available) return;
-            let size = parseFloat(window.getComputedStyle(el).fontSize);
+            const baseSize = parseFloat(window.getComputedStyle(el).fontSize);
+            box.style.height = Math.ceil(baseSize * 0.82 * 3) + 'px'; // reserved 3-line block
+            const maxThreeLines = baseSize * 0.82 * 3;
+            let size = baseSize;
             let guard = 0;
-            while (el.scrollWidth > available && size > 12 && guard++ < 80) {
-                size *= Math.max(0.9, available / el.scrollWidth);
+            while (el.scrollHeight > maxThreeLines + 1 && size > 12 && guard++ < 80) {
+                size *= 0.92;
                 el.style.fontSize = Math.floor(size) + 'px';
             }
         }
