@@ -220,8 +220,8 @@
             <div class="space-y-4">
                 <div class="flex items-end justify-between border-b-2 border-swiss pb-2">
                     <div>
-                        <span class="text-xs font-mono text-swissred font-bold uppercase tracking-widest block">FIG H02.0 — EPISODIC CHART LEADERS</span>
-                        <h2 class="text-2xl md:text-4xl font-black uppercase tracking-tight text-charcoal">TOP SERIES THIS WEEK</h2>
+                        <span class="text-xs font-mono text-swissred font-bold uppercase tracking-widest block">FIG H02.0 — RANDOMIZED SERIES SELECTION</span>
+                        <h2 class="text-2xl md:text-4xl font-black uppercase tracking-tight text-charcoal">SERIES PICKED FOR YOU</h2>
                     </div>
                     <div class="flex items-center gap-2 font-mono text-xs">
                         <button onclick="scrollRow('home-series-picks-grid', -1)" class="border border-swiss px-3 py-1 font-bold hover:bg-swissred hover:text-cream transition-swiss">[ ← PREV ]</button>
@@ -237,8 +237,8 @@
             <div class="space-y-4">
                 <div class="flex items-end justify-between border-b-2 border-swiss pb-2">
                     <div>
-                        <span class="text-xs font-mono text-swissred font-bold uppercase tracking-widest block">FIG H03.0 — FEATURE FILM CHART LEADERS</span>
-                        <h2 class="text-2xl md:text-4xl font-black uppercase tracking-tight text-charcoal">TOP CINEMA PICKS</h2>
+                        <span class="text-xs font-mono text-swissred font-bold uppercase tracking-widest block">FIG H03.0 — RANDOMIZED CINEMA SELECTION</span>
+                        <h2 class="text-2xl md:text-4xl font-black uppercase tracking-tight text-charcoal">CINEMA PICKED FOR YOU</h2>
                     </div>
                     <div class="flex items-center gap-2 font-mono text-xs">
                         <button onclick="scrollRow('home-cinema-picks-grid', -1)" class="border border-swiss px-3 py-1 font-bold hover:bg-swissred hover:text-cream transition-swiss">[ ← PREV ]</button>
@@ -673,6 +673,7 @@
                 });
                 return;
             }
+            reshuffleCatalog();
             renderHomeRows();
             renderAllGrids();
             updateHeroDisplay(CATALOG_DATA[0]);
@@ -863,15 +864,39 @@
             `;
         }
 
+        // RANDOMIZATION — every page load shuffles the catalog so the "top picks"
+        // rows show a fresh 10. Genre rows and My List stay deterministic.
+        function shuffleArray(arr) {
+            const a = [...arr];
+            for (let i = a.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [a[i], a[j]] = [a[j], a[i]];
+            }
+            return a;
+        }
+
+        let SHUFFLED_CATALOG = [];
+        let SHUFFLED_BY_TYPE = { shows: [], movies: [] };
+
+        function reshuffleCatalog() {
+            SHUFFLED_CATALOG = shuffleArray(CATALOG_DATA);
+            SHUFFLED_BY_TYPE.shows = shuffleArray(CATALOG_DATA.filter(s => s.type === 'shows'));
+            SHUFFLED_BY_TYPE.movies = shuffleArray(CATALOG_DATA.filter(s => s.type === 'movies'));
+        }
+
         function renderAllGrids() {
-            const ranked = CATALOG_DATA.filter(matchFilters);
-            renderHomeStyleRows('', ranked.slice(0, 10), ranked.filter(s => s.type === 'shows').slice(0, 10), ranked.filter(s => s.type === 'movies').slice(0, 10));
+            renderHomeStyleRows('',
+                SHUFFLED_CATALOG.filter(matchFilters).slice(0, 10),
+                SHUFFLED_BY_TYPE.shows.filter(matchFilters).slice(0, 10),
+                SHUFFLED_BY_TYPE.movies.filter(matchFilters).slice(0, 10));
         }
 
         // HOME PAGE CAROUSEL ROWS
         function renderHomeRows() {
-            const ranked = CATALOG_DATA.filter(matchFilters);
-            renderHomeStyleRows('home-', ranked.slice(0, 10), ranked.filter(s => s.type === 'shows').slice(0, 10), ranked.filter(s => s.type === 'movies').slice(0, 10));
+            renderHomeStyleRows('home-',
+                SHUFFLED_CATALOG.filter(matchFilters).slice(0, 10),
+                SHUFFLED_BY_TYPE.shows.filter(matchFilters).slice(0, 10),
+                SHUFFLED_BY_TYPE.movies.filter(matchFilters).slice(0, 10));
         }
 
         // Shared row renderer: Top Picks (10) / Series / Cinema — matches the home-page format
@@ -905,7 +930,7 @@
                     <div id="${type}-grid-${key}" class="grid grid-flow-col auto-cols-[85%] sm:auto-cols-[45%] md:auto-cols-[30%] lg:auto-cols-[22%] gap-4 overflow-x-auto no-scrollbar scroll-smooth py-2"></div>
                 </div>`;
             container.innerHTML =
-                rowTpl('top', `FIG ${prefix}01.0 — MOST POPULAR ${type.toUpperCase()}`, type === 'shows' ? 'TOP 10 SHOWS ON NETFLIX' : 'TOP 10 MOVIES ON NETFLIX') +
+                rowTpl('top', `FIG ${prefix}01.0 — RANDOMIZED SELECTION`, type === 'shows' ? 'SHOWS PICKED FOR YOU' : 'MOVIES PICKED FOR YOU') +
                 GENRE_ROW_ORDER.map((g, i) => rowTpl(g, `FIG ${prefix}0${i + 2}.0 — SORTED BY GENRE`, `${g.toUpperCase()} ARCHIVE`)).join('');
             container.dataset.builtFor = type;
         }
@@ -915,8 +940,8 @@
             const pool = CATALOG_DATA.filter(item => item.type === type);
             let anyRendered = false;
 
-            // Row 1: overall top 10 for this page
-            const overall = pool.filter(matchFilters).slice(0, 10);
+            // Row 1: random 10 for this page (re-shuffled on every load)
+            const overall = SHUFFLED_BY_TYPE[type].filter(matchFilters).slice(0, 10);
             const overallRow = document.getElementById(`${type}-row-top`);
             if (overallRow) overallRow.style.display = overall.length ? 'block' : 'none';
             renderCardGrid(`${type}-grid-top`, overall);
