@@ -127,34 +127,42 @@
         <!-- Main Branding & Menu Column Grid -->
         <div class="grid grid-cols-12 divide-x-2 divide-swiss items-stretch">
             <!-- Giant Brand Header -->
-            <div class="col-span-12 lg:col-span-5 p-4 lg:p-6 flex flex-col justify-between">
+            <div class="col-span-12 lg:col-span-4 p-4 lg:p-5 flex flex-col justify-between">
                 <div>
-                    <h1 class="text-6xl md:text-8xl font-black tracking-tighter leading-none text-charcoal uppercase select-none">
+                    <h1 class="text-5xl md:text-7xl font-black tracking-tighter leading-none text-charcoal uppercase select-none">
                         NETFLIX<span class="text-swissred">.</span>
                     </h1>
-                    <p class="text-xs font-mono tracking-widest mt-2 uppercase text-muted">
+                    <p class="text-[10px] font-mono tracking-widest mt-1 uppercase text-muted">
                         International Typographic Streaming Archive — Edition 2026
                     </p>
                 </div>
             </div>
 
             <!-- Navigation Links -->
-            <nav class="col-span-12 lg:col-span-7 grid grid-cols-2 md:grid-cols-4 divide-x divide-y md:divide-y-0 divide-swiss text-sm font-bold uppercase tracking-tight">
-                <button onclick="switchTab('home')" id="nav-home" class="p-4 text-left hover:bg-swissred hover:text-cream transition-swiss flex flex-col justify-between group bg-swissred text-cream">
-                    <span class="text-xs font-mono opacity-60">01 / INDEX</span>
-                    <span class="text-lg md:text-xl font-black mt-4">HOME</span>
+            <nav class="col-span-12 lg:col-span-8 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 divide-x divide-y sm:divide-y-0 divide-swiss text-xs font-bold uppercase tracking-tight">
+                <button onclick="switchTab('home')" id="nav-home" class="p-3 text-left bg-swissred text-cream transition-swiss flex flex-col justify-between group">
+                    <span class="text-[9px] font-mono opacity-60">01 / INDEX</span>
+                    <span class="text-sm font-black mt-2">HOME</span>
                 </button>
-                <button onclick="switchTab('shows')" id="nav-shows" class="p-4 text-left hover:bg-swissred hover:text-cream transition-swiss flex flex-col justify-between group">
-                    <span class="text-xs font-mono opacity-60">02 / SERIES</span>
-                    <span class="text-lg md:text-xl font-black mt-4">SHOWS</span>
+                <button onclick="switchTab('shows')" id="nav-shows" class="p-3 text-left hover:bg-swissred hover:text-cream transition-swiss flex flex-col justify-between group">
+                    <span class="text-[9px] font-mono opacity-60">02 / EPISODIC</span>
+                    <span class="text-sm font-black mt-2">SHOWS</span>
                 </button>
-                <button onclick="switchTab('movies')" id="nav-movies" class="p-4 text-left hover:bg-swissred hover:text-cream transition-swiss flex flex-col justify-between group">
-                    <span class="text-xs font-mono opacity-60">03 / CINEMA</span>
-                    <span class="text-lg md:text-xl font-black mt-4">MOVIES</span>
+                <button onclick="switchTab('movies')" id="nav-movies" class="p-3 text-left hover:bg-swissred hover:text-cream transition-swiss flex flex-col justify-between group">
+                    <span class="text-[9px] font-mono opacity-60">03 / CINEMA</span>
+                    <span class="text-sm font-black mt-2">MOVIES</span>
                 </button>
-                <button onclick="switchTab('mylist')" id="nav-mylist" class="p-4 text-left hover:bg-swissred hover:text-cream transition-swiss flex flex-col justify-between group">
-                    <span class="text-xs font-mono opacity-60">04 / ARCHIVE</span>
-                    <span class="text-lg md:text-xl font-black mt-4">MY LIST</span>
+                <button onclick="switchTab('games')" id="nav-games" class="p-3 text-left hover:bg-swissred hover:text-cream transition-swiss flex flex-col justify-between group">
+                    <span class="text-[9px] font-mono opacity-60">04 / INTERACTIVE</span>
+                    <span class="text-sm font-black mt-2">GAMES</span>
+                </button>
+                <button onclick="switchTab('popular')" id="nav-popular" class="p-3 text-left hover:bg-swissred hover:text-cream transition-swiss flex flex-col justify-between group">
+                    <span class="text-[9px] font-mono opacity-60">05 / POPULAR</span>
+                    <span class="text-sm font-black mt-2">NEW & TOP</span>
+                </button>
+                <button onclick="switchTab('mylist')" id="nav-mylist" class="p-3 text-left hover:bg-swissred hover:text-cream transition-swiss flex flex-col justify-between group">
+                    <span class="text-[9px] font-mono opacity-60">06 / SAVED</span>
+                    <span class="text-sm font-black mt-2">MY LIST</span>
                 </button>
             </nav>
         </div>
@@ -355,6 +363,14 @@
 
         </section>
         </div><!-- /catalog-view -->
+        <!-- SECTION 4: GAMES (PLACEHOLDER PAGE) -->
+        <div id="games-page" style="display:none;">
+            <div class="border-2 border-dashed border-swiss p-12 text-center font-mono space-y-3">
+                <p class="text-xl font-bold text-swissred">GAMES CATALOG — COMING SOON.</p>
+                <p class="text-xs text-muted">THE INTERACTIVE TITLES GRID WILL BE TYPESET HERE IN A SUBSEQUENT EDITION.</p>
+            </div>
+        </div>
+
     </main>
 
     <!-- DETAIL MODAL OVERLAY (MATCHING IMAGE 2 LAYOUT IN SWISS EDITORIAL STYLE) -->
@@ -805,13 +821,13 @@
             activeTab = tab;
             
             // Update active states on nav buttons
-            ['home', 'shows', 'movies', 'mylist'].forEach(t => {
+            ['home', 'shows', 'movies', 'games', 'popular', 'mylist'].forEach(t => {
                 const btn = document.getElementById(`nav-${t}`);
                 if (btn) {
                     if (t === tab) {
-                        btn.className = "p-4 text-left bg-swissred text-cream transition-swiss flex flex-col justify-between group";
+                        btn.className = "p-3 text-left bg-swissred text-cream transition-swiss flex flex-col justify-between group";
                     } else {
-                        btn.className = "p-4 text-left hover:bg-swissred hover:text-cream transition-swiss flex flex-col justify-between group";
+                        btn.className = "p-3 text-left hover:bg-swissred hover:text-cream transition-swiss flex flex-col justify-between group";
                     }
                 }
             });
@@ -821,6 +837,8 @@
             const topPicksSection = document.getElementById('section-top-picks');
             const cwSection = document.getElementById('section-continue-watching');
             const recSection = document.getElementById('section-recommended');
+            const gamesPage = document.getElementById('games-page');
+            if (gamesPage) gamesPage.style.display = 'none';
 
             if (tab === 'home') {
                 // HOME is a dedicated page — intentionally blank for now
@@ -847,6 +865,18 @@
                 cwSection.style.display = 'block';
                 recSection.style.display = 'block';
                 renderFilteredSection('movies');
+            } else if (tab === 'games') {
+                // GAMES catalog — dedicated placeholder page for now
+                catalogView.style.display = 'none';
+                topPicksSection.style.display = 'none';
+                cwSection.style.display = 'none';
+                recSection.style.display = 'none';
+                if (gamesPage) gamesPage.style.display = 'block';
+            } else if (tab === 'popular') {
+                topPicksSection.style.display = 'block';
+                cwSection.style.display = 'none';
+                recSection.style.display = 'none';
+                renderPopularSection();
             } else {
                 topPicksSection.style.display = 'block';
                 cwSection.style.display = 'block';
@@ -961,6 +991,25 @@
                     `;
                 } else {
                     topPicksGrid.innerHTML = listData.map((s, i) => createSwissCard(s, i)).join('');
+                }
+            }
+        }
+
+        // RENDER NEW & TOP SECTION (featured / recently added entries)
+        function renderPopularSection() {
+            const topPicksGrid = document.getElementById('top-picks-grid');
+            const popularData = CATALOG_DATA.filter(item => item.isFeatured && (currentFilter === 'all' || item.genre === currentFilter));
+
+            if (topPicksGrid) {
+                if (popularData.length === 0) {
+                    topPicksGrid.innerHTML = `
+                        <div class="col-span-12 border-2 border-dashed border-swiss p-12 text-center font-mono space-y-3">
+                            <p class="text-xl font-bold text-swissred">NO NEW & TOP ENTRIES IN THIS FILTER.</p>
+                            <p class="text-xs text-muted">CLEAR THE GENRE FILTER TO SEE THE FULL FEATURED SELECTION.</p>
+                        </div>
+                    `;
+                } else {
+                    topPicksGrid.innerHTML = popularData.map((s, i) => createSwissCard(s, i)).join('');
                 }
             }
         }
