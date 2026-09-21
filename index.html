@@ -726,12 +726,12 @@
                 pageEmpty.style.display = 'none';
                 renderMyListSection();
             } else if (tab === 'shows') {
-                topPicksSection.style.display = 'block';
+                topPicksSection.style.display = 'none';
                 genreRows.style.display = 'block';
                 pageEmpty.style.display = 'none';
                 renderFilteredSection('shows');
             } else if (tab === 'movies') {
-                topPicksSection.style.display = 'block';
+                topPicksSection.style.display = 'none';
                 genreRows.style.display = 'block';
                 pageEmpty.style.display = 'none';
                 renderFilteredSection('movies');
@@ -830,8 +830,7 @@
                 <div class="border-2 border-swiss bg-cream p-5 flex flex-col justify-between hover:bg-swissred hover:text-cream transition-swiss group cursor-pointer relative shadow-sm" onclick="selectShow('${show.id}')">
                     
                     <!-- Top Index & Badges -->
-                    <div class="flex justify-between items-start font-mono text-xs mb-6 border-b border-swiss pb-2 group-hover:border-cream">
-                        <span class="font-bold text-swissred group-hover:text-cream">[ ${show.code} ]</span>
+                    <div class="flex justify-end items-start font-mono text-xs mb-6 border-b border-swiss pb-2 group-hover:border-cream">
                         <span class="border border-swiss group-hover:border-cream px-1 uppercase text-[10px]">${show.year}</span>
                     </div>
 
