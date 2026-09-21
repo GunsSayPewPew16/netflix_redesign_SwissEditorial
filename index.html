@@ -1,0 +1,1129 @@
+<!DOCTYPE html>
+<html lang="en" class="h-full bg-[#EAE8E1]">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NETFLIX — Swiss Editorial Edition</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        cream: '#EAE8E1',
+                        'cream-light': '#F3F2EC',
+                        'cream-dark': '#DFDDD5',
+                        swissred: '#E50914',
+                        charcoal: '#111111',
+                        muted: '#4A4A4A',
+                        'muted-light': '#767676'
+                    },
+                    fontFamily: {
+                        sans: ['"Helvetica Neue"', 'Helvetica', 'Arial', 'Inter', 'sans-serif'],
+                        mono: ['Courier', 'Consolas', 'monospace']
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <style>
+        body {
+            font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+            background-color: #EAE8E1;
+            color: #111111;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        /* Subtle Swiss textured paper effect overlay */
+        .paper-grain {
+            background-image: radial-gradient(#111111 0.75px, transparent 0.75px);
+            background-size: 12px 12px;
+            opacity: 0.035;
+            pointer-events: none;
+        }
+
+        /* Stark grid border system */
+        .border-swiss {
+            border-color: #111111;
+        }
+
+        /* Vertical typography styling for editorial layout */
+        .vertical-text {
+            writing-mode: vertical-rl;
+            text-orientation: mixed;
+        }
+
+        /* Clean custom scrollbar for Swiss look */
+        ::-webkit-scrollbar {
+            width: 4px;
+            height: 4px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #EAE8E1;
+            border-left: 1px solid #111111;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #E50914;
+        }
+
+        .giant-title {
+            font-size: clamp(3.5rem, 11vw, 13rem);
+            line-height: 0.82;
+            letter-spacing: -0.05em;
+        }
+
+        .giant-header {
+            font-size: clamp(2.5rem, 7vw, 7.5rem);
+            line-height: 0.85;
+            letter-spacing: -0.04em;
+        }
+
+        .hover-red-bg:hover {
+            background-color: #E50914 !important;
+            color: #EAE8E1 !important;
+        }
+        .hover-red-bg:hover * {
+            color: #EAE8E1 !important;
+            border-color: #EAE8E1 !important;
+        }
+
+        /* Animation utilities */
+        .transition-swiss {
+            transition: all 0.18s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+    </style>
+</head>
+<body class="h-full flex flex-col selection:bg-swissred selection:text-cream relative overflow-x-hidden">
+    <!-- Paper Grain Texture Layer -->
+    <div class="fixed inset-0 paper-grain z-50"></div>
+
+    <!-- MAIN APPARATUS / HEADER -->
+    <header class="border-b-2 border-swiss bg-cream sticky top-0 z-40">
+        <!-- Top Utility Bar -->
+        <div class="grid grid-cols-12 text-xs uppercase font-mono tracking-wider border-b border-swiss divide-x divide-swiss">
+            <div class="col-span-12 md:col-span-3 p-2 font-bold flex items-center justify-between">
+                <span>VOL. 04 / ISSUE 2026</span>
+                <span class="text-swissred font-bold">● LIVE CATALOG</span>
+            </div>
+            <div class="hidden md:flex col-span-3 p-2 items-center justify-between">
+                <span>EDITION: SWISS EDITORIAL</span>
+                <span>CH-8000 ZÜRICH</span>
+            </div>
+            <div class="hidden md:flex col-span-3 p-2 items-center justify-between">
+                <span>SYSTEM: ONLINE</span>
+                <span id="current-time">21:16:40 UTC</span>
+            </div>
+            <div class="col-span-12 md:col-span-3 p-2 flex items-center justify-between bg-cream-light font-bold">
+                <span>USER: <span class="text-swissred">GUEST ARCHIVIST</span></span>
+                <button id="my-list-counter" class="hover:underline cursor-pointer">MY LIST [0]</button>
+            </div>
+        </div>
+
+        <!-- Main Branding & Menu Column Grid -->
+        <div class="grid grid-cols-12 divide-x-2 divide-swiss items-stretch">
+            <!-- Giant Brand Header -->
+            <div class="col-span-12 lg:col-span-5 p-4 lg:p-6 flex flex-col justify-between">
+                <div>
+                    <h1 class="text-6xl md:text-8xl font-black tracking-tighter leading-none text-charcoal uppercase select-none">
+                        NETFLIX<span class="text-swissred">.</span>
+                    </h1>
+                    <p class="text-xs font-mono tracking-widest mt-2 uppercase text-muted">
+                        International Typographic Streaming Archive — Edition 2026
+                    </p>
+                </div>
+            </div>
+
+            <!-- Navigation Links -->
+            <nav class="col-span-12 lg:col-span-7 grid grid-cols-2 md:grid-cols-4 divide-x divide-y md:divide-y-0 divide-swiss text-sm font-bold uppercase tracking-tight">
+                <button onclick="switchTab('home')" id="nav-home" class="p-4 text-left hover:bg-swissred hover:text-cream transition-swiss flex flex-col justify-between group bg-swissred text-cream">
+                    <span class="text-xs font-mono opacity-60">01 / INDEX</span>
+                    <span class="text-lg md:text-xl font-black mt-4">HOME</span>
+                </button>
+                <button onclick="switchTab('shows')" id="nav-shows" class="p-4 text-left hover:bg-swissred hover:text-cream transition-swiss flex flex-col justify-between group">
+                    <span class="text-xs font-mono opacity-60">02 / SERIES</span>
+                    <span class="text-lg md:text-xl font-black mt-4">SHOWS</span>
+                </button>
+                <button onclick="switchTab('movies')" id="nav-movies" class="p-4 text-left hover:bg-swissred hover:text-cream transition-swiss flex flex-col justify-between group">
+                    <span class="text-xs font-mono opacity-60">03 / CINEMA</span>
+                    <span class="text-lg md:text-xl font-black mt-4">MOVIES</span>
+                </button>
+                <button onclick="switchTab('mylist')" id="nav-mylist" class="p-4 text-left hover:bg-swissred hover:text-cream transition-swiss flex flex-col justify-between group">
+                    <span class="text-xs font-mono opacity-60">04 / ARCHIVE</span>
+                    <span class="text-lg md:text-xl font-black mt-4">MY LIST</span>
+                </button>
+            </nav>
+        </div>
+    </header>
+
+    <!-- MAIN CONTENT CONTAINER -->
+    <main class="flex-grow flex flex-col">
+        <!-- FEATURED HERO SHOW DISPLAY -->
+        <section id="hero-section" class="border-b-2 border-swiss bg-cream relative">
+            <!-- Dynamic Grid Header Banner -->
+            <div class="grid grid-cols-12 border-b border-swiss text-xs font-mono uppercase divide-x divide-swiss bg-cream-light">
+                <div class="col-span-6 md:col-span-3 p-2 font-bold text-swissred flex items-center gap-2">
+                    <span class="inline-block w-2 h-2 bg-swissred animate-pulse"></span>
+                    FEATURED ENTRY NO. <span id="hero-id-display">01</span>
+                </div>
+                <div class="col-span-6 md:col-span-3 p-2" id="hero-genre-tag">
+                    GENRE: TV DRAMA / CRIME
+                </div>
+                <div class="hidden md:block col-span-3 p-2" id="hero-year-tag">
+                    RELEASE YEAR: 2013
+                </div>
+                <div class="hidden md:block col-span-3 p-2 text-right font-bold" id="hero-rating-tag">
+                    MATURITY: RATED A / 18+
+                </div>
+            </div>
+
+            <!-- Hero Main Layout -->
+            <div class="grid grid-cols-12 divide-y md:divide-y-0 md:divide-x-2 divide-swiss">
+                
+                <!-- Left Details & Actions Column -->
+                <div class="col-span-12 md:col-span-4 p-6 md:p-8 flex flex-col justify-between border-swiss space-y-6">
+                    <div>
+                        <div class="text-xs font-mono uppercase tracking-widest text-muted mb-2 flex items-center justify-between">
+                            <span id="hero-category-label">CRITICALLY ACCLAIMED</span>
+                            <span class="border border-swiss px-1 text-[10px] bg-cream-light">HD / SURROUND</span>
+                        </div>
+                        <h3 id="hero-subheading" class="text-2xl font-bold uppercase tracking-tight text-charcoal mb-4">
+                            "S4:E8 Road Kill"
+                        </h3>
+                        <p id="hero-description" class="text-sm md:text-base leading-relaxed text-charcoal font-medium border-l-2 border-swissred pl-3">
+                            Wondering if his father's Code is right, Dexter goes on a road trip with Trinity. Debra realizes her investigation has kept her from seeing the truth.
+                        </p>
+                    </div>
+
+                    <!-- Technical Specs Grid -->
+                    <div class="border-t border-b border-swiss py-4 my-4 space-y-2 text-xs font-mono">
+                        <div class="flex justify-between">
+                            <span class="text-muted">CREATOR / CAST:</span>
+                            <span id="hero-cast" class="font-bold text-right text-charcoal">Michael C. Hall, J. Carpenter</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span class="text-muted">DURATION / SEASONS:</span>
+                            <span id="hero-duration" class="font-bold text-right text-charcoal">8 SEASONS (96 EPS)</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span class="text-muted">TONE & STYLE:</span>
+                            <span id="hero-tone" class="font-bold text-right text-swissred">OMINOUS / DARK / INTENSE</span>
+                        </div>
+                    </div>
+
+                    <!-- Minimal Interactive Action Buttons -->
+                    <div class="grid grid-cols-2 gap-3 pt-2 font-mono text-xs uppercase font-bold">
+                        <button onclick="playMedia()" class="col-span-2 bg-swissred text-cream border-2 border-swiss p-4 hover:bg-charcoal hover:text-cream transition-swiss flex items-center justify-center gap-3 group text-base tracking-wider">
+                            <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+                            <span>RESUME PLAYBACK</span>
+                        </button>
+                        <button onclick="openModal()" class="bg-cream border border-swiss p-3 hover:bg-charcoal hover:text-cream transition-swiss text-center">
+                            [+] MORE INFO
+                        </button>
+                        <button id="hero-add-btn" onclick="toggleMyListCurrent()" class="bg-cream border border-swiss p-3 hover:bg-swissred hover:text-cream transition-swiss text-center">
+                            + ADD TO LIST
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Center/Right Typography Artwork Display -->
+                <div class="col-span-12 md:col-span-8 p-6 md:p-12 flex flex-col justify-between bg-cream-light relative overflow-hidden min-h-[380px] md:min-h-[500px]">
+                    
+                    <!-- Background Subtle Abstract Grid & Giant Watermark -->
+                    <div class="absolute right-0 bottom-0 text-[18vw] font-black text-cream-dark leading-none select-none pointer-events-none -mr-8 -mb-12 z-0 opacity-40 uppercase" id="hero-watermark">
+                        DEXTER
+                    </div>
+
+                    <!-- Top Quote Badge -->
+                    <div class="relative z-10 flex justify-between items-start">
+                        <div class="border border-swiss bg-cream p-3 max-w-xs shadow-sm">
+                            <p class="text-xs font-mono uppercase tracking-tight text-charcoal">
+                                "<span id="hero-quote">VIVIDLY INHABITED STORYTELLING</span>"
+                            </p>
+                            <p class="text-[10px] font-mono text-swissred mt-1 font-bold">— THE HOLLYWOOD REPORTER</p>
+                        </div>
+                        <div class="hidden sm:block font-mono text-right text-xs uppercase text-muted border-l border-swiss pl-4">
+                            <span>ISSUE REFERENCE</span><br>
+                            <span class="text-charcoal font-bold">FIG 01.A — DEXTER</span>
+                        </div>
+                    </div>
+
+                    <!-- Massive Title Banner -->
+                    <div class="relative z-10 my-8">
+                        <h2 id="hero-giant-title" class="giant-title font-black text-swissred uppercase tracking-tighter drop-shadow-sm select-none">
+                            DEXTER
+                        </h2>
+                    </div>
+
+                    <!-- Footer Technical Details inside Hero -->
+                    <div class="relative z-10 grid grid-cols-2 md:grid-cols-4 gap-4 border-t-2 border-swiss pt-4 text-xs font-mono">
+                        <div>
+                            <span class="block text-muted text-[10px]">FORMAT</span>
+                            <span class="font-bold">EPISODIC DRAMA</span>
+                        </div>
+                        <div>
+                            <span class="block text-muted text-[10px]">AUDIO</span>
+                            <span class="font-bold">STEREO 5.1 / SWISS-GERMAN</span>
+                        </div>
+                        <div>
+                            <span class="block text-muted text-[10px]">CURRENT SELECTION</span>
+                            <span class="font-bold text-swissred" id="hero-selection-code">SHOW ID: DX-048</span>
+                        </div>
+                        <div class="text-right">
+                            <span class="block text-muted text-[10px]">STATUS</span>
+                            <span class="font-bold text-emerald-700">AVAILABLE NOW</span>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- FILTER & CONTROL BAR -->
+        <div class="border-b border-swiss bg-cream p-3 font-mono text-xs uppercase grid grid-cols-12 gap-2 items-center">
+            <div class="col-span-12 md:col-span-4 flex items-center gap-2">
+                <span class="font-bold text-swissred">[ FILTER ARCHIVE ]</span>
+                <span class="text-muted">|</span>
+                <span>SORT BY: <strong class="text-charcoal">EDITORIAL SELECTION</strong></span>
+            </div>
+            <div class="col-span-12 md:col-span-8 flex flex-wrap items-center justify-start md:justify-end gap-2">
+                <button onclick="filterCatalog('all')" class="catalog-filter-btn px-3 py-1 border border-swiss bg-charcoal text-cream font-bold">ALL ENTRIES</button>
+                <button onclick="filterCatalog('drama')" class="catalog-filter-btn px-3 py-1 border border-swiss bg-cream hover:bg-swissred hover:text-cream">DRAMA</button>
+                <button onclick="filterCatalog('action')" class="catalog-filter-btn px-3 py-1 border border-swiss bg-cream hover:bg-swissred hover:text-cream">ACTION</button>
+                <button onclick="filterCatalog('anime')" class="catalog-filter-btn px-3 py-1 border border-swiss bg-cream hover:bg-swissred hover:text-cream">ANIME</button>
+                <button onclick="filterCatalog('thriller')" class="catalog-filter-btn px-3 py-1 border border-swiss bg-cream hover:bg-swissred hover:text-cream">THRILLER</button>
+            </div>
+        </div>
+
+        <!-- CATALOGUE RAILS CONTAINER -->
+        <section class="p-6 md:p-10 space-y-12 flex-grow">
+            
+            <!-- SECTION 1: TODAY'S TOP PICKS -->
+            <div id="section-top-picks">
+                <div class="flex items-baseline justify-between border-b-2 border-swiss pb-2 mb-6">
+                    <h3 class="text-xl md:text-3xl font-black uppercase tracking-tight text-charcoal flex items-center gap-3">
+                        <span class="text-swissred font-mono text-base">01.0 //</span>
+                        TODAY'S TOP PICKS FOR YOU
+                    </h3>
+                    <span class="font-mono text-xs uppercase text-muted hidden sm:inline">SWISS TYPOGRAPHIC GRID ARCHIVE</span>
+                </div>
+
+                <!-- Grid of Show Cards -->
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6" id="top-picks-grid">
+                    <!-- Cards dynamically injected via JS -->
+                </div>
+            </div>
+
+            <!-- SECTION 2: CONTINUE WATCHING -->
+            <div id="section-continue-watching">
+                <div class="flex items-baseline justify-between border-b-2 border-swiss pb-2 mb-6">
+                    <h3 class="text-xl md:text-3xl font-black uppercase tracking-tight text-charcoal flex items-center gap-3">
+                        <span class="text-swissred font-mono text-base">02.0 //</span>
+                        CONTINUE WATCHING ARCHIVE
+                    </h3>
+                    <span class="font-mono text-xs uppercase text-muted hidden sm:inline">RESUME PLAYBACK DIRECTLY</span>
+                </div>
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6" id="continue-watching-grid">
+                    <!-- Cards dynamically injected via JS -->
+                </div>
+            </div>
+
+            <!-- SECTION 3: RECOMMENDED COLLECTION -->
+            <div id="section-recommended">
+                <div class="flex items-baseline justify-between border-b-2 border-swiss pb-2 mb-6">
+                    <h3 class="text-xl md:text-3xl font-black uppercase tracking-tight text-charcoal flex items-center gap-3">
+                        <span class="text-swissred font-mono text-base">03.0 //</span>
+                        WE THINK YOU'LL LOVE THESE
+                    </h3>
+                    <span class="font-mono text-xs uppercase text-muted hidden sm:inline">CURATED SELECTIONS EDITION 2026</span>
+                </div>
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6" id="recommended-grid">
+                    <!-- Cards dynamically injected via JS -->
+                </div>
+            </div>
+
+        </section>
+    </main>
+
+    <!-- DETAIL MODAL OVERLAY (MATCHING IMAGE 2 LAYOUT IN SWISS EDITORIAL STYLE) -->
+    <div id="detail-modal" class="fixed inset-0 bg-charcoal/80 z-50 hidden flex items-center justify-center p-2 sm:p-4 md:p-8 backdrop-blur-sm overflow-y-auto">
+        <div class="bg-cream border-2 border-swiss w-full max-w-5xl my-auto shadow-2xl relative overflow-hidden flex flex-col max-h-[90vh]">
+            
+            <!-- Modal Header / Controls -->
+            <div class="bg-charcoal text-cream p-3 flex justify-between items-center font-mono text-xs uppercase border-b-2 border-swiss sticky top-0 z-20">
+                <div class="flex items-center gap-3">
+                    <span class="text-swissred font-bold">● ARCHIVE OVERLAY</span>
+                    <span id="modal-show-code" class="text-muted-light">SHOW REF: DX-2013</span>
+                </div>
+                <button onclick="closeModal()" class="bg-swissred text-cream px-3 py-1 font-bold hover:bg-cream hover:text-charcoal transition-swiss border border-cream">
+                    [ X CLOSE ]
+                </button>
+            </div>
+
+            <div class="overflow-y-auto p-6 md:p-8 space-y-8">
+                <!-- Top Title Header Block -->
+                <div class="border-b-2 border-swiss pb-6">
+                    <div class="flex flex-wrap justify-between items-start gap-4 mb-2">
+                        <div>
+                            <span id="modal-genre" class="text-xs font-mono uppercase text-swissred font-bold tracking-widest block mb-1">DRAMA / CRIME / THRILLER</span>
+                            <h2 id="modal-title" class="text-4xl md:text-7xl font-black uppercase tracking-tight text-charcoal">
+                                DEXTER
+                            </h2>
+                        </div>
+                        <div class="text-right font-mono text-xs space-y-1 bg-cream-light p-3 border border-swiss">
+                            <div>RELEASE: <strong id="modal-year">2013</strong></div>
+                            <div>SEASONS: <strong id="modal-seasons-count">8 SEASONS</strong></div>
+                            <div>RATING: <strong id="modal-rating" class="text-swissred">A (18+)</strong></div>
+                        </div>
+                    </div>
+
+                    <!-- Progress Indicator Bar -->
+                    <div class="mt-4 border border-swiss bg-cream-light p-2 font-mono text-xs flex items-center justify-between gap-4">
+                        <span class="font-bold">RESUME PROGRESS:</span>
+                        <div class="flex-grow bg-cream-dark h-3 border border-swiss relative">
+                            <div id="modal-progress-fill" class="bg-swissred h-full w-[70%]"></div>
+                        </div>
+                        <span id="modal-progress-text" class="font-bold text-swissred">44 of 54m</span>
+                    </div>
+                </div>
+
+                <!-- Primary Info Grid (Description + Metadata) -->
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+                    <!-- Left: Episode Spotlight & Actions -->
+                    <div class="lg:col-span-7 space-y-6">
+                        <!-- Action Buttons Row -->
+                        <div class="flex flex-wrap gap-3 font-mono text-xs font-bold">
+                            <button onclick="playMedia()" class="bg-swissred text-cream border-2 border-swiss px-6 py-3 hover:bg-charcoal transition-swiss flex items-center gap-2">
+                                <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+                                <span>RESUME S4:E8</span>
+                            </button>
+                            <button id="modal-list-btn" onclick="toggleMyListModal()" class="bg-cream border border-swiss px-4 py-3 hover:bg-swissred hover:text-cream transition-swiss">
+                                + MY LIST
+                            </button>
+                            <button onclick="likeShow()" id="modal-like-btn" class="bg-cream border border-swiss px-4 py-3 hover:bg-swissred hover:text-cream transition-swiss">
+                                LIKE [★]
+                            </button>
+                        </div>
+
+                        <!-- Current Episode Synopsis Block -->
+                        <div class="border-l-4 border-swissred pl-4 py-2 bg-cream-light border border-swiss">
+                            <div class="text-xs font-mono text-swissred font-bold uppercase mb-1" id="modal-current-episode-title">
+                                S4:E8 "Road Kill"
+                            </div>
+                            <p id="modal-description" class="text-sm md:text-base text-charcoal leading-relaxed font-medium">
+                                Wondering if his father's Code is right, Dexter goes on a road trip with Trinity. Debra realizes her investigation has kept her from seeing the truth.
+                            </p>
+                        </div>
+
+                        <!-- Content Warning Badge -->
+                        <div class="border border-swiss p-3 text-xs font-mono bg-cream text-muted space-y-1">
+                            <span class="font-bold text-charcoal block">CONTENT ADVISORY:</span>
+                            <p id="modal-advisory">Sex, violence, substances, coarse language, gore, sexual violence references, suicide, nudity.</p>
+                        </div>
+                    </div>
+
+                    <!-- Right: Cast & Crew Editorial Block -->
+                    <div class="lg:col-span-5 bg-cream-light border border-swiss p-4 font-mono text-xs space-y-4">
+                        <div class="border-b border-swiss pb-2 font-bold text-swissred uppercase">
+                            // TECHNICAL CREDITS
+                        </div>
+                        <div>
+                            <span class="text-muted block text-[10px]">STARRING CAST:</span>
+                            <p id="modal-cast-full" class="font-bold text-charcoal mt-0.5">Michael C. Hall, Jennifer Carpenter, David Zayas, James Remar, C.S. Lee</p>
+                        </div>
+                        <div>
+                            <span class="text-muted block text-[10px]">GENRES & CATEGORIES:</span>
+                            <p id="modal-genres-full" class="font-bold text-charcoal mt-0.5">TV Dramas, US TV Shows, TV Shows Based on Books, Crime</p>
+                        </div>
+                        <div>
+                            <span class="text-muted block text-[10px]">SHOW CHARACTERISTICS:</span>
+                            <p id="modal-characteristics" class="font-bold text-swissred mt-0.5">Ominous, Dark, Psychological, Suspenseful</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- EPISODE LISTINGS SECTION WITH SEASON SELECTOR -->
+                <div class="border-t-2 border-swiss pt-6 space-y-4">
+                    <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 border-b border-swiss pb-3">
+                        <h3 class="text-2xl font-black uppercase text-charcoal flex items-center gap-2">
+                            <span>EPISODES</span>
+                            <span class="text-xs font-mono font-normal text-muted" id="modal-episodes-count">(8 EPISODES)</span>
+                        </h3>
+
+                        <!-- Season Dropdown Switcher -->
+                        <div class="flex items-center gap-2 font-mono text-xs">
+                            <label for="season-select" class="font-bold uppercase">SELECT SEASON:</label>
+                            <select id="season-select" onchange="changeSeason(this.value)" class="bg-cream border-2 border-swiss p-2 font-bold uppercase focus:outline-none focus:bg-swissred focus:text-cream transition-swiss cursor-pointer">
+                                <option value="1">SEASON 1</option>
+                                <option value="2">SEASON 2</option>
+                                <option value="3">SEASON 3</option>
+                                <option value="4" selected>SEASON 4</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <!-- Episodes Table / List -->
+                    <div class="divide-y border-t border-b border-swiss font-mono" id="episodes-container">
+                        <!-- Injected dynamically via JS -->
+                    </div>
+                </div>
+            </div>
+
+            <!-- Modal Footer -->
+            <div class="bg-cream-dark p-3 border-t border-swiss text-xs font-mono text-center text-muted">
+                SWISS EDITORIAL ARCHIVE SYSTEM — ALL RIGHTS RESERVED
+            </div>
+        </div>
+    </div>
+
+    <!-- PLAYBACK OVERLAY (SIMULATED VIDEO PLAYER) -->
+    <div id="player-modal" class="fixed inset-0 bg-charcoal z-50 hidden flex flex-col justify-between p-6">
+        <div class="flex justify-between items-center font-mono text-xs text-cream border-b border-cream/20 pb-4">
+            <div class="flex items-center gap-3">
+                <span class="w-3 h-3 bg-swissred rounded-full animate-ping"></span>
+                <span class="font-bold text-swissred">PLAYBACK IN PROGRESS</span>
+                <span id="player-title-display">DEXTER - S4:E8</span>
+            </div>
+            <button onclick="closePlayer()" class="bg-swissred text-cream border border-cream px-4 py-2 font-bold hover:bg-cream hover:text-charcoal transition-swiss">
+                [ EXIT PLAYER ]
+            </button>
+        </div>
+
+        <!-- Player Canvas Center -->
+        <div class="flex-grow flex flex-col items-center justify-center text-center p-8 relative">
+            <div class="border-2 border-cream/30 p-12 bg-charcoal/50 backdrop-blur max-w-2xl w-full space-y-6">
+                <div class="text-xs font-mono text-swissred uppercase tracking-widest">SWISS STREAMING APPARATUS</div>
+                <h2 id="player-main-title" class="text-5xl font-black text-cream uppercase">DEXTER</h2>
+                <p id="player-sub-title" class="text-sm font-mono text-cream/70">S4:E8 "Road Kill" — 54 MINUTES</p>
+                
+                <!-- Animated Graphic Bar Equalizer -->
+                <div class="flex justify-center items-end gap-1.5 h-16 py-2">
+                    <div class="w-2 bg-swissred animate-bounce h-12"></div>
+                    <div class="w-2 bg-cream animate-bounce h-16 [animation-delay:0.2s]"></div>
+                    <div class="w-2 bg-swissred animate-bounce h-8 [animation-delay:0.4s]"></div>
+                    <div class="w-2 bg-cream animate-bounce h-14 [animation-delay:0.1s]"></div>
+                    <div class="w-2 bg-swissred animate-bounce h-10 [animation-delay:0.3s]"></div>
+                </div>
+
+                <div class="text-xs font-mono text-cream/60">
+                    [ SIMULATED PLAYBACK FEED — AUDIO & VIDEO SIGNAL STABLE ]
+                </div>
+            </div>
+        </div>
+
+        <!-- Player Controls Bottom -->
+        <div class="border-t border-cream/20 pt-4 font-mono text-xs text-cream space-y-2">
+            <div class="flex justify-between items-center">
+                <span id="player-time-current">44:00</span>
+                <div class="flex-grow mx-4 bg-cream/20 h-2 border border-cream/40">
+                    <div class="bg-swissred h-full w-[80%]"></div>
+                </div>
+                <span>54:00</span>
+            </div>
+            <div class="flex justify-between items-center pt-2">
+                <button onclick="toggleAudioState()" id="audio-toggle-btn" class="hover:text-swissred">[ AUDIO: ON ]</button>
+                <span>RESOLUTION: 1080P / SWISS PRESET</span>
+                <span>SUBTITLES: ENGLISH [CC]</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- FOOTER ARCHIVE INFO -->
+    <footer class="border-t-2 border-swiss bg-cream p-6 md:p-10 font-mono text-xs space-y-6">
+        <div class="grid grid-cols-12 gap-6 border-b border-swiss pb-6">
+            <div class="col-span-12 md:col-span-6 space-y-2">
+                <div class="text-lg font-black text-charcoal uppercase">NETFLIX SWISS EDITORIAL</div>
+                <p class="text-muted leading-relaxed max-w-md">
+                    Redesign experiment based on the International Typographic Style (Swiss Style). Emphasizing extreme grid alignment, high-contrast Helvetica typography, horizontal dividers, and minimal photography.
+                </p>
+            </div>
+            <div class="col-span-6 md:col-span-3 space-y-1">
+                <div class="font-bold text-swissred uppercase mb-2">// SPECIFICATIONS</div>
+                <div>TYPEFACE: HELVETICA / NEUE HAAS</div>
+                <div>GRID: 12-COLUMN RIGID</div>
+                <div>PALETTE: CREAM, BLACK, SWISS RED</div>
+                <div>YEAR: 2026 EDITION</div>
+            </div>
+            <div class="col-span-6 md:col-span-3 space-y-1">
+                <div class="font-bold text-swissred uppercase mb-2">// NAVIGATION</div>
+                <div><a href="#" onclick="switchTab('home')" class="hover:underline">01 INDEX / HOME</a></div>
+                <div><a href="#" onclick="switchTab('shows')" class="hover:underline">02 SERIES CATALOG</a></div>
+                <div><a href="#" onclick="switchTab('movies')" class="hover:underline">03 CINEMA CATALOG</a></div>
+                <div><a href="#" onclick="switchTab('mylist')" class="hover:underline">04 USER ARCHIVE</a></div>
+            </div>
+        </div>
+        <div class="flex flex-col sm:flex-row justify-between items-center gap-2 text-[10px] text-muted uppercase">
+            <span>DESIGNED IN THE STYLE OF EMFORM & SWISS GRAPHIC POSTERS</span>
+            <span>NETFLIX REDESIGN ARCHIVE © 2026</span>
+        </div>
+    </footer>
+
+    <script>
+        // MASTER DATABASE OF SHOWS (Matching images & requirements)
+        const CATALOG_DATA = [
+            {
+                id: "DX-048",
+                code: "01",
+                title: "DEXTER",
+                type: "shows",
+                genre: "drama",
+                genreLabel: "TV DRAMAS / THRILLER",
+                year: "2013",
+                seasons: "8 SEASONS",
+                rating: "RATED A (18+)",
+                heroQuote: "VIVIDLY INHABITED STORYTELLING",
+                heroQuoteAuthor: "THE HOLLYWOOD REPORTER",
+                subheading: "S4:E8 \"Road Kill\"",
+                description: "Wondering if his father's Code is right, Dexter goes on a road trip with Trinity. Debra realizes her investigation has kept her from seeing the truth.",
+                cast: "Michael C. Hall, Jennifer Carpenter, David Zayas, James Remar",
+                genresFull: "TV Dramas, US TV Shows, TV Shows Based on Books, Crime",
+                characteristics: "Ominous, Dark, Psychological, Suspenseful",
+                advisory: "Sex, violence, substances, coarse language, gore, sexual violence references, suicide, nudity.",
+                duration: "8 SEASONS (96 EPS)",
+                progressPercent: "80%",
+                progressText: "44 of 54m",
+                isFeatured: true,
+                episodes: [
+                    { num: "01", title: "Living the Dream", duration: "54m", desc: "Sleep-deprived and trying to balance fatherhood with his Dark Passenger, Dexter makes a sloppy mistake just as a new predatory threat arrives in Miami." },
+                    { num: "02", title: "Remains to Be Seen", duration: "52m", desc: "Dexter cannot remember where he hid the body of his latest victim due to a concussion suffered during a car crash." },
+                    { num: "03", title: "Blinded by the Light", duration: "50m", desc: "Dexter attempts to stifle a neighborhood vigilante while continuing his relentless pursuit of the Trinity Killer." },
+                    { num: "04", title: "Dex Takes a Holiday", duration: "55m", desc: "While Rita and the kids go out of town for a wedding, Dexter targets an officer involved in a suspicious killing." },
+                    { num: "08", title: "Road Kill", duration: "54m", desc: "Dexter accompanies Trinity on a road trip under the guise of an architectural build, seeking to learn his secret." }
+                ]
+            },
+            {
+                id: "BM-2022",
+                code: "02",
+                title: "THE BATMAN",
+                type: "movies",
+                genre: "action",
+                genreLabel: "CINEMA / ACTION CRIME",
+                year: "2022",
+                seasons: "FILM (2h 56m)",
+                rating: "U/A 13+",
+                heroQuote: "A GRIPPING NEO-NOIR MASTERPIECE",
+                heroQuoteAuthor: "VARIETY MAGAZINE",
+                subheading: "FEATURE FILM — GOTHAM CITY",
+                description: "When a sadistic killer begins targeting powerful city officials, Bruce Wayne must solve a mystery that will shed light on Gotham's darkest secrets.",
+                cast: "Robert Pattinson, Zoë Kravitz, Paul Dano, Jeffrey Wright",
+                genresFull: "Action Movies, Crime Movies, Mystery, Noir",
+                characteristics: "Gritty, Dark, Suspenseful, Atmospheric",
+                advisory: "Violence, disturbing themes, language, crime depictions.",
+                duration: "2 HOURS 56 MINS",
+                progressPercent: "35%",
+                progressText: "1h 02m of 2h 56m",
+                isFeatured: true,
+                episodes: [
+                    { num: "01", title: "THE BATMAN (FULL FEATURE)", duration: "2h 56m", desc: "Batman ventures into Gotham City's underworld when a sadistic killer leaves behind a trail of cryptic clues." }
+                ]
+            },
+            {
+                id: "MN-011",
+                code: "03",
+                title: "THE MENTALIST",
+                type: "shows",
+                genre: "drama",
+                genreLabel: "CRIME / MYSTERY",
+                year: "2015",
+                seasons: "7 SEASONS",
+                rating: "U/A 16+",
+                subheading: "S1:E1 \"Pilot\"",
+                description: "A famous psychic medium turns consultant for the California Bureau of Investigation after his family is murdered by Red John.",
+                cast: "Simon Baker, Robin Tunney, Tim Kang, Owain Yeoman",
+                genresFull: "TV Dramas, Crime, Mystery, Procedural",
+                characteristics: "Clever, Mind Games, Dramatic",
+                advisory: "Violence, murder themes.",
+                duration: "7 SEASONS",
+                progressPercent: "15%",
+                progressText: "08 of 43m",
+                isFeatured: false,
+                episodes: [
+                    { num: "01", title: "Pilot", duration: "43m", desc: "Patrick Jane assists the CBI in solving the murder of a high school golfer's wife." },
+                    { num: "02", title: "Red Hair and Silver Tape", duration: "42m", desc: "Jane sets a trap to catch a killer operating at a dusty highway diner." }
+                ]
+            },
+            {
+                id: "KB-009",
+                code: "04",
+                title: "KUROKO'S BASKETBALL",
+                type: "shows",
+                genre: "anime",
+                genreLabel: "ANIME / SPORTS",
+                year: "2015",
+                seasons: "3 SEASONS",
+                rating: "U/A 13+",
+                subheading: "S1:E1 \"I Am Kuroko\"",
+                description: "Seirin High Basketball team gains two freshman players: Taiga Kagami and Tetsuya Kuroko, the phantom sixth man of the Generation of Miracles.",
+                cast: "Kensho Ono, Yuki Ono, Ryohei Kimura",
+                genresFull: "Anime Series, Japanese, Sports Anime",
+                characteristics: "Exciting, Fast-Paced, High-Energy",
+                advisory: "Mild language, athletic intensity.",
+                duration: "3 SEASONS",
+                progressPercent: "90%",
+                progressText: "21 of 24m",
+                isFeatured: false,
+                episodes: [
+                    { num: "01", title: "I am Kuroko", duration: "24m", desc: "Kagami and Kuroko join the Seirin High basketball team." },
+                    { num: "02", title: "I'm Serious", duration: "24m", desc: "Seirin plays a practice match against Kaijo High." }
+                ]
+            },
+            {
+                id: "JL-088",
+                code: "05",
+                title: "JUSTICE LEAGUE",
+                type: "movies",
+                genre: "action",
+                genreLabel: "ACTION / SCI-FI",
+                year: "2021",
+                seasons: "FILM (4h 02m)",
+                rating: "RATED A",
+                subheading: "SNYDER CUT ARCHIVE",
+                description: "Determined to ensure Superman's ultimate sacrifice was not in vain, Bruce Wayne aligns forces with Diana Prince to recruit a team of metahumans.",
+                cast: "Ben Affleck, Henry Cavill, Gal Gadot, Jason Momoa",
+                genresFull: "Action Movies, Superhero, Sci-Fi",
+                characteristics: "Epic, Dark, Action-Packed",
+                advisory: "Intense fantasy violence, language.",
+                duration: "4 HOURS 02 MINS",
+                progressPercent: "50%",
+                progressText: "2h 01m of 4h 02m",
+                isFeatured: false,
+                episodes: [
+                    { num: "01", title: "JUSTICE LEAGUE (FEATURE)", duration: "4h 02m", desc: "The ultimate superhero assembly to battle Steppenwolf and Darkseid." }
+                ]
+            },
+            {
+                id: "BB-077",
+                code: "06",
+                title: "BLUE BEETLE",
+                type: "movies",
+                genre: "action",
+                genreLabel: "ACTION / ADVENTURE",
+                year: "2023",
+                seasons: "FILM (2h 07m)",
+                rating: "U/A 13+",
+                subheading: "FEATURE CINEMA",
+                description: "An alien relic chooses Jaime Reyes to be its symbiotic host, bestowing the recent college graduate with a suit of armor capable of extraordinary powers.",
+                cast: "Xolo Maridueña, Bruna Marquezine, Susan Sarandon",
+                genresFull: "Action, Sci-Fi, Hero Origin",
+                characteristics: "Energetic, Humorous, Family-Centered",
+                advisory: "Action violence, sci-fi battle scenes.",
+                duration: "2 HOURS 07 MINS",
+                progressPercent: "10%",
+                progressText: "12 of 127m",
+                isFeatured: false,
+                episodes: [
+                    { num: "01", title: "BLUE BEETLE (FEATURE)", duration: "2h 07m", desc: "Jaime Reyes gains superpowers when an ancient alien scarab chooses him." }
+                ]
+            },
+            {
+                id: "DN-012",
+                code: "07",
+                title: "DEATH NOTE",
+                type: "shows",
+                genre: "anime",
+                genreLabel: "ANIME / PSYCHOLOGICAL",
+                year: "2006",
+                seasons: "1 SEASON",
+                rating: "U/A 16+",
+                subheading: "S1:E1 \"Rebirth\"",
+                description: "An intelligent high school student goes on a secret crusade to eliminate criminals from the world after discovering a notebook capable of killing anyone.",
+                cast: "Mamoru Miyano, Kappei Yamaguchi, Shido Nakamura",
+                genresFull: "Anime Series, Psychological Thriller, Supernatural",
+                characteristics: "Intellectual, Tense, Dark",
+                advisory: "Themes of mortality, mild violence.",
+                duration: "37 EPISODES",
+                progressPercent: "60%",
+                progressText: "14 of 22m",
+                isFeatured: false,
+                episodes: [
+                    { num: "01", title: "Rebirth", duration: "22m", desc: "Light Yagami finds the Death Note dropped by Shinigami Ryuk." },
+                    { num: "02", title: "Confrontation", duration: "22m", desc: "L broadcasts a message directly challenging the mysterious killer Kira." }
+                ]
+            },
+            {
+                id: "BL-099",
+                code: "08",
+                title: "BLEACH",
+                type: "shows",
+                genre: "anime",
+                genreLabel: "ANIME / ACTION",
+                year: "2022",
+                seasons: "16 SEASONS",
+                rating: "U/A 16+",
+                subheading: "THOUSAND-YEAR BLOOD WAR",
+                description: "High school student Ichigo Kurosaki, who has the ability to see ghosts, obtains Soul Reaper powers and defends humanity from evil spirits.",
+                cast: "Masakazu Morita, Fumiko Orikasa, Noriaki Sugiyama",
+                genresFull: "Anime, Action, Supernatural",
+                characteristics: "Stylized, Martial Arts, Epic",
+                advisory: "Animated violence, sword battles.",
+                duration: "16 SEASONS",
+                progressPercent: "40%",
+                progressText: "10 of 24m",
+                isFeatured: false,
+                episodes: [
+                    { num: "01", title: "The Blood Warfare", duration: "24m", desc: "Soul Society detects massive Hollow disappearance while a new threat emerges." }
+                ]
+            }
+        ];
+
+        // APP STATE
+        let activeTab = 'home';
+        let currentFilter = 'all';
+        let currentShowId = "DX-048";
+        let userMyList = [];
+        let likedShows = [];
+        let currentAudioState = true;
+
+        // INITIALIZATION ON LOAD
+        window.onload = function() {
+            updateLiveTime();
+            setInterval(updateLiveTime, 1000);
+            renderAllGrids();
+            updateHeroDisplay(CATALOG_DATA[0]);
+        };
+
+        function updateLiveTime() {
+            const now = new Date();
+            const timeStr = now.toTimeString().split(' ')[0] + " UTC";
+            document.getElementById('current-time').innerText = timeStr;
+        }
+
+        // TAB SWITCHING LOGIC
+        function switchTab(tab) {
+            activeTab = tab;
+            
+            // Update active states on nav buttons
+            ['home', 'shows', 'movies', 'mylist'].forEach(t => {
+                const btn = document.getElementById(`nav-${t}`);
+                if (btn) {
+                    if (t === tab) {
+                        btn.className = "p-4 text-left bg-swissred text-cream transition-swiss flex flex-col justify-between group";
+                    } else {
+                        btn.className = "p-4 text-left hover:bg-swissred hover:text-cream transition-swiss flex flex-col justify-between group";
+                    }
+                }
+            });
+
+            const topPicksSection = document.getElementById('section-top-picks');
+            const cwSection = document.getElementById('section-continue-watching');
+            const recSection = document.getElementById('section-recommended');
+
+            if (tab === 'mylist') {
+                topPicksSection.style.display = 'block';
+                cwSection.style.display = 'none';
+                recSection.style.display = 'none';
+                renderMyListSection();
+            } else if (tab === 'shows') {
+                topPicksSection.style.display = 'block';
+                cwSection.style.display = 'block';
+                recSection.style.display = 'block';
+                renderFilteredSection('shows');
+            } else if (tab === 'movies') {
+                topPicksSection.style.display = 'block';
+                cwSection.style.display = 'block';
+                recSection.style.display = 'block';
+                renderFilteredSection('movies');
+            } else {
+                topPicksSection.style.display = 'block';
+                cwSection.style.display = 'block';
+                recSection.style.display = 'block';
+                renderAllGrids();
+            }
+        }
+
+        // CATALOG FILTERING LOGIC
+        function filterCatalog(category) {
+            currentFilter = category;
+            
+            // Highlight filter buttons
+            const btns = document.querySelectorAll('.catalog-filter-btn');
+            btns.forEach(b => {
+                if (b.innerText.toLowerCase().includes(category)) {
+                    b.className = "catalog-filter-btn px-3 py-1 border border-swiss bg-charcoal text-cream font-bold";
+                } else {
+                    b.className = "catalog-filter-btn px-3 py-1 border border-swiss bg-cream hover:bg-swissred hover:text-cream";
+                }
+            });
+
+            renderAllGrids();
+        }
+
+        // RENDER GRID CARDS IN SWISS EDITORIAL STYLE
+        function createSwissCard(show, index) {
+            const isSaved = userMyList.includes(show.id);
+
+            return `
+                <div class="border-2 border-swiss bg-cream p-5 flex flex-col justify-between hover:bg-swissred hover:text-cream transition-swiss group cursor-pointer relative shadow-sm" onclick="selectShow('${show.id}')">
+                    
+                    <!-- Top Index & Badges -->
+                    <div class="flex justify-between items-start font-mono text-xs mb-6 border-b border-swiss pb-2 group-hover:border-cream">
+                        <span class="font-bold text-swissred group-hover:text-cream">[ ${show.code} ]</span>
+                        <span class="border border-swiss group-hover:border-cream px-1 uppercase text-[10px]">${show.year}</span>
+                    </div>
+
+                    <!-- Main Typography Title -->
+                    <div class="my-4">
+                        <span class="text-[10px] font-mono uppercase tracking-widest text-muted group-hover:text-cream/80 block mb-1">${show.genreLabel}</span>
+                        <h4 class="text-3xl md:text-4xl font-black uppercase tracking-tighter leading-none group-hover:text-cream text-charcoal mb-2">
+                            ${show.title}
+                        </h4>
+                    </div>
+
+                    <!-- Metadata Footer -->
+                    <div class="border-t border-swiss group-hover:border-cream pt-3 mt-4 flex flex-col gap-2 font-mono text-xs">
+                        <div class="flex justify-between text-muted group-hover:text-cream/90 text-[11px]">
+                            <span>${show.seasons}</span>
+                            <span class="font-bold text-charcoal group-hover:text-cream">${show.rating}</span>
+                        </div>
+                        <div class="flex justify-between items-center pt-1">
+                            <button onclick="event.stopPropagation(); openModalForId('${show.id}')" class="underline font-bold text-[11px] group-hover:text-cream">
+                                [ DETAILS ]
+                            </button>
+                            <button onclick="event.stopPropagation(); toggleMyList('${show.id}')" class="text-[11px] font-bold border border-swiss group-hover:border-cream px-2 py-0.5 group-hover:bg-cream group-hover:text-charcoal">
+                                ${isSaved ? '✓ IN LIST' : '+ ADD'}
+                            </button>
+                        </div>
+                    </div>
+
+                    ${isSaved ? `<div class="absolute top-0 right-0 bg-swissred text-cream font-mono text-[9px] px-2 py-0.5 border-b border-l border-swiss">SAVED</div>` : ''}
+                </div>
+            `;
+        }
+
+        function renderAllGrids() {
+            let data = CATALOG_DATA;
+
+            if (currentFilter !== 'all') {
+                data = CATALOG_DATA.filter(item => item.genre === currentFilter);
+            }
+
+            const topPicksGrid = document.getElementById('top-picks-grid');
+            const cwGrid = document.getElementById('continue-watching-grid');
+            const recGrid = document.getElementById('recommended-grid');
+
+            if (topPicksGrid) {
+                topPicksGrid.innerHTML = data.slice(0, 4).map((show, idx) => createSwissCard(show, idx)).join('');
+            }
+            if (cwGrid) {
+                cwGrid.innerHTML = data.slice(2, 5).map((show, idx) => createSwissCard(show, idx)).join('');
+            }
+            if (recGrid) {
+                recGrid.innerHTML = data.slice(4, 8).map((show, idx) => createSwissCard(show, idx)).join('');
+            }
+        }
+
+        function renderFilteredSection(type) {
+            const data = CATALOG_DATA.filter(item => item.type === type);
+            const topPicksGrid = document.getElementById('top-picks-grid');
+            const cwGrid = document.getElementById('continue-watching-grid');
+            const recGrid = document.getElementById('recommended-grid');
+
+            if (topPicksGrid) topPicksGrid.innerHTML = data.slice(0, 4).map((s, i) => createSwissCard(s, i)).join('');
+            if (cwGrid) cwGrid.innerHTML = data.slice(1, 4).map((s, i) => createSwissCard(s, i)).join('');
+            if (recGrid) recGrid.innerHTML = data.slice(2, 6).map((s, i) => createSwissCard(s, i)).join('');
+        }
+
+        function renderMyListSection() {
+            const topPicksGrid = document.getElementById('top-picks-grid');
+            const listData = CATALOG_DATA.filter(item => userMyList.includes(item.id));
+
+            if (topPicksGrid) {
+                if (listData.length === 0) {
+                    topPicksGrid.innerHTML = `
+                        <div class="col-span-12 border-2 border-dashed border-swiss p-12 text-center font-mono space-y-3">
+                            <p class="text-xl font-bold text-swissred">YOUR ARCHIVE LIST IS CURRENTLY EMPTY.</p>
+                            <p class="text-xs text-muted">CLICK "+ ADD TO LIST" ON ANY SHOW TO STORE IT IN YOUR PERSONAL CATALOG.</p>
+                        </div>
+                    `;
+                } else {
+                    topPicksGrid.innerHTML = listData.map((s, i) => createSwissCard(s, i)).join('');
+                }
+            }
+        }
+
+        // UPDATE HERO DISPLAY
+        function selectShow(showId) {
+            currentShowId = showId;
+            const show = CATALOG_DATA.find(s => s.id === showId);
+            if (show) {
+                updateHeroDisplay(show);
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            }
+        }
+
+        function updateHeroDisplay(show) {
+            document.getElementById('hero-id-display').innerText = show.code;
+            document.getElementById('hero-genre-tag').innerText = `GENRE: ${show.genreLabel}`;
+            document.getElementById('hero-year-tag').innerText = `RELEASE YEAR: ${show.year}`;
+            document.getElementById('hero-rating-tag').innerText = `MATURITY: ${show.rating}`;
+            document.getElementById('hero-subheading').innerText = show.subheading;
+            document.getElementById('hero-description').innerText = show.description;
+            document.getElementById('hero-cast').innerText = show.cast;
+            document.getElementById('hero-duration').innerText = show.duration;
+            document.getElementById('hero-tone').innerText = show.characteristics.toUpperCase();
+            document.getElementById('hero-giant-title').innerText = show.title;
+            document.getElementById('hero-watermark').innerText = show.title;
+            document.getElementById('hero-selection-code').innerText = `SHOW ID: ${show.id}`;
+            document.getElementById('hero-quote').innerText = show.heroQuote || "CRITICALLY ACCLAIMED SELECTION";
+            
+            const listBtn = document.getElementById('hero-add-btn');
+            if (listBtn) {
+                listBtn.innerText = userMyList.includes(show.id) ? "✓ IN MY LIST" : "+ ADD TO LIST";
+            }
+        }
+
+        // MODAL DRAWER LOGIC
+        function openModal() {
+            openModalForId(currentShowId);
+        }
+
+        function openModalForId(showId) {
+            currentShowId = showId;
+            const show = CATALOG_DATA.find(s => s.id === showId);
+            if (!show) return;
+
+            document.getElementById('modal-show-code').innerText = `SHOW REF: ${show.id}`;
+            document.getElementById('modal-genre').innerText = show.genreLabel;
+            document.getElementById('modal-title').innerText = show.title;
+            document.getElementById('modal-year').innerText = show.year;
+            document.getElementById('modal-seasons-count').innerText = show.seasons;
+            document.getElementById('modal-rating').innerText = show.rating;
+            document.getElementById('modal-progress-fill').style.width = show.progressPercent || '50%';
+            document.getElementById('modal-progress-text').innerText = show.progressText || '30 of 60m';
+            document.getElementById('modal-current-episode-title').innerText = show.subheading;
+            document.getElementById('modal-description').innerText = show.description;
+            document.getElementById('modal-advisory').innerText = show.advisory;
+            document.getElementById('modal-cast-full').innerText = show.cast;
+            document.getElementById('modal-genres-full').innerText = show.genresFull;
+            document.getElementById('modal-characteristics').innerText = show.characteristics;
+
+            // Render Episodes List
+            renderModalEpisodes(show);
+
+            // Update List Button State
+            const listBtn = document.getElementById('modal-list-btn');
+            if (listBtn) {
+                listBtn.innerText = userMyList.includes(show.id) ? "✓ IN LIST" : "+ MY LIST";
+            }
+
+            const modal = document.getElementById('detail-modal');
+            modal.classList.remove('hidden');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function renderModalEpisodes(show) {
+            const container = document.getElementById('episodes-container');
+            if (!container || !show.episodes) return;
+
+            document.getElementById('modal-episodes-count').innerText = `(${show.episodes.length} EPISODES)`;
+
+            container.innerHTML = show.episodes.map(ep => `
+                <div class="p-4 hover:bg-swissred hover:text-cream transition-swiss group flex flex-col md:flex-row justify-between md:items-center gap-4 cursor-pointer" onclick="playMedia()">
+                    <div class="flex items-start gap-4">
+                        <span class="text-xl font-bold text-swissred group-hover:text-cream">${ep.num}</span>
+                        <div>
+                            <div class="font-bold uppercase text-sm group-hover:text-cream text-charcoal">${ep.title}</div>
+                            <p class="text-xs text-muted group-hover:text-cream/80 max-w-xl mt-1">${ep.desc}</p>
+                        </div>
+                    </div>
+                    <div class="text-xs font-bold text-right shrink-0">
+                        <span>${ep.duration}</span>
+                        <span class="block text-[10px] text-swissred group-hover:text-cream">[ PLAY EPISODE ]</span>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        function closeModal() {
+            document.getElementById('detail-modal').classList.add('hidden');
+            document.body.style.overflow = 'auto';
+        }
+
+        function changeSeason(seasonNum) {
+            // Simulated season switch
+            const show = CATALOG_DATA.find(s => s.id === currentShowId);
+            if (show) {
+                renderModalEpisodes(show);
+            }
+        }
+
+        // LIST MANAGEMENT LOGIC
+        function toggleMyList(id) {
+            if (userMyList.includes(id)) {
+                userMyList = userMyList.filter(item => item !== id);
+            } else {
+                userMyList.push(id);
+            }
+            updateMyListCounter();
+            renderAllGrids();
+            if (activeTab === 'mylist') renderMyListSection();
+        }
+
+        function toggleMyListCurrent() {
+            toggleMyList(currentShowId);
+            const listBtn = document.getElementById('hero-add-btn');
+            if (listBtn) {
+                listBtn.innerText = userMyList.includes(currentShowId) ? "✓ IN MY LIST" : "+ ADD TO LIST";
+            }
+        }
+
+        function toggleMyListModal() {
+            toggleMyList(currentShowId);
+            const listBtn = document.getElementById('modal-list-btn');
+            if (listBtn) {
+                listBtn.innerText = userMyList.includes(currentShowId) ? "✓ IN LIST" : "+ MY LIST";
+            }
+        }
+
+        function updateMyListCounter() {
+            const counter = document.getElementById('my-list-counter');
+            if (counter) counter.innerText = `MY LIST [${userMyList.length}]`;
+        }
+
+        function likeShow() {
+            const btn = document.getElementById('modal-like-btn');
+            if (btn) {
+                if (likedShows.includes(currentShowId)) {
+                    likedShows = likedShows.filter(id => id !== currentShowId);
+                    btn.innerText = "LIKE [★]";
+                    btn.className = "bg-cream border border-swiss px-4 py-3 hover:bg-swissred hover:text-cream transition-swiss";
+                } else {
+                    likedShows.push(currentShowId);
+                    btn.innerText = "★ LIKED";
+                    btn.className = "bg-swissred text-cream border border-swiss px-4 py-3 transition-swiss";
+                }
+            }
+        }
+
+        // PLAYER CONTROLS
+        function playMedia() {
+            const show = CATALOG_DATA.find(s => s.id === currentShowId);
+            if (show) {
+                document.getElementById('player-main-title').innerText = show.title;
+                document.getElementById('player-sub-title').innerText = `${show.subheading} — ${show.duration}`;
+                document.getElementById('player-title-display').innerText = `${show.title} - ${show.subheading}`;
+            }
+            document.getElementById('player-modal').classList.remove('hidden');
+        }
+
+        function closePlayer() {
+            document.getElementById('player-modal').classList.add('hidden');
+        }
+
+        function toggleAudioState() {
+            currentAudioState = !currentAudioState;
+            const btn = document.getElementById('audio-toggle-btn');
+            if (btn) {
+                btn.innerText = currentAudioState ? "[ AUDIO: ON ]" : "[ AUDIO: MUTED ]";
+            }
+        }
+    </script>
+</body>
+</html>
