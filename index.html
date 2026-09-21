@@ -1041,8 +1041,10 @@
         }
 
         // Fit the giant hero title: let it wrap to at most 3 lines, shrinking the
-        // font until it does, and reserve exactly three baseline lines of height
-        // in the banner so the featured section stays a constant height.
+        // font until it does AND no single word overflows the column horizontally
+        // (long one-word lines like "GENTLEMEN" otherwise spill past the box).
+        // The banner reserves exactly three baseline lines so the featured
+        // section stays a constant height.
         function fitHeroTitle() {
             const el = document.getElementById('hero-giant-title');
             if (!el) return;
@@ -1055,7 +1057,8 @@
             const maxThreeLines = baseSize * 0.82 * 3;
             let size = baseSize;
             let guard = 0;
-            while (el.scrollHeight > maxThreeLines + 1 && size > 12 && guard++ < 80) {
+            const overflows = () => el.scrollHeight > maxThreeLines + 1 || el.scrollWidth > available + 1;
+            while (overflows() && size > 12 && guard++ < 80) {
                 size *= 0.92;
                 el.style.fontSize = Math.floor(size) + 'px';
             }
