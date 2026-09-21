@@ -196,63 +196,6 @@
 
     <!-- MAIN CONTENT CONTAINER -->
     <main class="flex-grow flex flex-col">
-        <!-- HOME PAGE — CAROUSEL ROWS -->
-        <section id="home-page" class="p-6 md:p-10 space-y-12 flex-grow">
-
-            <!-- HOME ROW 1: TODAY'S TOP PICKS -->
-            <div class="space-y-4">
-                <div class="flex items-end justify-between border-b-2 border-swiss pb-2">
-                    <div>
-                        <span class="text-xs font-mono text-swissred font-bold uppercase tracking-widest block">FIG H01.0 — PERSONALIZED SELECTION</span>
-                        <h2 class="text-2xl md:text-4xl font-black uppercase tracking-tight text-charcoal">TODAY'S TOP PICKS FOR YOU</h2>
-                    </div>
-                    <div class="flex items-center gap-2 font-mono text-xs">
-                        <button onclick="scrollRow('home-top-picks-grid', -1)" class="border border-swiss px-3 py-1 font-bold hover:bg-swissred hover:text-cream transition-swiss">[ ← PREV ]</button>
-                        <button onclick="scrollRow('home-top-picks-grid', 1)" class="border border-swiss px-3 py-1 font-bold hover:bg-swissred hover:text-cream transition-swiss">[ NEXT → ]</button>
-                    </div>
-                </div>
-                <div id="home-top-picks-grid" class="grid grid-flow-col auto-cols-[85%] sm:auto-cols-[45%] md:auto-cols-[30%] lg:auto-cols-[22%] gap-4 overflow-x-auto no-scrollbar scroll-smooth py-2">
-                    <!-- Cards dynamically injected via JS -->
-                </div>
-            </div>
-
-            <!-- HOME ROW 2: TOP SERIES -->
-            <div class="space-y-4">
-                <div class="flex items-end justify-between border-b-2 border-swiss pb-2">
-                    <div>
-                        <span class="text-xs font-mono text-swissred font-bold uppercase tracking-widest block">FIG H02.0 — RANDOMIZED SERIES SELECTION</span>
-                        <h2 class="text-2xl md:text-4xl font-black uppercase tracking-tight text-charcoal">SERIES PICKED FOR YOU</h2>
-                    </div>
-                    <div class="flex items-center gap-2 font-mono text-xs">
-                        <button onclick="scrollRow('home-series-picks-grid', -1)" class="border border-swiss px-3 py-1 font-bold hover:bg-swissred hover:text-cream transition-swiss">[ ← PREV ]</button>
-                        <button onclick="scrollRow('home-series-picks-grid', 1)" class="border border-swiss px-3 py-1 font-bold hover:bg-swissred hover:text-cream transition-swiss">[ NEXT → ]</button>
-                    </div>
-                </div>
-                <div id="home-series-picks-grid" class="grid grid-flow-col auto-cols-[85%] sm:auto-cols-[45%] md:auto-cols-[30%] lg:auto-cols-[22%] gap-4 overflow-x-auto no-scrollbar scroll-smooth py-2">
-                    <!-- Cards dynamically injected via JS -->
-                </div>
-            </div>
-
-            <!-- HOME ROW 3: TOP CINEMA -->
-            <div class="space-y-4">
-                <div class="flex items-end justify-between border-b-2 border-swiss pb-2">
-                    <div>
-                        <span class="text-xs font-mono text-swissred font-bold uppercase tracking-widest block">FIG H03.0 — RANDOMIZED CINEMA SELECTION</span>
-                        <h2 class="text-2xl md:text-4xl font-black uppercase tracking-tight text-charcoal">CINEMA PICKED FOR YOU</h2>
-                    </div>
-                    <div class="flex items-center gap-2 font-mono text-xs">
-                        <button onclick="scrollRow('home-cinema-picks-grid', -1)" class="border border-swiss px-3 py-1 font-bold hover:bg-swissred hover:text-cream transition-swiss">[ ← PREV ]</button>
-                        <button onclick="scrollRow('home-cinema-picks-grid', 1)" class="border border-swiss px-3 py-1 font-bold hover:bg-swissred hover:text-cream transition-swiss">[ NEXT → ]</button>
-                    </div>
-                </div>
-                <div id="home-cinema-picks-grid" class="grid grid-flow-col auto-cols-[85%] sm:auto-cols-[45%] md:auto-cols-[30%] lg:auto-cols-[22%] gap-4 overflow-x-auto no-scrollbar scroll-smooth py-2">
-                    <!-- Cards dynamically injected via JS -->
-                </div>
-            </div>
-
-        </section>
-
-        <div id="catalog-view" class="hidden flex-grow flex flex-col">
         <!-- FEATURED HERO SHOW DISPLAY -->
         <section id="hero-section" class="border-b-2 border-swiss bg-cream relative">
             <!-- Dynamic Grid Header Banner -->
@@ -339,7 +282,7 @@
                         </div>
                         <div class="hidden sm:block font-mono text-right text-xs uppercase text-muted border-l border-swiss pl-4">
                             <span>ISSUE REFERENCE</span><br>
-                            <span class="text-charcoal font-bold">FIG 01.A — DEXTER</span>
+                            <span class="text-charcoal font-bold" id="hero-issue-ref">FIG 01.A — DEXTER</span>
                         </div>
                     </div>
 
@@ -354,7 +297,7 @@
                     <div class="relative z-10 grid grid-cols-2 md:grid-cols-4 gap-4 border-t-2 border-swiss pt-4 text-xs font-mono">
                         <div>
                             <span class="block text-muted text-[10px]">FORMAT</span>
-                            <span class="font-bold">EPISODIC DRAMA</span>
+                            <span class="font-bold" id="hero-format">EPISODIC DRAMA</span>
                         </div>
                         <div>
                             <span class="block text-muted text-[10px]">AUDIO</span>
@@ -374,6 +317,63 @@
             </div>
         </section>
 
+        <!-- HOME PAGE — CAROUSEL ROWS -->
+        <section id="home-page" class="p-6 md:p-10 space-y-12 flex-grow">
+
+            <!-- HOME ROW 1: TODAY'S TOP PICKS -->
+            <div class="space-y-4">
+                <div class="flex items-end justify-between border-b-2 border-swiss pb-2">
+                    <div>
+                        <span class="text-xs font-mono text-swissred font-bold uppercase tracking-widest block">FIG H01.0 — PERSONALIZED SELECTION</span>
+                        <h2 class="text-2xl md:text-4xl font-black uppercase tracking-tight text-charcoal">TODAY'S TOP PICKS FOR YOU</h2>
+                    </div>
+                    <div class="flex items-center gap-2 font-mono text-xs">
+                        <button onclick="scrollRow('home-top-picks-grid', -1)" class="border border-swiss px-3 py-1 font-bold hover:bg-swissred hover:text-cream transition-swiss">[ ← PREV ]</button>
+                        <button onclick="scrollRow('home-top-picks-grid', 1)" class="border border-swiss px-3 py-1 font-bold hover:bg-swissred hover:text-cream transition-swiss">[ NEXT → ]</button>
+                    </div>
+                </div>
+                <div id="home-top-picks-grid" class="grid grid-flow-col auto-cols-[85%] sm:auto-cols-[45%] md:auto-cols-[30%] lg:auto-cols-[22%] gap-4 overflow-x-auto no-scrollbar scroll-smooth py-2">
+                    <!-- Cards dynamically injected via JS -->
+                </div>
+            </div>
+
+            <!-- HOME ROW 2: TOP SERIES -->
+            <div class="space-y-4">
+                <div class="flex items-end justify-between border-b-2 border-swiss pb-2">
+                    <div>
+                        <span class="text-xs font-mono text-swissred font-bold uppercase tracking-widest block">FIG H02.0 — RANDOMIZED SERIES SELECTION</span>
+                        <h2 class="text-2xl md:text-4xl font-black uppercase tracking-tight text-charcoal">SERIES PICKED FOR YOU</h2>
+                    </div>
+                    <div class="flex items-center gap-2 font-mono text-xs">
+                        <button onclick="scrollRow('home-series-picks-grid', -1)" class="border border-swiss px-3 py-1 font-bold hover:bg-swissred hover:text-cream transition-swiss">[ ← PREV ]</button>
+                        <button onclick="scrollRow('home-series-picks-grid', 1)" class="border border-swiss px-3 py-1 font-bold hover:bg-swissred hover:text-cream transition-swiss">[ NEXT → ]</button>
+                    </div>
+                </div>
+                <div id="home-series-picks-grid" class="grid grid-flow-col auto-cols-[85%] sm:auto-cols-[45%] md:auto-cols-[30%] lg:auto-cols-[22%] gap-4 overflow-x-auto no-scrollbar scroll-smooth py-2">
+                    <!-- Cards dynamically injected via JS -->
+                </div>
+            </div>
+
+            <!-- HOME ROW 3: TOP CINEMA -->
+            <div class="space-y-4">
+                <div class="flex items-end justify-between border-b-2 border-swiss pb-2">
+                    <div>
+                        <span class="text-xs font-mono text-swissred font-bold uppercase tracking-widest block">FIG H03.0 — RANDOMIZED CINEMA SELECTION</span>
+                        <h2 class="text-2xl md:text-4xl font-black uppercase tracking-tight text-charcoal">CINEMA PICKED FOR YOU</h2>
+                    </div>
+                    <div class="flex items-center gap-2 font-mono text-xs">
+                        <button onclick="scrollRow('home-cinema-picks-grid', -1)" class="border border-swiss px-3 py-1 font-bold hover:bg-swissred hover:text-cream transition-swiss">[ ← PREV ]</button>
+                        <button onclick="scrollRow('home-cinema-picks-grid', 1)" class="border border-swiss px-3 py-1 font-bold hover:bg-swissred hover:text-cream transition-swiss">[ NEXT → ]</button>
+                    </div>
+                </div>
+                <div id="home-cinema-picks-grid" class="grid grid-flow-col auto-cols-[85%] sm:auto-cols-[45%] md:auto-cols-[30%] lg:auto-cols-[22%] gap-4 overflow-x-auto no-scrollbar scroll-smooth py-2">
+                    <!-- Cards dynamically injected via JS -->
+                </div>
+            </div>
+
+        </section>
+
+        <div id="catalog-view" class="hidden flex-grow flex flex-col">
         <!-- CATALOGUE RAILS CONTAINER -->
         <section class="p-6 md:p-10 space-y-12 flex-grow">
             
@@ -655,6 +655,7 @@
         let userMyList = [];
         let likedShows = [];
         let currentAudioState = true;
+        let FEATURED_BY_TAB = {}; // per-page featured pick — never carries across tabs
 
         // INITIALIZATION ON LOAD
         window.onload = async function() {
@@ -676,7 +677,7 @@
             reshuffleCatalog();
             renderHomeRows();
             renderAllGrids();
-            updateHeroDisplay(CATALOG_DATA[0]);
+            setFeaturedForTab('home');
         };
 
         function updateLiveTime() {
@@ -688,6 +689,7 @@
         // TAB SWITCHING LOGIC
         function switchTab(tab) {
             activeTab = tab;
+            setFeaturedForTab(tab);
             
             // Update active states on nav buttons
             ['home', 'shows', 'movies', 'games', 'popular', 'mylist'].forEach(t => {
@@ -708,6 +710,8 @@
             const pageEmpty = document.getElementById('page-empty-state');
             const gamesPage = document.getElementById('games-page');
             if (gamesPage) gamesPage.style.display = 'none';
+            const heroSection = document.getElementById('hero-section');
+            if (heroSection) heroSection.style.display = (tab === 'games') ? 'none' : 'block';
 
             if (tab === 'home') {
                 // HOME is a dedicated page with its own carousel rows
@@ -996,6 +1000,26 @@
             }
         }
 
+        // FEATURED TITLE — each content page gets its own random featured entry,
+        // drawn from that page's context (home: today's top picks, shows/movies: their pool).
+        const FEATURED_POOLS = {
+            home: () => SHUFFLED_CATALOG.slice(0, 10),
+            shows: () => SHUFFLED_BY_TYPE.shows,
+            movies: () => SHUFFLED_BY_TYPE.movies
+        };
+
+        function setFeaturedForTab(tab) {
+            const poolFn = FEATURED_POOLS[tab];
+            if (!poolFn) return; // games/mylist/popular keep the current selection
+            const pool = poolFn();
+            if (!pool.length) return;
+            if (!FEATURED_BY_TAB[tab]) {
+                FEATURED_BY_TAB[tab] = pool[Math.floor(Math.random() * pool.length)];
+            }
+            currentShowId = FEATURED_BY_TAB[tab].id;
+            updateHeroDisplay(FEATURED_BY_TAB[tab]);
+        }
+
         // UPDATE HERO DISPLAY
         function selectShow(showId) {
             currentShowId = showId;
@@ -1020,6 +1044,10 @@
             document.getElementById('hero-watermark').innerText = show.title;
             document.getElementById('hero-selection-code').innerText = `SHOW ID: ${show.id}`;
             document.getElementById('hero-quote').innerText = show.heroQuote || "CRITICALLY ACCLAIMED SELECTION";
+            const issueRef = document.getElementById('hero-issue-ref');
+            if (issueRef) issueRef.innerText = `FIG ${show.code}.A — ${show.title.toUpperCase()}`;
+            const formatEl = document.getElementById('hero-format');
+            if (formatEl) formatEl.innerText = show.type === 'movies' ? 'FEATURE FILM' : 'EPISODIC DRAMA';
             
             const listBtn = document.getElementById('hero-add-btn');
             if (listBtn) {
