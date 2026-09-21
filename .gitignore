@@ -1,0 +1,5 @@
+# Codebuff/Freebuff local workspace metadata
+.freebuff/
+
+# OS noise
+.DS_Store
