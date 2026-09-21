@@ -97,6 +97,15 @@
         .transition-swiss {
             transition: all 0.18s cubic-bezier(0.16, 1, 0.3, 1);
         }
+
+        /* Hide horizontal scrollbars for clean carousel presentation */
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
     </style>
 </head>
 <body class="h-full flex flex-col selection:bg-swissred selection:text-cream relative overflow-x-hidden">
@@ -166,12 +175,81 @@
                 </button>
             </nav>
         </div>
+
+        <!-- Interactive Search & Live Filter Bar -->
+        <div class="border-t border-swiss bg-cream-light p-3 font-mono text-xs uppercase grid grid-cols-12 gap-3 items-center">
+            <div class="col-span-12 md:col-span-5 flex items-center gap-2 border border-swiss bg-cream p-2">
+                <span class="text-swissred font-bold">SEARCH:</span>
+                <input type="text" id="search-input" onkeyup="handleSearch()" placeholder="TYPE TITLE, ACTOR, OR GENRE..." class="bg-transparent w-full focus:outline-none text-charcoal font-bold uppercase placeholder:text-muted/60">
+            </div>
+            <div class="col-span-12 md:col-span-7 flex flex-wrap items-center justify-start md:justify-end gap-2 text-[11px]">
+                <span class="text-muted font-bold mr-1">QUICK GENRES:</span>
+                <button onclick="filterByGenre('ALL')" class="genre-btn border border-swiss bg-charcoal text-cream px-2 py-1 font-bold">ALL</button>
+                <button onclick="filterByGenre('DRAMA')" class="genre-btn border border-swiss bg-cream px-2 py-1 font-bold hover:bg-swissred hover:text-cream">DRAMA</button>
+                <button onclick="filterByGenre('CRIME')" class="genre-btn border border-swiss bg-cream px-2 py-1 font-bold hover:bg-swissred hover:text-cream">CRIME</button>
+                <button onclick="filterByGenre('ACTION')" class="genre-btn border border-swiss bg-cream px-2 py-1 font-bold hover:bg-swissred hover:text-cream">ACTION</button>
+                <button onclick="filterByGenre('ANIME')" class="genre-btn border border-swiss bg-cream px-2 py-1 font-bold hover:bg-swissred hover:text-cream">ANIME</button>
+                <button onclick="filterByGenre('COMEDY')" class="genre-btn border border-swiss bg-cream px-2 py-1 font-bold hover:bg-swissred hover:text-cream">COMEDY</button>
+            </div>
+        </div>
     </header>
 
     <!-- MAIN CONTENT CONTAINER -->
     <main class="flex-grow flex flex-col">
-        <!-- HOME PAGE — INTENTIONALLY BLANK FOR NOW -->
-        <section id="home-page" class="flex-grow">
+        <!-- HOME PAGE — CAROUSEL ROWS -->
+        <section id="home-page" class="p-6 md:p-10 space-y-12 flex-grow">
+
+            <!-- HOME ROW 1: TODAY'S TOP PICKS -->
+            <div class="space-y-4">
+                <div class="flex items-end justify-between border-b-2 border-swiss pb-2">
+                    <div>
+                        <span class="text-xs font-mono text-swissred font-bold uppercase tracking-widest block">FIG H01.0 — PERSONALIZED SELECTION</span>
+                        <h2 class="text-2xl md:text-4xl font-black uppercase tracking-tight text-charcoal">TODAY'S TOP PICKS FOR YOU</h2>
+                    </div>
+                    <div class="flex items-center gap-2 font-mono text-xs">
+                        <button onclick="scrollRow('home-top-picks-grid', -1)" class="border border-swiss px-3 py-1 font-bold hover:bg-swissred hover:text-cream transition-swiss">[ ← PREV ]</button>
+                        <button onclick="scrollRow('home-top-picks-grid', 1)" class="border border-swiss px-3 py-1 font-bold hover:bg-swissred hover:text-cream transition-swiss">[ NEXT → ]</button>
+                    </div>
+                </div>
+                <div id="home-top-picks-grid" class="grid grid-flow-col auto-cols-[85%] sm:auto-cols-[45%] md:auto-cols-[30%] lg:auto-cols-[22%] gap-4 overflow-x-auto no-scrollbar scroll-smooth py-2">
+                    <!-- Cards dynamically injected via JS -->
+                </div>
+            </div>
+
+            <!-- HOME ROW 2: CONTINUE WATCHING -->
+            <div class="space-y-4">
+                <div class="flex items-end justify-between border-b-2 border-swiss pb-2">
+                    <div>
+                        <span class="text-xs font-mono text-swissred font-bold uppercase tracking-widest block">FIG H02.0 — ACTIVE SESSION LOG</span>
+                        <h2 class="text-2xl md:text-4xl font-black uppercase tracking-tight text-charcoal">CONTINUE WATCHING ARCHIVE</h2>
+                    </div>
+                    <div class="flex items-center gap-2 font-mono text-xs">
+                        <button onclick="scrollRow('home-continue-watching-grid', -1)" class="border border-swiss px-3 py-1 font-bold hover:bg-swissred hover:text-cream transition-swiss">[ ← PREV ]</button>
+                        <button onclick="scrollRow('home-continue-watching-grid', 1)" class="border border-swiss px-3 py-1 font-bold hover:bg-swissred hover:text-cream transition-swiss">[ NEXT → ]</button>
+                    </div>
+                </div>
+                <div id="home-continue-watching-grid" class="grid grid-flow-col auto-cols-[85%] sm:auto-cols-[45%] md:auto-cols-[30%] lg:auto-cols-[22%] gap-4 overflow-x-auto no-scrollbar scroll-smooth py-2">
+                    <!-- Cards dynamically injected via JS -->
+                </div>
+            </div>
+
+            <!-- HOME ROW 3: RECOMMENDED -->
+            <div class="space-y-4">
+                <div class="flex items-end justify-between border-b-2 border-swiss pb-2">
+                    <div>
+                        <span class="text-xs font-mono text-swissred font-bold uppercase tracking-widest block">FIG H03.0 — ALGORITHMIC RECOMMENDATIONS</span>
+                        <h2 class="text-2xl md:text-4xl font-black uppercase tracking-tight text-charcoal">WE THINK YOU'LL LOVE THESE</h2>
+                    </div>
+                    <div class="flex items-center gap-2 font-mono text-xs">
+                        <button onclick="scrollRow('home-recommended-grid', -1)" class="border border-swiss px-3 py-1 font-bold hover:bg-swissred hover:text-cream transition-swiss">[ ← PREV ]</button>
+                        <button onclick="scrollRow('home-recommended-grid', 1)" class="border border-swiss px-3 py-1 font-bold hover:bg-swissred hover:text-cream transition-swiss">[ NEXT → ]</button>
+                    </div>
+                </div>
+                <div id="home-recommended-grid" class="grid grid-flow-col auto-cols-[85%] sm:auto-cols-[45%] md:auto-cols-[30%] lg:auto-cols-[22%] gap-4 overflow-x-auto no-scrollbar scroll-smooth py-2">
+                    <!-- Cards dynamically injected via JS -->
+                </div>
+            </div>
+
         </section>
 
         <div id="catalog-view" class="hidden flex-grow flex flex-col">
@@ -296,67 +374,59 @@
             </div>
         </section>
 
-        <!-- FILTER & CONTROL BAR -->
-        <div class="border-b border-swiss bg-cream p-3 font-mono text-xs uppercase grid grid-cols-12 gap-2 items-center">
-            <div class="col-span-12 md:col-span-4 flex items-center gap-2">
-                <span class="font-bold text-swissred">[ FILTER ARCHIVE ]</span>
-                <span class="text-muted">|</span>
-                <span>SORT BY: <strong class="text-charcoal">EDITORIAL SELECTION</strong></span>
-            </div>
-            <div class="col-span-12 md:col-span-8 flex flex-wrap items-center justify-start md:justify-end gap-2">
-                <button onclick="filterCatalog('all')" class="catalog-filter-btn px-3 py-1 border border-swiss bg-charcoal text-cream font-bold">ALL ENTRIES</button>
-                <button onclick="filterCatalog('drama')" class="catalog-filter-btn px-3 py-1 border border-swiss bg-cream hover:bg-swissred hover:text-cream">DRAMA</button>
-                <button onclick="filterCatalog('action')" class="catalog-filter-btn px-3 py-1 border border-swiss bg-cream hover:bg-swissred hover:text-cream">ACTION</button>
-                <button onclick="filterCatalog('anime')" class="catalog-filter-btn px-3 py-1 border border-swiss bg-cream hover:bg-swissred hover:text-cream">ANIME</button>
-                <button onclick="filterCatalog('thriller')" class="catalog-filter-btn px-3 py-1 border border-swiss bg-cream hover:bg-swissred hover:text-cream">THRILLER</button>
-            </div>
-        </div>
-
         <!-- CATALOGUE RAILS CONTAINER -->
         <section class="p-6 md:p-10 space-y-12 flex-grow">
             
             <!-- SECTION 1: TODAY'S TOP PICKS -->
-            <div id="section-top-picks">
-                <div class="flex items-baseline justify-between border-b-2 border-swiss pb-2 mb-6">
-                    <h3 class="text-xl md:text-3xl font-black uppercase tracking-tight text-charcoal flex items-center gap-3">
-                        <span class="text-swissred font-mono text-base">01.0 //</span>
-                        TODAY'S TOP PICKS FOR YOU
-                    </h3>
-                    <span class="font-mono text-xs uppercase text-muted hidden sm:inline">SWISS TYPOGRAPHIC GRID ARCHIVE</span>
+            <div id="section-top-picks" class="space-y-4">
+                <div class="flex items-end justify-between border-b-2 border-swiss pb-2">
+                    <div>
+                        <span class="text-xs font-mono text-swissred font-bold uppercase tracking-widest block">FIG 01.0 — PERSONALIZED SELECTION</span>
+                        <h2 class="text-2xl md:text-4xl font-black uppercase tracking-tight text-charcoal">TODAY'S TOP PICKS FOR YOU</h2>
+                    </div>
+                    <div class="flex items-center gap-2 font-mono text-xs">
+                        <button onclick="scrollRow('top-picks-grid', -1)" class="border border-swiss px-3 py-1 font-bold hover:bg-swissred hover:text-cream transition-swiss">[ ← PREV ]</button>
+                        <button onclick="scrollRow('top-picks-grid', 1)" class="border border-swiss px-3 py-1 font-bold hover:bg-swissred hover:text-cream transition-swiss">[ NEXT → ]</button>
+                    </div>
                 </div>
 
-                <!-- Grid of Show Cards -->
-                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6" id="top-picks-grid">
+                <div id="top-picks-grid" class="grid grid-flow-col auto-cols-[85%] sm:auto-cols-[45%] md:auto-cols-[30%] lg:auto-cols-[22%] gap-4 overflow-x-auto no-scrollbar scroll-smooth py-2">
                     <!-- Cards dynamically injected via JS -->
                 </div>
             </div>
 
             <!-- SECTION 2: CONTINUE WATCHING -->
-            <div id="section-continue-watching">
-                <div class="flex items-baseline justify-between border-b-2 border-swiss pb-2 mb-6">
-                    <h3 class="text-xl md:text-3xl font-black uppercase tracking-tight text-charcoal flex items-center gap-3">
-                        <span class="text-swissred font-mono text-base">02.0 //</span>
-                        CONTINUE WATCHING ARCHIVE
-                    </h3>
-                    <span class="font-mono text-xs uppercase text-muted hidden sm:inline">RESUME PLAYBACK DIRECTLY</span>
+            <div id="section-continue-watching" class="space-y-4">
+                <div class="flex items-end justify-between border-b-2 border-swiss pb-2">
+                    <div>
+                        <span class="text-xs font-mono text-swissred font-bold uppercase tracking-widest block">FIG 02.0 — ACTIVE SESSION LOG</span>
+                        <h2 class="text-2xl md:text-4xl font-black uppercase tracking-tight text-charcoal">CONTINUE WATCHING ARCHIVE</h2>
+                    </div>
+                    <div class="flex items-center gap-2 font-mono text-xs">
+                        <button onclick="scrollRow('continue-watching-grid', -1)" class="border border-swiss px-3 py-1 font-bold hover:bg-swissred hover:text-cream transition-swiss">[ ← PREV ]</button>
+                        <button onclick="scrollRow('continue-watching-grid', 1)" class="border border-swiss px-3 py-1 font-bold hover:bg-swissred hover:text-cream transition-swiss">[ NEXT → ]</button>
+                    </div>
                 </div>
 
-                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6" id="continue-watching-grid">
+                <div id="continue-watching-grid" class="grid grid-flow-col auto-cols-[85%] sm:auto-cols-[45%] md:auto-cols-[30%] lg:auto-cols-[22%] gap-4 overflow-x-auto no-scrollbar scroll-smooth py-2">
                     <!-- Cards dynamically injected via JS -->
                 </div>
             </div>
 
             <!-- SECTION 3: RECOMMENDED COLLECTION -->
-            <div id="section-recommended">
-                <div class="flex items-baseline justify-between border-b-2 border-swiss pb-2 mb-6">
-                    <h3 class="text-xl md:text-3xl font-black uppercase tracking-tight text-charcoal flex items-center gap-3">
-                        <span class="text-swissred font-mono text-base">03.0 //</span>
-                        WE THINK YOU'LL LOVE THESE
-                    </h3>
-                    <span class="font-mono text-xs uppercase text-muted hidden sm:inline">CURATED SELECTIONS EDITION 2026</span>
+            <div id="section-recommended" class="space-y-4">
+                <div class="flex items-end justify-between border-b-2 border-swiss pb-2">
+                    <div>
+                        <span class="text-xs font-mono text-swissred font-bold uppercase tracking-widest block">FIG 03.0 — ALGORITHMIC RECOMMENDATIONS</span>
+                        <h2 class="text-2xl md:text-4xl font-black uppercase tracking-tight text-charcoal">WE THINK YOU'LL LOVE THESE</h2>
+                    </div>
+                    <div class="flex items-center gap-2 font-mono text-xs">
+                        <button onclick="scrollRow('recommended-grid', -1)" class="border border-swiss px-3 py-1 font-bold hover:bg-swissred hover:text-cream transition-swiss">[ ← PREV ]</button>
+                        <button onclick="scrollRow('recommended-grid', 1)" class="border border-swiss px-3 py-1 font-bold hover:bg-swissred hover:text-cream transition-swiss">[ NEXT → ]</button>
+                    </div>
                 </div>
 
-                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6" id="recommended-grid">
+                <div id="recommended-grid" class="grid grid-flow-col auto-cols-[85%] sm:auto-cols-[45%] md:auto-cols-[30%] lg:auto-cols-[22%] gap-4 overflow-x-auto no-scrollbar scroll-smooth py-2">
                     <!-- Cards dynamically injected via JS -->
                 </div>
             </div>
@@ -797,6 +867,8 @@
         // APP STATE
         let activeTab = 'home';
         let currentFilter = 'all';
+        let currentGenre = 'ALL';
+        let searchQuery = '';
         let currentShowId = "DX-048";
         let userMyList = [];
         let likedShows = [];
@@ -806,6 +878,7 @@
         window.onload = function() {
             updateLiveTime();
             setInterval(updateLiveTime, 1000);
+            renderHomeRows();
             renderAllGrids();
             updateHeroDisplay(CATALOG_DATA[0]);
         };
@@ -841,9 +914,10 @@
             if (gamesPage) gamesPage.style.display = 'none';
 
             if (tab === 'home') {
-                // HOME is a dedicated page — intentionally blank for now
+                // HOME is a dedicated page with its own carousel rows
                 catalogView.style.display = 'none';
                 homePage.style.display = 'block';
+                renderHomeRows();
                 return;
             }
 
@@ -885,21 +959,74 @@
             }
         }
 
-        // CATALOG FILTERING LOGIC
-        function filterCatalog(category) {
-            currentFilter = category;
-            
-            // Highlight filter buttons
-            const btns = document.querySelectorAll('.catalog-filter-btn');
+        // SEARCH & GENRE FILTERING LOGIC
+        function handleSearch() {
+            searchQuery = document.getElementById('search-input').value;
+            renderActiveView();
+        }
+
+        function filterByGenre(genre) {
+            currentGenre = genre;
+            const btns = document.querySelectorAll('.genre-btn');
             btns.forEach(b => {
-                if (b.innerText.toLowerCase().includes(category)) {
-                    b.className = "catalog-filter-btn px-3 py-1 border border-swiss bg-charcoal text-cream font-bold";
+                if (b.innerText === genre) {
+                    b.className = "genre-btn border border-swiss bg-charcoal text-cream px-2 py-1 font-bold";
                 } else {
-                    b.className = "catalog-filter-btn px-3 py-1 border border-swiss bg-cream hover:bg-swissred hover:text-cream";
+                    b.className = "genre-btn border border-swiss bg-cream px-2 py-1 font-bold hover:bg-swissred hover:text-cream";
                 }
             });
+            renderActiveView();
+        }
 
-            renderAllGrids();
+        // Combined genre + live search filter
+        function matchFilters(item) {
+            if (!matchGenre(item, currentGenre)) return false;
+            if (searchQuery.trim() !== '') {
+                const q = searchQuery.toLowerCase();
+                const hay = `${item.title} ${item.cast} ${item.genreLabel} ${item.genresFull}`.toLowerCase();
+                if (!hay.includes(q)) return false;
+            }
+            return true;
+        }
+
+        function matchGenre(item, g) {
+            if (g === 'ALL') return true;
+            const gl = g.toLowerCase();
+            if (item.genre === gl) return true;
+            return `${item.genreLabel} ${item.genresFull}`.toLowerCase().includes(gl);
+        }
+
+        // Re-render whichever view is currently active
+        function renderActiveView() {
+            if (activeTab === 'home') renderHomeRows();
+            else if (activeTab === 'mylist') renderMyListSection();
+            else if (activeTab === 'popular') renderPopularSection();
+            else if (activeTab === 'shows') renderFilteredSection('shows');
+            else if (activeTab === 'movies') renderFilteredSection('movies');
+            else renderAllGrids();
+        }
+
+        // CAROUSEL HORIZONTAL SMOOTH SCROLL
+        function scrollRow(containerId, direction) {
+            const container = document.getElementById(containerId);
+            if (container) {
+                container.scrollBy({ left: direction * container.clientWidth * 0.75, behavior: 'smooth' });
+            }
+        }
+
+        // Render cards into a carousel container, with an empty state when no matches
+        function renderCardGrid(gridId, items) {
+            const grid = document.getElementById(gridId);
+            if (!grid) return;
+            if (items.length === 0) {
+                grid.innerHTML = `
+                    <div class="col-span-full w-full border border-dashed border-swiss p-6 text-center font-mono text-xs text-muted">
+                        NO ENTRIES MATCH CURRENT FILTER PARAMETERS [${currentGenre}]
+                    </div>
+                `;
+            } else {
+                grid.innerHTML = items.map((show, idx) => createSwissCard(show, idx)).join('');
+            }
         }
 
         // RENDER GRID CARDS IN SWISS EDITORIAL STYLE
@@ -945,60 +1072,55 @@
         }
 
         function renderAllGrids() {
-            let data = CATALOG_DATA;
+            const data = CATALOG_DATA.filter(matchFilters);
+            renderCardGrid('top-picks-grid', data.slice(0, 5));
+            const cwSlice = data.slice(2, 5);
+            renderCardGrid('continue-watching-grid', cwSlice.length ? cwSlice : data.slice(0, 3));
+            const recSlice = data.slice(4, 8);
+            renderCardGrid('recommended-grid', recSlice.length ? recSlice : data.slice(0, 3));
+        }
 
-            if (currentFilter !== 'all') {
-                data = CATALOG_DATA.filter(item => item.genre === currentFilter);
-            }
-
-            const topPicksGrid = document.getElementById('top-picks-grid');
-            const cwGrid = document.getElementById('continue-watching-grid');
-            const recGrid = document.getElementById('recommended-grid');
-
-            if (topPicksGrid) {
-                topPicksGrid.innerHTML = data.slice(0, 4).map((show, idx) => createSwissCard(show, idx)).join('');
-            }
-            if (cwGrid) {
-                cwGrid.innerHTML = data.slice(2, 5).map((show, idx) => createSwissCard(show, idx)).join('');
-            }
-            if (recGrid) {
-                recGrid.innerHTML = data.slice(4, 8).map((show, idx) => createSwissCard(show, idx)).join('');
-            }
+        // HOME PAGE CAROUSEL ROWS
+        function renderHomeRows() {
+            const data = CATALOG_DATA.filter(matchFilters);
+            renderCardGrid('home-top-picks-grid', data.slice(0, 5));
+            const cwSlice = data.slice(2, 5);
+            renderCardGrid('home-continue-watching-grid', cwSlice.length ? cwSlice : data.slice(0, 3));
+            const recSlice = data.slice(4, 8);
+            renderCardGrid('home-recommended-grid', recSlice.length ? recSlice : data.slice(0, 3));
         }
 
         function renderFilteredSection(type) {
-            const data = CATALOG_DATA.filter(item => item.type === type);
-            const topPicksGrid = document.getElementById('top-picks-grid');
-            const cwGrid = document.getElementById('continue-watching-grid');
-            const recGrid = document.getElementById('recommended-grid');
-
-            if (topPicksGrid) topPicksGrid.innerHTML = data.slice(0, 4).map((s, i) => createSwissCard(s, i)).join('');
-            if (cwGrid) cwGrid.innerHTML = data.slice(1, 4).map((s, i) => createSwissCard(s, i)).join('');
-            if (recGrid) recGrid.innerHTML = data.slice(2, 6).map((s, i) => createSwissCard(s, i)).join('');
+            const data = CATALOG_DATA.filter(item => item.type === type && matchFilters(item));
+            renderCardGrid('top-picks-grid', data.slice(0, 5));
+            const cwSlice = data.slice(1, 5);
+            renderCardGrid('continue-watching-grid', cwSlice.length ? cwSlice : data.slice(0, 3));
+            const recSlice = data.slice(2, 6);
+            renderCardGrid('recommended-grid', recSlice.length ? recSlice : data.slice(0, 3));
         }
 
         function renderMyListSection() {
-            const topPicksGrid = document.getElementById('top-picks-grid');
-            const listData = CATALOG_DATA.filter(item => userMyList.includes(item.id));
+            const listData = CATALOG_DATA.filter(item => userMyList.includes(item.id) && matchFilters(item));
+            const grid = document.getElementById('top-picks-grid');
+            if (!grid) return;
 
-            if (topPicksGrid) {
-                if (listData.length === 0) {
-                    topPicksGrid.innerHTML = `
-                        <div class="col-span-12 border-2 border-dashed border-swiss p-12 text-center font-mono space-y-3">
-                            <p class="text-xl font-bold text-swissred">YOUR ARCHIVE LIST IS CURRENTLY EMPTY.</p>
-                            <p class="text-xs text-muted">CLICK "+ ADD TO LIST" ON ANY SHOW TO STORE IT IN YOUR PERSONAL CATALOG.</p>
-                        </div>
-                    `;
-                } else {
-                    topPicksGrid.innerHTML = listData.map((s, i) => createSwissCard(s, i)).join('');
-                }
+            if (listData.length === 0) {
+                const savedAny = userMyList.length > 0;
+                grid.innerHTML = `
+                    <div class="col-span-full w-full border-2 border-dashed border-swiss p-12 text-center font-mono space-y-3">
+                        <p class="text-xl font-bold text-swissred">${savedAny ? 'NO SAVED ENTRIES MATCH THE CURRENT FILTERS.' : 'YOUR ARCHIVE LIST IS CURRENTLY EMPTY.'}</p>
+                        <p class="text-xs text-muted">CLICK "+ ADD TO LIST" ON ANY SHOW TO STORE IT IN YOUR PERSONAL CATALOG.</p>
+                    </div>
+                `;
+            } else {
+                grid.innerHTML = listData.map((s, i) => createSwissCard(s, i)).join('');
             }
         }
 
         // RENDER NEW & TOP SECTION (featured / recently added entries)
         function renderPopularSection() {
             const topPicksGrid = document.getElementById('top-picks-grid');
-            const popularData = CATALOG_DATA.filter(item => item.isFeatured && (currentFilter === 'all' || item.genre === currentFilter));
+            const popularData = CATALOG_DATA.filter(item => item.isFeatured && matchFilters(item));
 
             if (topPicksGrid) {
                 if (popularData.length === 0) {
@@ -1128,8 +1250,7 @@
                 userMyList.push(id);
             }
             updateMyListCounter();
-            renderAllGrids();
-            if (activeTab === 'mylist') renderMyListSection();
+            renderActiveView();
         }
 
         function toggleMyListCurrent() {
