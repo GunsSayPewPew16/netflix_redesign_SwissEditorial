@@ -109,7 +109,6 @@
         <div class="grid grid-cols-12 text-xs uppercase font-mono tracking-wider border-b border-swiss divide-x divide-swiss">
             <div class="col-span-12 md:col-span-3 p-2 font-bold flex items-center justify-between">
                 <span>VOL. 04 / ISSUE 2026</span>
-                <span class="text-swissred font-bold">● LIVE CATALOG</span>
             </div>
             <div class="hidden md:flex col-span-3 p-2 items-center justify-between">
                 <span>EDITION: SWISS EDITORIAL</span>
@@ -163,6 +162,11 @@
 
     <!-- MAIN CONTENT CONTAINER -->
     <main class="flex-grow flex flex-col">
+        <!-- HOME PAGE — INTENTIONALLY BLANK FOR NOW -->
+        <section id="home-page" class="flex-grow">
+        </section>
+
+        <div id="catalog-view" class="hidden flex-grow flex flex-col">
         <!-- FEATURED HERO SHOW DISPLAY -->
         <section id="hero-section" class="border-b-2 border-swiss bg-cream relative">
             <!-- Dynamic Grid Header Banner -->
@@ -350,6 +354,7 @@
             </div>
 
         </section>
+        </div><!-- /catalog-view -->
     </main>
 
     <!-- DETAIL MODAL OVERLAY (MATCHING IMAGE 2 LAYOUT IN SWISS EDITORIAL STYLE) -->
@@ -811,9 +816,21 @@
                 }
             });
 
+            const homePage = document.getElementById('home-page');
+            const catalogView = document.getElementById('catalog-view');
             const topPicksSection = document.getElementById('section-top-picks');
             const cwSection = document.getElementById('section-continue-watching');
             const recSection = document.getElementById('section-recommended');
+
+            if (tab === 'home') {
+                // HOME is a dedicated page — intentionally blank for now
+                catalogView.style.display = 'none';
+                homePage.style.display = 'block';
+                return;
+            }
+
+            homePage.style.display = 'none';
+            catalogView.style.display = 'flex';
 
             if (tab === 'mylist') {
                 topPicksSection.style.display = 'block';
