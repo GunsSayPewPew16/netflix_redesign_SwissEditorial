@@ -543,14 +543,10 @@
                             <span class="text-xs font-mono font-normal text-muted" id="modal-episodes-count">(8 EPISODES)</span>
                         </h3>
 
-                        <!-- Season Dropdown Switcher -->
-                        <div class="flex items-center gap-2 font-mono text-xs">
+                        <!-- Season Dropdown Switcher (populated dynamically) -->
+                        <div class="flex items-center gap-2 font-mono text-xs" id="season-selector-wrap">
                             <label for="season-select" class="font-bold uppercase">SELECT SEASON:</label>
                             <select id="season-select" onchange="changeSeason(this.value)" class="bg-cream border-2 border-swiss p-2 font-bold uppercase focus:outline-none focus:bg-swissred focus:text-cream transition-swiss cursor-pointer">
-                                <option value="1">SEASON 1</option>
-                                <option value="2">SEASON 2</option>
-                                <option value="3">SEASON 3</option>
-                                <option value="4" selected>SEASON 4</option>
                             </select>
                         </div>
                     </div>
@@ -1142,7 +1138,30 @@
 
         function renderModalEpisodes(show) {
             const container = document.getElementById('episodes-container');
+            const selectorWrap = document.getElementById('season-selector-wrap');
+            const seasonSelect = document.getElementById('season-select');
             if (!container) return;
+
+            // Season-aware data model (seasons_data from series.json)
+            const seasonsData = show.seasons_data || {};
+            const seasonKeys = Object.keys(seasonsData).sort((a, b) => Number(a) - Number(b));
+
+            if (seasonKeys.length > 0) {
+                if (selectorWrap && seasonSelect) {
+                    selectorWrap.classList.remove('hidden');
+                    const prev = seasonSelect.value;
+                    seasonSelect.innerHTML = seasonKeys.map(k =>
+                        `<option value="${k}">SEASON ${k} (${seasonsData[k].length} EPS)</option>`
+                    ).join('');
+                    seasonSelect.value = seasonKeys.includes(prev) ? prev : seasonKeys[0];
+                }
+                renderSeasonEpisodes(show, seasonSelect ? seasonSelect.value : seasonKeys[0]);
+                return;
+            }
+
+            // No season data — hide the selector
+            if (selectorWrap) selectorWrap.classList.add('hidden');
+
             if (!show.episodes || show.episodes.length === 0) {
                 document.getElementById('modal-episodes-count').innerText = '(FEATURE PRESENTATION)';
                 container.innerHTML = `
@@ -1155,10 +1174,27 @@
 
             document.getElementById('modal-episodes-count').innerText = `(${show.episodes.length} EPISODES)`;
 
-            container.innerHTML = show.episodes.map(ep => `
+            container.innerHTML = show.episodes.map(ep => renderEpisodeRow(ep)).join('');
+        }
+
+        function renderSeasonEpisodes(show, seasonKey) {
+            const container = document.getElementById('episodes-container');
+            if (!container) return;
+            const list = (show.seasons_data || {})[String(seasonKey)] || [];
+            const total = show.total_episodes ||
+                Object.values(show.seasons_data || {}).reduce((a, v) => a + v.length, 0);
+
+            document.getElementById('modal-episodes-count').innerText =
+                `SEASON ${seasonKey}: ${list.length} EPISODES — ${total} TOTAL`;
+
+            container.innerHTML = list.map(ep => renderEpisodeRow(ep)).join('');
+        }
+
+        function renderEpisodeRow(ep) {
+            return `
                 <div class="p-4 hover:bg-swissred hover:text-cream transition-swiss group flex flex-col md:flex-row justify-between md:items-center gap-4 cursor-pointer" onclick="playMedia()">
                     <div class="flex items-start gap-4">
-                        <span class="text-xl font-bold text-swissred group-hover:text-cream">${ep.num}</span>
+                        <span class="text-xl font-bold text-swissred group-hover:text-cream shrink-0 w-8">${ep.num}</span>
                         <div>
                             <div class="font-bold uppercase text-sm group-hover:text-cream text-charcoal">${ep.title}</div>
                             <p class="text-xs text-muted group-hover:text-cream/80 max-w-xl mt-1">${ep.desc}</p>
@@ -1169,7 +1205,7 @@
                         <span class="block text-[10px] text-swissred group-hover:text-cream">[ PLAY EPISODE ]</span>
                     </div>
                 </div>
-            `).join('');
+            `;
         }
 
         function closeModal() {
@@ -1178,10 +1214,9 @@
         }
 
         function changeSeason(seasonNum) {
-            // Simulated season switch
             const show = CATALOG_DATA.find(s => s.id === currentShowId);
-            if (show) {
-                renderModalEpisodes(show);
+            if (show && show.seasons_data) {
+                renderSeasonEpisodes(show, seasonNum);
             }
         }
 
