@@ -89,13 +89,22 @@
         }
 
         /* Fixed-height hero: synopsis always occupies six lines, so shorter
-           blurbs don't shrink the section and longer ones never grow it */
+           blurbs don't shrink the section and longer ones never grow it.
+           The cast value sits in a flex row (so -webkit-line-clamp is
+           unavailable there) — a nowrap ellipsis keeps it to one line. */
         #hero-description {
             display: -webkit-box;
             -webkit-line-clamp: 6;
             -webkit-box-orient: vertical;
             overflow: hidden;
             min-height: calc(6 * 1.625em);
+        }
+
+        #hero-cast {
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            min-width: 0;
         }
 
         .giant-header {
@@ -255,16 +264,16 @@
 
                     <!-- Technical Specs Grid -->
                     <div class="border-t border-b border-swiss py-4 my-4 space-y-2 text-xs font-mono">
-                        <div class="flex justify-between">
-                            <span class="text-muted">CREATOR / CAST:</span>
+                        <div class="flex justify-between items-baseline gap-3">
+                            <span class="text-muted shrink-0">CREATOR / CAST:</span>
                             <span id="hero-cast" class="font-bold text-right text-charcoal">Michael C. Hall, J. Carpenter</span>
                         </div>
-                        <div class="flex justify-between">
-                            <span class="text-muted">DURATION / SEASONS:</span>
+                        <div class="flex justify-between items-baseline gap-3">
+                            <span class="text-muted shrink-0">DURATION / SEASONS:</span>
                             <span id="hero-duration" class="font-bold text-right text-charcoal">8 SEASONS (96 EPS)</span>
                         </div>
-                        <div class="flex justify-between">
-                            <span class="text-muted">TONE & STYLE:</span>
+                        <div class="flex justify-between items-baseline gap-3">
+                            <span class="text-muted shrink-0">TONE &amp; STYLE:</span>
                             <span id="hero-tone" class="font-bold text-right text-swissred">OMINOUS / DARK / INTENSE</span>
                         </div>
                     </div>
@@ -734,6 +743,7 @@
                 catalogView.style.display = 'none';
                 homePage.style.display = 'block';
                 renderHomeRows();
+                requestAnimationFrame(fitHeroTitle); // hero is visible now — fit for real
                 return;
             }
 
@@ -770,6 +780,7 @@
                 pageEmpty.style.display = 'none';
                 renderAllGrids();
             }
+            requestAnimationFrame(fitHeroTitle); // hero is visible now — fit for real
         }
 
         // SEARCH & GENRE FILTERING LOGIC
@@ -1024,6 +1035,11 @@
             movies: () => SHUFFLED_BY_TYPE.movies
         };
 
+        // Titles longer than this never render in the giant hero slot — they'd
+        // shrink to unreadable sizes. The hero shows the entry's ID code instead
+        // (the full name stays in the issue-reference line).
+        const HERO_TITLE_MAX_CHARS = 36;
+
         function setFeaturedForTab(tab) {
             const poolFn = FEATURED_POOLS[tab];
             if (!poolFn) return; // games/mylist/popular keep the current selection
@@ -1047,13 +1063,20 @@
             el.style.fontSize = '';            // reset to the CSS clamp baseline
             const box = el.parentElement;      // the banner wrapper spans the full column
             const available = box.clientWidth;
-            if (!available) return;
+            if (!available) {                  // hero hidden right now (e.g. mid tab-switch):
+                requestAnimationFrame(fitHeroTitle); // re-measure once it's visible
+                return;
+            }
             const baseSize = parseFloat(window.getComputedStyle(el).fontSize);
             box.style.height = Math.ceil(baseSize * 0.82 * 3) + 'px'; // reserved 3-line block
-            const maxThreeLines = baseSize * 0.82 * 3;
             let size = baseSize;
             let guard = 0;
-            const overflows = () => el.scrollHeight > maxThreeLines + 1 || el.scrollWidth > available + 1;
+            // Overflow = more than 3 lines AT THE CURRENT SIZE, or a line wider
+            // than the column. The budget must scale with the trial size — using
+            // the baseline budget let 3.2-line renders stop shrinking and clip.
+            const overflows = () =>
+                el.scrollHeight > Math.ceil(size * 0.82 * 3) + 1 ||
+                el.scrollWidth > available + 1;
             while (overflows() && size > 12 && guard++ < 80) {
                 size *= 0.92;
                 el.style.fontSize = Math.floor(size) + 'px';
@@ -1081,8 +1104,10 @@
             document.getElementById('hero-cast').innerText = show.cast;
             document.getElementById('hero-duration').innerText = show.duration;
             document.getElementById('hero-tone').innerText = show.characteristics.toUpperCase();
-            document.getElementById('hero-giant-title').innerText = show.title;
-            document.getElementById('hero-watermark').innerText = show.title;
+            // Very long titles never render as the giant text — show the archive ID instead
+            const giantText = show.title.length > HERO_TITLE_MAX_CHARS ? show.id : show.title;
+            document.getElementById('hero-giant-title').innerText = giantText;
+            document.getElementById('hero-watermark').innerText = giantText;
             document.getElementById('hero-selection-code').innerText = `SHOW ID: ${show.id}`;
             document.getElementById('hero-quote').innerText = show.heroQuote || "CRITICALLY ACCLAIMED SELECTION";
             const issueRef = document.getElementById('hero-issue-ref');
