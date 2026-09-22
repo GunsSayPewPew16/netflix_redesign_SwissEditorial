@@ -940,9 +940,9 @@
 
         // Simulated in-progress sessions (percent + label shown on the card)
         const CONTINUE_WATCHING = [
-            { id: 'KB-183', progressPercent: '34%', progressText: 'S3:E6' },
-            { id: 'DE-131', progressPercent: '62%', progressText: 'S5:E3' },
-            { id: 'BC-184', progressPercent: '58%', progressText: 'S4:E6' },
+            { id: 'KB-183', progressPercent: '34%', progressText: 'S3:E6', season: 3, episode: 6 },
+            { id: 'DE-131', progressPercent: '62%', progressText: 'S5:E3', season: 5, episode: 3 },
+            { id: 'BC-184', progressPercent: '58%', progressText: 'S4:E6', season: 4, episode: 6 },
             { id: 'AS-090', progressPercent: '41%', progressText: '49M LEFT' },
             { id: 'DU-058', progressPercent: '76%', progressText: '38M LEFT' },
         ];
@@ -1191,14 +1191,12 @@
             document.getElementById('modal-year').innerText = show.year;
             document.getElementById('modal-seasons-count').innerText = show.seasons;
             document.getElementById('modal-rating').innerText = show.rating;
-            document.getElementById('modal-current-episode-title').innerText = show.subheading;
-            document.getElementById('modal-description').innerText = show.description;
             document.getElementById('modal-advisory').innerText = show.advisory;
             document.getElementById('modal-cast-full').innerText = show.cast;
             document.getElementById('modal-genres-full').innerText = show.genresFull;
             document.getElementById('modal-characteristics').innerText = show.characteristics;
 
-            // Play button + progress: Continue Watching titles RESUME where they
+            // Play button + progress: Continue Watching titles
             // left off; everything else says START WATCHING and hides the progress row.
             const cw = CONTINUE_WATCHING.find(c => c.id === show.id);
             const progressRow = document.getElementById('modal-progress-container');
@@ -1207,6 +1205,19 @@
             if (playLabel) playLabel.innerText = cw ? `RESUME ${cw.progressText}` : 'START WATCHING';
             document.getElementById('modal-progress-fill').style.width = cw ? cw.progressPercent : '0%';
             document.getElementById('modal-progress-text').innerText = cw ? cw.progressText : '—';
+
+            // Synopsis: for in-progress titles, show the episode being watched;
+            // otherwise the title synopsis. The episode block header mirrors it.
+            const epTitle = document.getElementById('modal-current-episode-title');
+            const descEl = document.getElementById('modal-description');
+            const epSynopsis = cw ? currentEpisodeSynopsis(show, cw.progressText) : null;
+            if (epSynopsis) {
+                epTitle.innerText = `${cw.progressText} — IN PROGRESS`;
+                descEl.innerText = epSynopsis;
+            } else {
+                epTitle.innerText = show.subheading;
+                descEl.innerText = show.description;
+            }
 
             // Render Episodes List
             renderModalEpisodes(show);
@@ -1222,11 +1233,23 @@
             document.body.style.overflow = 'hidden';
         }
 
+        // Look up the synopsis of the episode a Continue Watching session is on,
+        // from a progressText label like "S3:E6". Falls back to null for movies
+        // or labels that don't name an episode (e.g. "47M LEFT").
+        function currentEpisodeSynopsis(show, progressText) {
+            const m = /S(\d+):E(\d+)/.exec(progressText || '');
+            if (!m || !show.seasons_data) return null;
+            const eps = (show.seasons_data[m[1]] || []);
+            const ep = eps.find(e => e.num === Number(m[2]));
+            return ep ? ep.desc : null;
+        }
+
         function renderModalEpisodes(show) {
             const container = document.getElementById('episodes-container');
             const selectorWrap = document.getElementById('season-selector-wrap');
             const seasonSelect = document.getElementById('season-select');
             if (!container) return;
+            const cw = CONTINUE_WATCHING.find(c => c.id === show.id);
 
             // Season-aware data model (seasons_data from series.json)
             const seasonsData = show.seasons_data || {};
@@ -1239,9 +1262,10 @@
                     seasonSelect.innerHTML = seasonKeys.map(k =>
                         `<option value="${k}">SEASON ${k} (${seasonsData[k].length} EPS)</option>`
                     ).join('');
-                    seasonSelect.value = seasonKeys.includes(prev) ? prev : seasonKeys[0];
+                    seasonSelect.value = cw ? String(cw.season) : (seasonKeys.includes(prev) ? prev : seasonKeys[0]);
                 }
-                renderSeasonEpisodes(show, seasonSelect ? seasonSelect.value : seasonKeys[0]);
+                // Open on the in-progress season when there is one, else S1/last-viewed
+                renderSeasonEpisodes(show, seasonSelect ? seasonSelect.value : (cw ? String(cw.season) : seasonKeys[0]));
                 return;
             }
 
