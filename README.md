@@ -6,8 +6,9 @@ Single-page static site: `index.html` (HTML + Tailwind CDN + vanilla JS, no buil
 
 ## Features
 
-- 110-title catalog scraped from Netflix-official top-10 charts, cross-country JustWatch popularity charts, and Wikipedia Netflix-original lists — ranked by popularity
-- **Home**: Today's Top Picks (10) + Top Series (10) + Top Cinema (10) carousels
+- 203-title catalog (89 movies + 114 series) — Netflix-official top-10 charts, cross-country JustWatch popularity charts, and Wikipedia Netflix-original lists, plus a curated expansion of 40 anime (action, comedy, slice-of-life, romcom, fantasy, sports…) and 50+ landmark live-action series
+- **Full season/episode data with per-episode synopses** for 112 of 114 series (TVmaze): 449 seasons, 7,600+ episodes
+- **Home**: Continue Watching, Your List, Your Next Watch, US TV Dramas & Sitcoms, Old Gems, and Award-Winning Titles carousels
 - **Shows / Movies**: a Top 10 row plus one genre-wise carousel per genre (Action / Drama / Comedy / Crime / Anime) in the same format
 - Live **search** (title / cast / genre) and quick-genre filters across every page
 - Editorial **hero section** with giant typographic title, quote badge, and technical spec grid
