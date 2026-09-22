@@ -175,7 +175,7 @@
             </div>
 
             <!-- Navigation Links -->
-            <nav class="col-span-12 lg:col-span-8 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 divide-x divide-y sm:divide-y-0 divide-swiss text-xs font-bold uppercase tracking-tight">
+            <nav class="col-span-12 lg:col-span-8 grid grid-cols-2 sm:grid-cols-4 divide-x divide-y sm:divide-y-0 divide-swiss text-xs font-bold uppercase tracking-tight">
                 <button onclick="switchTab('home')" id="nav-home" class="p-3 text-left bg-swissred text-cream transition-swiss flex flex-col justify-between group">
                     <span class="text-[9px] font-mono opacity-60">01 / INDEX</span>
                     <span class="text-sm font-black mt-2">HOME</span>
@@ -191,14 +191,6 @@
                 <button onclick="switchTab('games')" id="nav-games" class="p-3 text-left hover:bg-swissred hover:text-cream transition-swiss flex flex-col justify-between group">
                     <span class="text-[9px] font-mono opacity-60">04 / INTERACTIVE</span>
                     <span class="text-sm font-black mt-2">GAMES</span>
-                </button>
-                <button onclick="switchTab('popular')" id="nav-popular" class="p-3 text-left hover:bg-swissred hover:text-cream transition-swiss flex flex-col justify-between group">
-                    <span class="text-[9px] font-mono opacity-60">05 / POPULAR</span>
-                    <span class="text-sm font-black mt-2">NEW & TOP</span>
-                </button>
-                <button onclick="switchTab('mylist')" id="nav-mylist" class="p-3 text-left hover:bg-swissred hover:text-cream transition-swiss flex flex-col justify-between group">
-                    <span class="text-[9px] font-mono opacity-60">06 / SAVED</span>
-                    <span class="text-sm font-black mt-2">MY LIST</span>
                 </button>
             </nav>
         </div>
@@ -280,7 +272,8 @@
                     <div class="grid grid-cols-2 gap-3 pt-2 font-mono text-xs uppercase font-bold">
                         <button onclick="playMedia()" class="col-span-2 bg-swissred text-cream border-2 border-swiss p-4 hover:bg-charcoal hover:text-cream transition-swiss flex items-center justify-center gap-3 group text-base tracking-wider">
                             <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
-                            <span>RESUME PLAYBACK</span>
+                            <span id="hero-play-label">RESUME PLAYBACK</span>
+                            <span id="hero-play-sublabel" class="text-[10px] opacity-70 font-mono"></span>
                         </button>
                         <button onclick="openModal()" class="bg-cream border border-swiss p-3 hover:bg-charcoal hover:text-cream transition-swiss text-center">
                             [+] MORE INFO
@@ -454,24 +447,6 @@
         <div id="catalog-view" class="hidden flex-grow flex flex-col">
         <!-- CATALOGUE RAILS CONTAINER -->
         <section class="p-6 md:p-10 space-y-12 flex-grow">
-            
-            <!-- SECTION 1: TODAY'S TOP PICKS -->
-            <div id="section-top-picks" class="space-y-4">
-                <div class="flex items-end justify-between border-b-2 border-swiss pb-2">
-                    <div>
-                        <span class="text-xs font-mono text-swissred font-bold uppercase tracking-widest block">FIG 01.0 — PERSONALIZED SELECTION</span>
-                        <h2 class="text-2xl md:text-4xl font-black uppercase tracking-tight text-charcoal">TODAY'S TOP PICKS FOR YOU</h2>
-                    </div>
-                    <div class="flex items-center gap-2 font-mono text-xs">
-                        <button onclick="scrollRow('top-picks-grid', -1)" class="border border-swiss px-3 py-1 font-bold hover:bg-swissred hover:text-cream transition-swiss">[ ← PREV ]</button>
-                        <button onclick="scrollRow('top-picks-grid', 1)" class="border border-swiss px-3 py-1 font-bold hover:bg-swissred hover:text-cream transition-swiss">[ NEXT → ]</button>
-                    </div>
-                </div>
-
-                <div id="top-picks-grid" class="grid grid-flow-col auto-cols-[85%] sm:auto-cols-[45%] md:auto-cols-[30%] lg:auto-cols-[22%] gap-4 overflow-x-auto no-scrollbar scroll-smooth py-2">
-                    <!-- Cards dynamically injected via JS -->
-                </div>
-            </div>
 
             <!-- GENRE-WISE CAROUSEL ROWS (per page) -->
             <div id="genre-rows-container">
@@ -528,14 +503,14 @@
                         </div>
                     </div>
 
-                    <!-- Progress Indicator Bar -->
-                    <div class="mt-4 border border-swiss bg-cream-light p-2 font-mono text-xs flex items-center justify-between gap-4">
-                        <span class="font-bold">RESUME PROGRESS:</span>
-                        <div class="flex-grow bg-cream-dark h-3 border border-swiss relative">
-                            <div id="modal-progress-fill" class="bg-swissred h-full w-[70%]"></div>
+                        <!-- Resume Progress Bar (Continue Watching only — hidden otherwise) -->
+                        <div id="modal-progress-container" class="mt-4 border border-swiss bg-cream-light p-2 font-mono text-xs flex items-center justify-between gap-4">
+                            <span class="font-bold">RESUME PROGRESS:</span>
+                            <div class="flex-grow bg-cream-dark h-3 border border-swiss relative">
+                                <div id="modal-progress-fill" class="bg-swissred h-full w-[70%]"></div>
+                            </div>
+                            <span id="modal-progress-text" class="font-bold text-swissred">44 of 54m</span>
                         </div>
-                        <span id="modal-progress-text" class="font-bold text-swissred">44 of 54m</span>
-                    </div>
                 </div>
 
                 <!-- Primary Info Grid (Description + Metadata) -->
@@ -546,7 +521,7 @@
                         <div class="flex flex-wrap gap-3 font-mono text-xs font-bold">
                             <button onclick="playMedia()" class="bg-swissred text-cream border-2 border-swiss px-6 py-3 hover:bg-charcoal transition-swiss flex items-center gap-2">
                                 <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
-                                <span>RESUME S4:E8</span>
+                                <span id="modal-play-btn-label">RESUME S4:E8</span>
                             </button>
                             <button id="modal-list-btn" onclick="toggleMyListModal()" class="bg-cream border border-swiss px-4 py-3 hover:bg-swissred hover:text-cream transition-swiss">
                                 + MY LIST
@@ -696,7 +671,7 @@
                 <div><a href="#" onclick="switchTab('home')" class="hover:underline">01 INDEX / HOME</a></div>
                 <div><a href="#" onclick="switchTab('shows')" class="hover:underline">02 SERIES CATALOG</a></div>
                 <div><a href="#" onclick="switchTab('movies')" class="hover:underline">03 CINEMA CATALOG</a></div>
-                <div><a href="#" onclick="switchTab('mylist')" class="hover:underline">04 USER ARCHIVE</a></div>
+                <div><a href="#" onclick="switchTab('games')" class="hover:underline">04 GAMES</a></div>
             </div>
         </div>
         <div class="flex flex-col sm:flex-row justify-between items-center gap-2 text-[10px] text-muted uppercase">
@@ -739,7 +714,7 @@
                 await loadCatalog();
             } catch (err) {
                 console.error(err);
-                document.querySelectorAll('#home-cw-grid, #top-picks-grid').forEach(g => {
+                document.querySelectorAll('#home-cw-grid').forEach(g => {
                     if (g) g.innerHTML = `
                         <div class="col-span-full w-full border-2 border-dashed border-swiss p-12 text-center font-mono space-y-2">
                             <p class="text-xl font-bold text-swissred">CATALOG FEED OFFLINE.</p>
@@ -766,7 +741,7 @@
             setFeaturedForTab(tab);
             
             // Update active states on nav buttons
-            ['home', 'shows', 'movies', 'games', 'popular', 'mylist'].forEach(t => {
+            ['home', 'shows', 'movies', 'games'].forEach(t => {
                 const btn = document.getElementById(`nav-${t}`);
                 if (btn) {
                     if (t === tab) {
@@ -779,7 +754,6 @@
 
             const homePage = document.getElementById('home-page');
             const catalogView = document.getElementById('catalog-view');
-            const topPicksSection = document.getElementById('section-top-picks');
             const genreRows = document.getElementById('genre-rows-container');
             const pageEmpty = document.getElementById('page-empty-state');
             const gamesPage = document.getElementById('games-page');
@@ -799,18 +773,11 @@
             homePage.style.display = 'none';
             catalogView.style.display = 'flex';
 
-            if (tab === 'mylist') {
-                topPicksSection.style.display = 'block';
-                genreRows.style.display = 'none';
-                pageEmpty.style.display = 'none';
-                renderMyListSection();
-            } else if (tab === 'shows') {
-                topPicksSection.style.display = 'none';
+            if (tab === 'shows') {
                 genreRows.style.display = 'block';
                 pageEmpty.style.display = 'none';
                 renderFilteredSection('shows');
             } else if (tab === 'movies') {
-                topPicksSection.style.display = 'none';
                 genreRows.style.display = 'block';
                 pageEmpty.style.display = 'none';
                 renderFilteredSection('movies');
@@ -818,13 +785,7 @@
                 // GAMES catalog — dedicated placeholder page for now
                 catalogView.style.display = 'none';
                 if (gamesPage) gamesPage.style.display = 'block';
-            } else if (tab === 'popular') {
-                topPicksSection.style.display = 'block';
-                genreRows.style.display = 'none';
-                pageEmpty.style.display = 'none';
-                renderPopularSection();
             } else {
-                topPicksSection.style.display = 'block';
                 genreRows.style.display = 'block';
                 pageEmpty.style.display = 'none';
                 renderAllGrids();
@@ -872,8 +833,6 @@
         // Re-render whichever view is currently active
         function renderActiveView() {
             if (activeTab === 'home') renderHomeRows();
-            else if (activeTab === 'mylist') renderMyListSection();
-            else if (activeTab === 'popular') renderPopularSection();
             else if (activeTab === 'shows') renderFilteredSection('shows');
             else if (activeTab === 'movies') renderFilteredSection('movies');
             else renderAllGrids();
@@ -977,8 +936,6 @@
         function renderAllGrids() {
             renderHomeRows();
         }
-
-        // HOME PAGE CAROUSEL ROWS — six editorial rows
         const USER_NAME = 'PRIYANSH';
 
         // Simulated in-progress sessions (percent + label shown on the card)
@@ -1105,45 +1062,8 @@
             if (empty) empty.style.display = anyRendered ? 'none' : 'block';
         }
 
-        function renderMyListSection() {
-            const listData = CATALOG_DATA.filter(item => userMyList.includes(item.id) && matchFilters(item));
-            const grid = document.getElementById('top-picks-grid');
-            if (!grid) return;
-
-            if (listData.length === 0) {
-                const savedAny = userMyList.length > 0;
-                grid.innerHTML = `
-                    <div class="col-span-full w-full border-2 border-dashed border-swiss p-12 text-center font-mono space-y-3">
-                        <p class="text-xl font-bold text-swissred">${savedAny ? 'NO SAVED ENTRIES MATCH THE CURRENT FILTERS.' : 'YOUR ARCHIVE LIST IS CURRENTLY EMPTY.'}</p>
-                        <p class="text-xs text-muted">CLICK "+ ADD TO LIST" ON ANY SHOW TO STORE IT IN YOUR PERSONAL CATALOG.</p>
-                    </div>
-                `;
-            } else {
-                grid.innerHTML = listData.map((s, i) => createSwissCard(s, i)).join('');
-            }
-        }
-
-        // RENDER NEW & TOP SECTION (featured / recently added entries)
-        function renderPopularSection() {
-            const topPicksGrid = document.getElementById('top-picks-grid');
-            const popularData = CATALOG_DATA.filter(item => item.isFeatured && matchFilters(item));
-
-            if (topPicksGrid) {
-                if (popularData.length === 0) {
-                    topPicksGrid.innerHTML = `
-                        <div class="col-span-12 border-2 border-dashed border-swiss p-12 text-center font-mono space-y-3">
-                            <p class="text-xl font-bold text-swissred">NO NEW & TOP ENTRIES IN THIS FILTER.</p>
-                            <p class="text-xs text-muted">CLEAR THE GENRE FILTER TO SEE THE FULL FEATURED SELECTION.</p>
-                        </div>
-                    `;
-                } else {
-                    topPicksGrid.innerHTML = popularData.map((s, i) => createSwissCard(s, i)).join('');
-                }
-            }
-        }
-
         // FEATURED TITLE — each content page gets its own random featured entry,
-        // drawn from that page's context (home: today's top picks, shows/movies: their pool).
+        // drawn from that page's context (home: the personalized rows, shows/movies: their pool).
         const FEATURED_POOLS = {
             // home: drawn from the personalized rows (continue watching + list + next watch)
             home: () => {
@@ -1231,6 +1151,14 @@
             document.getElementById('hero-cast').innerText = show.cast;
             document.getElementById('hero-duration').innerText = show.duration;
             document.getElementById('hero-tone').innerText = show.characteristics.toUpperCase();
+
+            // Hero play button mirrors the modal logic: Continue Watching titles
+            // show where they left off, everything else says START WATCHING.
+            const cw = CONTINUE_WATCHING.find(c => c.id === show.id);
+            const heroLabel = document.getElementById('hero-play-label');
+            const heroSub = document.getElementById('hero-play-sublabel');
+            if (heroLabel) heroLabel.innerText = cw ? 'RESUME PLAYBACK' : 'START WATCHING';
+            if (heroSub) heroSub.innerText = cw ? `— ${cw.progressText}` : '';
             document.getElementById('hero-giant-title').innerText = show.title;
             document.getElementById('hero-watermark').innerText = show.title;
             document.getElementById('hero-selection-code').innerText = `SHOW ID: ${show.id}`;
@@ -1263,14 +1191,22 @@
             document.getElementById('modal-year').innerText = show.year;
             document.getElementById('modal-seasons-count').innerText = show.seasons;
             document.getElementById('modal-rating').innerText = show.rating;
-            document.getElementById('modal-progress-fill').style.width = show.progressPercent || '50%';
-            document.getElementById('modal-progress-text').innerText = show.progressText || '30 of 60m';
             document.getElementById('modal-current-episode-title').innerText = show.subheading;
             document.getElementById('modal-description').innerText = show.description;
             document.getElementById('modal-advisory').innerText = show.advisory;
             document.getElementById('modal-cast-full').innerText = show.cast;
             document.getElementById('modal-genres-full').innerText = show.genresFull;
             document.getElementById('modal-characteristics').innerText = show.characteristics;
+
+            // Play button + progress: Continue Watching titles RESUME where they
+            // left off; everything else says START WATCHING and hides the progress row.
+            const cw = CONTINUE_WATCHING.find(c => c.id === show.id);
+            const progressRow = document.getElementById('modal-progress-container');
+            if (progressRow) progressRow.style.display = cw ? 'flex' : 'none';
+            const playLabel = document.getElementById('modal-play-btn-label');
+            if (playLabel) playLabel.innerText = cw ? `RESUME ${cw.progressText}` : 'START WATCHING';
+            document.getElementById('modal-progress-fill').style.width = cw ? cw.progressPercent : '0%';
+            document.getElementById('modal-progress-text').innerText = cw ? cw.progressText : '—';
 
             // Render Episodes List
             renderModalEpisodes(show);
