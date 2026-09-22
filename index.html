@@ -221,17 +221,13 @@
         <section id="hero-section" class="border-b-2 border-swiss bg-cream relative">
             <!-- Dynamic Grid Header Banner -->
             <div class="grid grid-cols-12 border-b border-swiss text-xs font-mono uppercase divide-x divide-swiss bg-cream-light">
-                <div class="col-span-6 md:col-span-3 p-2 font-bold text-swissred flex items-center gap-2">
-                    <span class="inline-block w-2 h-2 bg-swissred animate-pulse"></span>
-                    FEATURED ENTRY NO. <span id="hero-id-display">01</span>
-                </div>
-                <div class="col-span-6 md:col-span-3 p-2" id="hero-genre-tag">
+                <div class="col-span-6 md:col-span-4 p-2" id="hero-genre-tag">
                     GENRE: TV DRAMA / CRIME
                 </div>
-                <div class="hidden md:block col-span-3 p-2" id="hero-year-tag">
+                <div class="col-span-6 md:col-span-4 p-2" id="hero-year-tag">
                     RELEASE YEAR: 2013
                 </div>
-                <div class="hidden md:block col-span-3 p-2 text-right font-bold" id="hero-rating-tag">
+                <div class="hidden md:block col-span-4 p-2 text-right font-bold" id="hero-rating-tag">
                     MATURITY: RATED A / 18+
                 </div>
             </div>
@@ -1163,7 +1159,6 @@
         }
 
         function updateHeroDisplay(show) {
-            document.getElementById('hero-id-display').innerText = show.code;
             document.getElementById('hero-genre-tag').innerText = `GENRE: ${show.genreLabel}`;
             document.getElementById('hero-year-tag').innerText = `RELEASE YEAR: ${show.year}`;
             document.getElementById('hero-rating-tag').innerText = `MATURITY: ${show.rating}`;
