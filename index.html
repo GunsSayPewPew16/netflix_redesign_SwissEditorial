@@ -197,9 +197,11 @@
 
         <!-- Interactive Search & Live Filter Bar -->
         <div class="border-t border-swiss bg-cream-light p-3 font-mono text-xs uppercase grid grid-cols-12 gap-3 items-center">
-            <div class="col-span-12 md:col-span-5 flex items-center gap-2 border border-swiss bg-cream p-2">
-                <span class="text-swissred font-bold">SEARCH:</span>
-                <input type="text" id="search-input" onkeyup="handleSearch()" placeholder="TYPE TITLE, ACTOR, OR GENRE..." class="bg-transparent w-full focus:outline-none text-charcoal font-bold uppercase placeholder:text-muted/60">
+            <div class="col-span-12 md:col-span-5">
+                <button onclick="openSearchPage()" class="w-full flex items-center gap-2 border border-swiss bg-cream p-2 text-left hover:bg-cream-dark transition-swiss">
+                    <span class="text-swissred font-bold">SEARCH:</span>
+                    <span class="text-muted/70 font-bold">TYPE TITLE, ACTOR, OR GENRE...</span>
+                </button>
             </div>
             <div class="col-span-12 md:col-span-7 flex flex-wrap items-center justify-start md:justify-end gap-2 text-[11px]">
                 <span class="text-muted font-bold mr-1">QUICK GENRES:</span>
@@ -466,6 +468,14 @@
             <div class="border-2 border-dashed border-swiss p-12 text-center font-mono space-y-3">
                 <p class="text-xl font-bold text-swissred">GAMES CATALOG — COMING SOON.</p>
                 <p class="text-xs text-muted">THE INTERACTIVE TITLES GRID WILL BE TYPESET HERE IN A SUBSEQUENT EDITION.</p>
+            </div>
+        </div>
+
+        <!-- SEARCH PAGE — blank placeholder, content to follow -->
+        <div id="search-page" style="display:none;">
+            <div class="border-2 border-dashed border-swiss p-12 text-center font-mono space-y-3">
+                <p class="text-xl font-bold text-swissred">ARCHIVE SEARCH — COMING SOON.</p>
+                <p class="text-xs text-muted">THE SEARCH APPARATUS WILL BE TYPESET HERE IN A SUBSEQUENT EDITION.</p>
             </div>
         </div>
 
@@ -757,9 +767,11 @@
             const genreRows = document.getElementById('genre-rows-container');
             const pageEmpty = document.getElementById('page-empty-state');
             const gamesPage = document.getElementById('games-page');
+            const searchPage = document.getElementById('search-page');
             if (gamesPage) gamesPage.style.display = 'none';
+            if (searchPage) searchPage.style.display = 'none';
             const heroSection = document.getElementById('hero-section');
-            if (heroSection) heroSection.style.display = (tab === 'games') ? 'none' : 'block';
+            if (heroSection) heroSection.style.display = (tab === 'games' || tab === 'search') ? 'none' : 'block';
 
             if (tab === 'home') {
                 // HOME is a dedicated page with its own carousel rows
@@ -785,6 +797,10 @@
                 // GAMES catalog — dedicated placeholder page for now
                 catalogView.style.display = 'none';
                 if (gamesPage) gamesPage.style.display = 'block';
+            } else if (tab === 'search') {
+                // SEARCH — dedicated blank page, content to be added
+                catalogView.style.display = 'none';
+                if (searchPage) searchPage.style.display = 'block';
             } else {
                 genreRows.style.display = 'block';
                 pageEmpty.style.display = 'none';
@@ -795,8 +811,13 @@
 
         // SEARCH & GENRE FILTERING LOGIC
         function handleSearch() {
-            searchQuery = document.getElementById('search-input').value;
+            searchQuery = document.getElementById('search-input') ? document.getElementById('search-input').value : '';
             renderActiveView();
+        }
+
+        // Open the dedicated SEARCH page (currently a blank placeholder)
+        function openSearchPage() {
+            switchTab('search');
         }
 
         function filterByGenre(genre) {
