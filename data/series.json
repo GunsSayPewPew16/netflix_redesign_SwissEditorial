@@ -184,7 +184,9 @@
       ]
     },
     "total_seasons": 3,
-    "total_episodes": 22
+    "total_episodes": 22,
+    "awards": true,
+    "country": "KR"
   },
   {
     "id": "WE-003",
@@ -327,7 +329,9 @@
       ]
     },
     "total_seasons": 2,
-    "total_episodes": 16
+    "total_episodes": 16,
+    "awards": true,
+    "country": "US"
   },
   {
     "id": "AD-012",
@@ -384,7 +388,9 @@
       ]
     },
     "total_seasons": 1,
-    "total_episodes": 4
+    "total_episodes": 4,
+    "awards": true,
+    "country": "GB"
   },
   {
     "id": "ST-013",
@@ -715,7 +721,9 @@
       ]
     },
     "total_seasons": 5,
-    "total_episodes": 42
+    "total_episodes": 42,
+    "awards": true,
+    "country": "US"
   },
   {
     "id": "MO-015",
@@ -814,7 +822,9 @@
       ]
     },
     "total_seasons": 1,
-    "total_episodes": 10
+    "total_episodes": 10,
+    "awards": false,
+    "country": "US"
   },
   {
     "id": "BR-016",
@@ -1073,7 +1083,9 @@
       ]
     },
     "total_seasons": 4,
-    "total_episodes": 32
+    "total_episodes": 32,
+    "awards": false,
+    "country": "US"
   },
   {
     "id": "TH-026",
@@ -1216,7 +1228,9 @@
       ]
     },
     "total_seasons": 2,
-    "total_episodes": 16
+    "total_episodes": 16,
+    "awards": false,
+    "country": "US"
   },
   {
     "id": "MO-028",
@@ -1301,7 +1315,9 @@
       ]
     },
     "total_seasons": 1,
-    "total_episodes": 8
+    "total_episodes": 8,
+    "awards": false,
+    "country": "US"
   },
   {
     "id": "CR-032",
@@ -1386,7 +1402,9 @@
       ]
     },
     "total_seasons": 1,
-    "total_episodes": 8
+    "total_episodes": 8,
+    "awards": false,
+    "country": "US"
   },
   {
     "id": "BL-034",
@@ -1975,7 +1993,9 @@
       ]
     },
     "total_seasons": 1,
-    "total_episodes": 80
+    "total_episodes": 80,
+    "awards": false,
+    "country": "TR"
   },
   {
     "id": "TH-035",
@@ -1984,7 +2004,7 @@
     "type": "shows",
     "genre": "action",
     "genreLabel": "ACTION / THRILLER",
-    "year": "—",
+    "year": "2026",
     "seasons": "TV SERIES",
     "rating": "U/A 16+",
     "subheading": "CHARTED IN 2 COUNTRIES",
@@ -1998,7 +2018,9 @@
     "progressText": "—",
     "isFeatured": false,
     "episodes": [],
-    "rank": 11
+    "rank": 11,
+    "awards": false,
+    "country": "ES"
   },
   {
     "id": "TH-039",
@@ -3096,7 +3118,9 @@
       ]
     },
     "total_seasons": 7,
-    "total_episodes": 151
+    "total_episodes": 151,
+    "awards": false,
+    "country": "US"
   },
   {
     "id": "TH-040",
@@ -3181,7 +3205,9 @@
       ]
     },
     "total_seasons": 1,
-    "total_episodes": 8
+    "total_episodes": 8,
+    "awards": false,
+    "country": "US"
   },
   {
     "id": "IN-050",
@@ -3345,7 +3371,9 @@
       ]
     },
     "total_seasons": 2,
-    "total_episodes": 19
+    "total_episodes": 19,
+    "awards": false,
+    "country": "IN"
   },
   {
     "id": "AL-054",
@@ -4406,7 +4434,9 @@
       ]
     },
     "total_seasons": 13,
-    "total_episodes": 144
+    "total_episodes": 144,
+    "awards": false,
+    "country": "US"
   },
   {
     "id": "CH-056",
@@ -4491,7 +4521,9 @@
       ]
     },
     "total_seasons": 1,
-    "total_episodes": 8
+    "total_episodes": 8,
+    "awards": false,
+    "country": "IN"
   },
   {
     "id": "SM-057",
@@ -4604,7 +4636,9 @@
       ]
     },
     "total_seasons": 1,
-    "total_episodes": 12
+    "total_episodes": 12,
+    "awards": false,
+    "country": "JP"
   },
   {
     "id": "TH-059",
@@ -4613,7 +4647,7 @@
     "type": "shows",
     "genre": "drama",
     "genreLabel": "PRESTIGE / DRAMA",
-    "year": "—",
+    "year": "2026",
     "seasons": "TV SERIES",
     "rating": "U/A 13+",
     "subheading": "POPULAR THIS WEEK",
@@ -4627,7 +4661,9 @@
     "progressText": "—",
     "isFeatured": false,
     "episodes": [],
-    "rank": 18
+    "rank": 18,
+    "awards": false,
+    "country": "PL"
   },
   {
     "id": "NO-063",
@@ -4770,7 +4806,9 @@
       ]
     },
     "total_seasons": 2,
-    "total_episodes": 16
+    "total_episodes": 16,
+    "awards": false,
+    "country": "CA"
   },
   {
     "id": "MU-083",
@@ -4855,7 +4893,9 @@
       ]
     },
     "total_seasons": 1,
-    "total_episodes": 8
+    "total_episodes": 8,
+    "awards": false,
+    "country": "IN"
   },
   {
     "id": "TH-085",
@@ -5051,6 +5091,8 @@
       ]
     },
     "total_seasons": 4,
-    "total_episodes": 23
+    "total_episodes": 23,
+    "awards": false,
+    "country": "US"
   }
 ]

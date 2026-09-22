@@ -347,53 +347,104 @@
         <!-- HOME PAGE — CAROUSEL ROWS -->
         <section id="home-page" class="p-6 md:p-10 space-y-12 flex-grow">
 
-            <!-- HOME ROW 1: TODAY'S TOP PICKS -->
-            <div class="space-y-4">
+            <!-- HOME ROW 1: CONTINUE WATCHING FOR {USER} -->
+            <div id="home-row-cw" class="space-y-4">
                 <div class="flex items-end justify-between border-b-2 border-swiss pb-2">
                     <div>
-                        <span class="text-xs font-mono text-swissred font-bold uppercase tracking-widest block">FIG H01.0 — PERSONALIZED SELECTION</span>
-                        <h2 class="text-2xl md:text-4xl font-black uppercase tracking-tight text-charcoal">TODAY'S TOP PICKS FOR YOU</h2>
+                        <span class="text-xs font-mono text-swissred font-bold uppercase tracking-widest block">FIG H01.0 — ACTIVE SESSION LOG</span>
+                        <h2 class="text-2xl md:text-4xl font-black uppercase tracking-tight text-charcoal">CONTINUE WATCHING FOR <span class="text-swissred">PRIYANSH</span></h2>
                     </div>
                     <div class="flex items-center gap-2 font-mono text-xs">
-                        <button onclick="scrollRow('home-top-picks-grid', -1)" class="border border-swiss px-3 py-1 font-bold hover:bg-swissred hover:text-cream transition-swiss">[ ← PREV ]</button>
-                        <button onclick="scrollRow('home-top-picks-grid', 1)" class="border border-swiss px-3 py-1 font-bold hover:bg-swissred hover:text-cream transition-swiss">[ NEXT → ]</button>
+                        <button onclick="scrollRow('home-cw-grid', -1)" class="border border-swiss px-3 py-1 font-bold hover:bg-swissred hover:text-cream transition-swiss">[ ← PREV ]</button>
+                        <button onclick="scrollRow('home-cw-grid', 1)" class="border border-swiss px-3 py-1 font-bold hover:bg-swissred hover:text-cream transition-swiss">[ NEXT → ]</button>
                     </div>
                 </div>
-                <div id="home-top-picks-grid" class="grid grid-flow-col auto-cols-[85%] sm:auto-cols-[45%] md:auto-cols-[30%] lg:auto-cols-[22%] gap-4 overflow-x-auto no-scrollbar scroll-smooth py-2">
+                <div id="home-cw-grid" class="grid grid-flow-col auto-cols-[85%] sm:auto-cols-[45%] md:auto-cols-[30%] lg:auto-cols-[22%] gap-4 overflow-x-auto no-scrollbar scroll-smooth py-2">
                     <!-- Cards dynamically injected via JS -->
                 </div>
             </div>
 
-            <!-- HOME ROW 2: TOP SERIES -->
-            <div class="space-y-4">
+            <!-- HOME ROW 2: YOUR LIST -->
+            <div id="home-row-list" class="space-y-4">
                 <div class="flex items-end justify-between border-b-2 border-swiss pb-2">
                     <div>
-                        <span class="text-xs font-mono text-swissred font-bold uppercase tracking-widest block">FIG H02.0 — RANDOMIZED SERIES SELECTION</span>
-                        <h2 class="text-2xl md:text-4xl font-black uppercase tracking-tight text-charcoal">SERIES PICKED FOR YOU</h2>
+                        <span class="text-xs font-mono text-swissred font-bold uppercase tracking-widest block">FIG H02.0 — CURATED USER ARCHIVE</span>
+                        <h2 class="text-2xl md:text-4xl font-black uppercase tracking-tight text-charcoal">YOUR LIST</h2>
                     </div>
                     <div class="flex items-center gap-2 font-mono text-xs">
-                        <button onclick="scrollRow('home-series-picks-grid', -1)" class="border border-swiss px-3 py-1 font-bold hover:bg-swissred hover:text-cream transition-swiss">[ ← PREV ]</button>
-                        <button onclick="scrollRow('home-series-picks-grid', 1)" class="border border-swiss px-3 py-1 font-bold hover:bg-swissred hover:text-cream transition-swiss">[ NEXT → ]</button>
+                        <button onclick="scrollRow('home-list-grid', -1)" class="border border-swiss px-3 py-1 font-bold hover:bg-swissred hover:text-cream transition-swiss">[ ← PREV ]</button>
+                        <button onclick="scrollRow('home-list-grid', 1)" class="border border-swiss px-3 py-1 font-bold hover:bg-swissred hover:text-cream transition-swiss">[ NEXT → ]</button>
                     </div>
                 </div>
-                <div id="home-series-picks-grid" class="grid grid-flow-col auto-cols-[85%] sm:auto-cols-[45%] md:auto-cols-[30%] lg:auto-cols-[22%] gap-4 overflow-x-auto no-scrollbar scroll-smooth py-2">
+                <div id="home-list-grid" class="grid grid-flow-col auto-cols-[85%] sm:auto-cols-[45%] md:auto-cols-[30%] lg:auto-cols-[22%] gap-4 overflow-x-auto no-scrollbar scroll-smooth py-2">
                     <!-- Cards dynamically injected via JS -->
                 </div>
             </div>
 
-            <!-- HOME ROW 3: TOP CINEMA -->
-            <div class="space-y-4">
+            <!-- HOME ROW 3: YOUR NEXT WATCH -->
+            <div id="home-row-next" class="space-y-4">
                 <div class="flex items-end justify-between border-b-2 border-swiss pb-2">
                     <div>
-                        <span class="text-xs font-mono text-swissred font-bold uppercase tracking-widest block">FIG H03.0 — RANDOMIZED CINEMA SELECTION</span>
-                        <h2 class="text-2xl md:text-4xl font-black uppercase tracking-tight text-charcoal">CINEMA PICKED FOR YOU</h2>
+                        <span class="text-xs font-mono text-swissred font-bold uppercase tracking-widest block">FIG H03.0 — SIMILAR TO YOUR SAVED ENTRIES</span>
+                        <h2 class="text-2xl md:text-4xl font-black uppercase tracking-tight text-charcoal">YOUR NEXT WATCH</h2>
                     </div>
                     <div class="flex items-center gap-2 font-mono text-xs">
-                        <button onclick="scrollRow('home-cinema-picks-grid', -1)" class="border border-swiss px-3 py-1 font-bold hover:bg-swissred hover:text-cream transition-swiss">[ ← PREV ]</button>
-                        <button onclick="scrollRow('home-cinema-picks-grid', 1)" class="border border-swiss px-3 py-1 font-bold hover:bg-swissred hover:text-cream transition-swiss">[ NEXT → ]</button>
+                        <button onclick="scrollRow('home-next-grid', -1)" class="border border-swiss px-3 py-1 font-bold hover:bg-swissred hover:text-cream transition-swiss">[ ← PREV ]</button>
+                        <button onclick="scrollRow('home-next-grid', 1)" class="border border-swiss px-3 py-1 font-bold hover:bg-swissred hover:text-cream transition-swiss">[ NEXT → ]</button>
                     </div>
                 </div>
-                <div id="home-cinema-picks-grid" class="grid grid-flow-col auto-cols-[85%] sm:auto-cols-[45%] md:auto-cols-[30%] lg:auto-cols-[22%] gap-4 overflow-x-auto no-scrollbar scroll-smooth py-2">
+                <div id="home-next-grid" class="grid grid-flow-col auto-cols-[85%] sm:auto-cols-[45%] md:auto-cols-[30%] lg:auto-cols-[22%] gap-4 overflow-x-auto no-scrollbar scroll-smooth py-2">
+                    <!-- Cards dynamically injected via JS -->
+                </div>
+            </div>
+
+            <!-- HOME ROW 4: US TV DRAMAS AND SITCOMS -->
+            <div id="home-row-us" class="space-y-4">
+                <div class="flex items-end justify-between border-b-2 border-swiss pb-2">
+                    <div>
+                        <span class="text-xs font-mono text-swissred font-bold uppercase tracking-widest block">FIG H04.0 — EPISODIC / US PRODUCTION</span>
+                        <h2 class="text-2xl md:text-4xl font-black uppercase tracking-tight text-charcoal">US TV DRAMAS AND SITCOMS</h2>
+                    </div>
+                    <div class="flex items-center gap-2 font-mono text-xs">
+                        <button onclick="scrollRow('home-us-grid', -1)" class="border border-swiss px-3 py-1 font-bold hover:bg-swissred hover:text-cream transition-swiss">[ ← PREV ]</button>
+                        <button onclick="scrollRow('home-us-grid', 1)" class="border border-swiss px-3 py-1 font-bold hover:bg-swissred hover:text-cream transition-swiss">[ NEXT → ]</button>
+                    </div>
+                </div>
+                <div id="home-us-grid" class="grid grid-flow-col auto-cols-[85%] sm:auto-cols-[45%] md:auto-cols-[30%] lg:auto-cols-[22%] gap-4 overflow-x-auto no-scrollbar scroll-smooth py-2">
+                    <!-- Cards dynamically injected via JS -->
+                </div>
+            </div>
+
+            <!-- HOME ROW 5: OLD GEMS -->
+            <div id="home-row-gems" class="space-y-4">
+                <div class="flex items-end justify-between border-b-2 border-swiss pb-2">
+                    <div>
+                        <span class="text-xs font-mono text-swissred font-bold uppercase tracking-widest block">FIG H05.0 — PRE-2016 ARCHIVE</span>
+                        <h2 class="text-2xl md:text-4xl font-black uppercase tracking-tight text-charcoal">OLD GEMS</h2>
+                    </div>
+                    <div class="flex items-center gap-2 font-mono text-xs">
+                        <button onclick="scrollRow('home-gems-grid', -1)" class="border border-swiss px-3 py-1 font-bold hover:bg-swissred hover:text-cream transition-swiss">[ ← PREV ]</button>
+                        <button onclick="scrollRow('home-gems-grid', 1)" class="border border-swiss px-3 py-1 font-bold hover:bg-swissred hover:text-cream transition-swiss">[ NEXT → ]</button>
+                    </div>
+                </div>
+                <div id="home-gems-grid" class="grid grid-flow-col auto-cols-[85%] sm:auto-cols-[45%] md:auto-cols-[30%] lg:auto-cols-[22%] gap-4 overflow-x-auto no-scrollbar scroll-smooth py-2">
+                    <!-- Cards dynamically injected via JS -->
+                </div>
+            </div>
+
+            <!-- HOME ROW 6: AWARD WINNING TITLES -->
+            <div id="home-row-awards" class="space-y-4">
+                <div class="flex items-end justify-between border-b-2 border-swiss pb-2">
+                    <div>
+                        <span class="text-xs font-mono text-swissred font-bold uppercase tracking-widest block">FIG H06.0 — CRITICS &amp; ACADEMY SELECTION</span>
+                        <h2 class="text-2xl md:text-4xl font-black uppercase tracking-tight text-charcoal">AWARD WINNING TITLES</h2>
+                    </div>
+                    <div class="flex items-center gap-2 font-mono text-xs">
+                        <button onclick="scrollRow('home-awards-grid', -1)" class="border border-swiss px-3 py-1 font-bold hover:bg-swissred hover:text-cream transition-swiss">[ ← PREV ]</button>
+                        <button onclick="scrollRow('home-awards-grid', 1)" class="border border-swiss px-3 py-1 font-bold hover:bg-swissred hover:text-cream transition-swiss">[ NEXT → ]</button>
+                    </div>
+                </div>
+                <div id="home-awards-grid" class="grid grid-flow-col auto-cols-[85%] sm:auto-cols-[45%] md:auto-cols-[30%] lg:auto-cols-[22%] gap-4 overflow-x-auto no-scrollbar scroll-smooth py-2">
                     <!-- Cards dynamically injected via JS -->
                 </div>
             </div>
@@ -688,7 +739,7 @@
                 await loadCatalog();
             } catch (err) {
                 console.error(err);
-                document.querySelectorAll('#home-top-picks-grid, #top-picks-grid').forEach(g => {
+                document.querySelectorAll('#home-cw-grid, #top-picks-grid').forEach(g => {
                     if (g) g.innerHTML = `
                         <div class="col-span-full w-full border-2 border-dashed border-swiss p-12 text-center font-mono space-y-2">
                             <p class="text-xl font-bold text-swissred">CATALOG FEED OFFLINE.</p>
@@ -837,13 +888,13 @@
         }
 
         // Render cards into a carousel container, with an empty state when no matches
-        function renderCardGrid(gridId, items) {
+        function renderCardGrid(gridId, items, emptyMessage) {
             const grid = document.getElementById(gridId);
             if (!grid) return;
             if (items.length === 0) {
                 grid.innerHTML = `
                     <div class="col-span-full w-full border border-dashed border-swiss p-6 text-center font-mono text-xs text-muted">
-                        NO ENTRIES MATCH CURRENT FILTER PARAMETERS [${currentGenre}]
+                        ${emptyMessage || `NO ENTRIES MATCH CURRENT FILTER PARAMETERS [${currentGenre}]`}
                     </div>
                 `;
             } else {
@@ -870,6 +921,17 @@
                             ${show.title}
                         </h4>
                     </div>
+
+                    ${show.__cw ? `
+                    <!-- Resume Progress Bar (Continue Watching only) -->
+                    <div class="-mt-2 mb-3">
+                        <div class="flex justify-between font-mono text-[9px] uppercase text-muted group-hover:text-cream/80 mb-1">
+                            <span>RESUME</span><span>${show.progressText || ''}</span>
+                        </div>
+                        <div class="h-1.5 bg-cream-dark border border-swiss group-hover:border-cream">
+                            <div class="h-full bg-swissred" style="width:${show.progressPercent || '50%'}"></div>
+                        </div>
+                    </div>` : ''}
 
                     <!-- Metadata Footer -->
                     <div class="border-t border-swiss group-hover:border-cream pt-3 mt-4 flex flex-col gap-2 font-mono text-xs">
@@ -913,27 +975,85 @@
         }
 
         function renderAllGrids() {
-            renderHomeStyleRows('',
-                SHUFFLED_CATALOG.filter(matchFilters).slice(0, 10),
-                SHUFFLED_BY_TYPE.shows.filter(matchFilters).slice(0, 10),
-                SHUFFLED_BY_TYPE.movies.filter(matchFilters).slice(0, 10));
+            renderHomeRows();
         }
 
-        // HOME PAGE CAROUSEL ROWS
+        // HOME PAGE CAROUSEL ROWS — six editorial rows
+        const USER_NAME = 'PRIYANSH';
+
+        // Simulated in-progress sessions (percent + label shown on the card)
+        const CONTINUE_WATCHING = [
+            { id: 'SQ-002', progressPercent: '72%', progressText: 'S2:E4' },
+            { id: 'ST-013', progressPercent: '38%', progressText: 'S4:E2' },
+            { id: 'WE-003', progressPercent: '85%', progressText: 'S1:E6' },
+            { id: 'BR-016', progressPercent: '51%', progressText: 'S3:E4' },
+            { id: 'TH-085', progressPercent: '64%', progressText: 'S2:E7' },
+            { id: 'MO-015', progressPercent: '29%', progressText: 'E3' },
+            { id: 'KP-001', progressPercent: '47%', progressText: '47M LEFT' },
+            { id: 'RE-004', progressPercent: '81%', progressText: '1H 12M LEFT' },
+        ];
+
+        function continueWatchingEntries() {
+            return CONTINUE_WATCHING
+                .map(c => {
+                    const show = CATALOG_DATA.find(s => s.id === c.id);
+                    return show ? { ...show, __cw: true, progressPercent: c.progressPercent, progressText: c.progressText } : null;
+                })
+                .filter(Boolean)
+                .filter(matchFilters);
+        }
+
+        // "Your Next Watch": titles related to the saved list (same genre),
+        // excluding what's already saved/watching. Falls back to a random
+        // selection from the whole catalog when the list is empty.
+        function nextWatchPicks() {
+            const saved = CATALOG_DATA.filter(s => userMyList.includes(s.id));
+            const taken = new Set([...userMyList, ...CONTINUE_WATCHING.map(c => c.id)]);
+            if (saved.length === 0) {
+                return SHUFFLED_CATALOG.filter(s => !taken.has(s.id) && matchFilters(s)).slice(0, 10);
+            }
+            const savedGenres = new Set(saved.map(s => s.genre));
+            const related = shuffleArray(CATALOG_DATA.filter(s =>
+                !taken.has(s.id) && savedGenres.has(s.genre)
+            ));
+            const picks = [];
+            // Round-robin across saved entries' genres for variety
+            for (let round = 0; round < 10 && picks.length < 10; round++) {
+                for (const g of savedGenres) {
+                    if (picks.length >= 10) break;
+                    const pick = related.find(s => s.genre === g && !picks.includes(s));
+                    if (pick) picks.push(pick);
+                }
+            }
+            if (picks.length < 10) {
+                for (const s of SHUFFLED_CATALOG) {
+                    if (picks.length >= 10) break;
+                    if (!taken.has(s.id) && !picks.includes(s) && matchFilters(s)) picks.push(s);
+                }
+            }
+            return picks.filter(matchFilters);
+        }
+
         function renderHomeRows() {
-            renderHomeStyleRows('home-',
-                SHUFFLED_CATALOG.filter(matchFilters).slice(0, 10),
-                SHUFFLED_BY_TYPE.shows.filter(matchFilters).slice(0, 10),
-                SHUFFLED_BY_TYPE.movies.filter(matchFilters).slice(0, 10));
-        }
+            const cw = continueWatchingEntries();
+            const saved = CATALOG_DATA.filter(s => userMyList.includes(s.id) && matchFilters(s));
+            const next = nextWatchPicks();
+            const usTv = shuffleArray(CATALOG_DATA.filter(s =>
+                s.type === 'shows' && s.country === 'US'
+            ).filter(matchFilters)).slice(0, 10);
+            const gems = shuffleArray(CATALOG_DATA.filter(s =>
+                s.year && s.year !== '—' && parseInt(s.year, 10) <= 2015
+            ).filter(matchFilters)).slice(0, 10);
+            const awards = shuffleArray(CATALOG_DATA.filter(s => s.awards && matchFilters(s))).slice(0, 10);
 
-        // Shared row renderer: Top Picks (10) / Series / Cinema — matches the home-page format
-        function renderHomeStyleRows(idPrefix, topPicks, seriesPicks, cinemaPicks) {
-            renderCardGrid(`${idPrefix}top-picks-grid`, topPicks);
-            renderCardGrid(`${idPrefix}series-picks-grid`, seriesPicks);
-            renderCardGrid(`${idPrefix}cinema-picks-grid`, cinemaPicks);
-            const cw = document.getElementById(`${idPrefix}continue-watching-row`);
-            if (cw) cw.style.display = 'none';
+            renderCardGrid('home-cw-grid', cw);
+            renderCardGrid('home-list-grid', saved, userMyList.length === 0
+                ? 'YOUR LIST IS EMPTY — CLICK "+ ADD" ON ANY TITLE TO STORE IT HERE.'
+                : 'NO SAVED ENTRIES MATCH CURRENT FILTER PARAMETERS');
+            renderCardGrid('home-next-grid', next);
+            renderCardGrid('home-us-grid', usTv);
+            renderCardGrid('home-gems-grid', gems);
+            renderCardGrid('home-awards-grid', awards);
         }
 
         // SHOWS / MOVIES pages: overall top 10 + genre-wise carousels in the home-page format
@@ -1028,7 +1148,15 @@
         // FEATURED TITLE — each content page gets its own random featured entry,
         // drawn from that page's context (home: today's top picks, shows/movies: their pool).
         const FEATURED_POOLS = {
-            home: () => SHUFFLED_CATALOG.slice(0, 10),
+            // home: drawn from the personalized rows (continue watching + list + next watch)
+            home: () => {
+                const pool = [
+                    ...continueWatchingEntries(),
+                    ...CATALOG_DATA.filter(s => userMyList.includes(s.id)),
+                    ...nextWatchPicks()
+                ];
+                return pool.length ? pool : SHUFFLED_CATALOG;
+            },
             shows: () => SHUFFLED_BY_TYPE.shows,
             movies: () => SHUFFLED_BY_TYPE.movies
         };

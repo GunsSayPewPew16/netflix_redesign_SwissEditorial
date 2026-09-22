@@ -56,11 +56,23 @@ Both files are arrays of entry objects, merged and sorted by `rank` on load:
   "duration": "FEATURE FILM",
   "progressPercent": "0%", "progressText": "—",
   "isFeatured": false,             // true → also listed under New & Top
+  "awards": false,                 // true → listed in the home "Award Winning Titles" row
+  "seasons_data": { "1": [ … ] },  // series only: per-season episodes (num/title/desc/duration)
+  "country": "US",                 // series only: production country (US row on home)
   "episodes": []                    // optional episode list for series
 }
 ```
 
 To add a title, append an object to the matching file (any unused `rank` slots sorts it naturally) and reload.
+
+## Home page rows
+
+1. **Continue Watching for {user}** — simulated sessions defined in `CONTINUE_WATCHING` in `index.html` (id, %, resume label), rendered with progress bars
+2. **Your List** — the saved titles (My List)
+3. **Your Next Watch** — titles sharing a genre with the saved list, round-robin across saved genres; falls back to random picks when the list is empty
+4. **US TV Dramas and Sitcoms** — series with `country: "US"`
+5. **Old Gems** — titles released 2015 or earlier
+6. **Award Winning Titles** — entries flagged `"awards": true`
 
 ## Design system
 
