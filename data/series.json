@@ -57351,5 +57351,1047 @@
     },
     "awards": true,
     "country": "FR"
+  },
+  {
+    "id": "KB-183",
+    "code": "183",
+    "title": "Kuroko's Basketball",
+    "type": "shows",
+    "genre": "anime",
+    "genreLabel": "ANIME / SPORTS",
+    "year": "2012",
+    "seasons": "3 SEASONS",
+    "rating": "U/A 13+",
+    "subheading": "STREAMING NOW · 3 SEASONS",
+    "description": "Kuroko is the 'phantom sixth man' of a legendary middle-school basketball team. Now at Seirin High, he and hot-headed Kagami aim to take down his former teammates one by one.",
+    "cast": "Tetsuya Kuroko, Taiga Kagami",
+    "genresFull": "ANIME / SPORTS",
+    "characteristics": "HIGH ENERGY / STYLIZED / UNDERDOG",
+    "advisory": "Rating depends on region; check the title page on Netflix.",
+    "duration": "3 SEASONS",
+    "progressPercent": "0%",
+    "progressText": "—",
+    "isFeatured": false,
+    "episodes": [],
+    "rank": 183,
+    "total_seasons": 3,
+    "total_episodes": 75,
+    "seasons_data": {
+      "1": [
+        {
+          "num": 1,
+          "title": "I'm Kuroko",
+          "desc": "While recruiting for the basketball club, the Seirin Private High school has managed to pick up some impressive players; a power house, former American player, and a supporting member of the \"Generation of Miracles\".",
+          "duration": "30M",
+          "airdate": "2012-04-07"
+        },
+        {
+          "num": 2,
+          "title": "I'm Serious",
+          "desc": "Before anyone can become an official member of the Basketball Club, they first must do display courage. Afterwards, a surprising guest appears on the school grounds with a shocking offer.",
+          "duration": "30M",
+          "airdate": "2012-04-14"
+        },
+        {
+          "num": 3,
+          "title": "It's Better If I Can't Win",
+          "desc": "Seirin basketball club is playing a practice game at Kaijō High School, the school where Kise attends. After a display of power from Kagami, it forces the Kaijō coach to take Seirin serious.",
+          "duration": "30M",
+          "airdate": "2012-04-21"
+        },
+        {
+          "num": 4,
+          "title": "Take Care of the Counterattack!",
+          "desc": "After Kuroko gets injured in the second quarter during the match the 2nd year players have to show their team chemistry with shooting and defense.",
+          "duration": "30M",
+          "airdate": "2012-04-28"
+        },
+        {
+          "num": 5,
+          "title": "Your Basketball",
+          "desc": "The Seirin team celebrates with steak; Kise asks Kuroko why he left the Junior High school team after they won the championship; Kagami, Kise, and Kuroko face some thugs in a street ball match.",
+          "duration": "30M",
+          "airdate": "2012-05-05"
+        },
+        {
+          "num": 6,
+          "title": "Let Me Tell You Two Things",
+          "desc": "The Interhigh championship has started with Seirin vs Shinkyō.",
+          "duration": "30M",
+          "airdate": "2012-05-12"
+        },
+        {
+          "num": 7,
+          "title": "You'll See Something Amazing",
+          "desc": "After crushing their next few opponents, the team is taken to watch a Shūtoku match. Shūtoku is one of the Three Kings of Tokyo.",
+          "duration": "30M",
+          "airdate": "2012-05-19"
+        },
+        {
+          "num": 8,
+          "title": "Now That I Think About It",
+          "desc": "Seirin takes on Seihō, a squad built around an invincible defense.",
+          "duration": "30M",
+          "airdate": "2012-05-26"
+        },
+        {
+          "num": 9,
+          "title": "To Win",
+          "desc": "The match against Seihō continues.",
+          "duration": "30M",
+          "airdate": "2012-06-02"
+        },
+        {
+          "num": 10,
+          "title": "I Can't Have That",
+          "desc": "After a last second win against Seihō, Seirin now has to face Shūtoku in the tournament.",
+          "duration": "30M",
+          "airdate": "2012-06-09"
+        },
+        {
+          "num": 11,
+          "title": "It's Not Like That",
+          "desc": "The match against Shūtoku continues but it seems like an impossible task.",
+          "duration": "30M",
+          "airdate": "2012-06-16"
+        },
+        {
+          "num": 12,
+          "title": "What's 'Victory'?",
+          "desc": "Seirin starts to find its footing in the match against Shūtoku through Kagami's strong leaps.",
+          "duration": "30M",
+          "airdate": "2012-06-23"
+        },
+        {
+          "num": 13,
+          "title": "I Believed in You",
+          "desc": "In the final seconds of the game one of the teams manages to come out on top and advances to the preliminaries final league.",
+          "duration": "30M",
+          "airdate": "2012-06-30"
+        },
+        {
+          "num": 14,
+          "title": "You Look Just Like Him",
+          "desc": "After winning the tournament, Kuroko meets Kise and Midorima at the restaurant. Later, Kuroko finds a dog that he adopts and that the team names Tetsuya #2.",
+          "duration": "30M",
+          "airdate": "2012-07-07"
+        },
+        {
+          "num": 15,
+          "title": "Don't Make Me Laugh",
+          "desc": "The Interhigh preliminaries final league begin with Tōō vs. Seirin as the first match.",
+          "duration": "30M",
+          "airdate": "2012-07-14"
+        },
+        {
+          "num": 16,
+          "title": "Let's Go",
+          "desc": "Tōō High gets out to an early lead as the match continues.",
+          "duration": "30M",
+          "airdate": "2012-07-21"
+        },
+        {
+          "num": 17,
+          "title": "You're All Ridiculous",
+          "desc": "During halftime, Seirin decides they must bench Kuroko so he can regain some strength, forcing Kagami and Aomine into a one-on-one battle.",
+          "duration": "30M",
+          "airdate": "2012-07-28"
+        },
+        {
+          "num": 18,
+          "title": "No!!",
+          "desc": "Kuroko is subbed back in and Seirin slowly cuts the lead down. However, Kagami has avoided using his injured leg, and now his good one is about to collapse and he is benched.",
+          "duration": "30M",
+          "airdate": "2012-08-04"
+        },
+        {
+          "num": 19,
+          "title": "On to a New Challenge",
+          "desc": "Since Kagami is benched for the next two matches due to leg damage and the weak team spirit after the devestating loss against Tōō High, Seirin loses both following games and is knocked out of the tournament.",
+          "duration": "30M",
+          "airdate": "2012-08-11"
+        },
+        {
+          "num": 20,
+          "title": "I Don't Want to Be",
+          "desc": "Teppei challenges Kagami to a one-one-one match for the right to become the Ace for Seirin on the way to the Winter Cup. The next day Seirin begins the first of 3 consecutive days on practice matches so each player can be evaluated and placed on a specific training regiment during the summer.",
+          "duration": "30M",
+          "airdate": "2012-08-18"
+        },
+        {
+          "num": 21,
+          "title": "Let's Get Started",
+          "desc": "The team arrives at a training camp at the beach where they will practice for the next two weeks.",
+          "duration": "30M",
+          "airdate": "2012-08-25"
+        },
+        {
+          "num": 22,
+          "title": "I'll Win Even If It Kills Me",
+          "desc": "In the training camp Kagami realizes he must learn to win aerial battles in order to beat The Generation of Miracles, and Kuroko learns he must learn to drive with the ball with no presence in order to surpass the Generation of Miracles.",
+          "duration": "30M",
+          "airdate": "2012-09-01"
+        },
+        {
+          "num": 23,
+          "title": "I'm Not Mature!",
+          "desc": "The quarterfinal match of the Interhigh tournament: Tōō Academy vs. Kaijō featuring Aomine vs. Kise.",
+          "duration": "30M",
+          "airdate": "2012-09-08"
+        },
+        {
+          "num": 24,
+          "title": "Don't Get the Wrong Idea",
+          "desc": "The match Tōō Academy vs. Kaijō continues and Kise decides to copy Aomine but this will take time due to the difference in skill.",
+          "duration": "30M",
+          "airdate": "2012-09-15"
+        },
+        {
+          "num": 25,
+          "title": "Our Basketball",
+          "desc": "The winner of the match Tōō Academy vs. Kaijō is decided. After the game Kagami and Kuroko are determined to work hard to develop their new style of basketball.",
+          "duration": "30M",
+          "airdate": "2012-09-22"
+        }
+      ],
+      "2": [
+        {
+          "num": 1,
+          "title": "I Never Thought We'd Meet Here",
+          "desc": "Seirin's first years participate in a street basketball tournament where they meet Tatsuya Himuro and Atsushi Murasakibara from Yōsen High.",
+          "duration": "30M",
+          "airdate": "2013-10-05"
+        },
+        {
+          "num": 2,
+          "title": "At the Winter Cup",
+          "desc": "The street ball game gets called off due to heavy rain. Later on, Kuroko shows Momoi his newest technique which, if refined well, might lead to no one ever being able to stop him.",
+          "duration": "30M",
+          "airdate": "2013-10-12"
+        },
+        {
+          "num": 3,
+          "title": "Start!!!",
+          "desc": "The Winter Cup preliminaries starts with Seirin vs. Josei High.",
+          "duration": "30M",
+          "airdate": "2013-10-19"
+        },
+        {
+          "num": 4,
+          "title": "There is Only One Answer",
+          "desc": "Seirin takes on their next two opponents: Senshinkan High and Shutoku.",
+          "duration": "30M",
+          "airdate": "2013-10-26"
+        },
+        {
+          "num": 5,
+          "title": "I've Been Waiting for This",
+          "desc": "The match against Shutoku continues.",
+          "duration": "30M",
+          "airdate": "2013-11-02"
+        },
+        {
+          "num": 6,
+          "title": "I Surpassed You Long Ago",
+          "desc": "The tension rises as the match against Shūtoku progresses.",
+          "duration": "30M",
+          "airdate": "2013-11-09"
+        },
+        {
+          "num": 7,
+          "title": "Give Up",
+          "desc": "Due to the rush of the matches, there is no overtime, hence the match ends with a tie. Flashback to 1 year ago, the story goes on about the formation of Seirin's basketball club.",
+          "duration": "30M",
+          "airdate": "2013-11-16"
+        },
+        {
+          "num": 8,
+          "title": "We're the Seirin High School Basketball Team!",
+          "desc": "In the flashback Seirin faces the unfair Kirisaki Daiichi High.",
+          "duration": "30M",
+          "airdate": "2013-11-23"
+        },
+        {
+          "num": 9,
+          "title": "I Will Defeat You!",
+          "desc": "Back in the present Seirin faces Kirisaki Daiichi once again. As usual, Kirisaki Daiichi plays dirty, on offense and defense, trying to injure the opposing players.",
+          "duration": "30M",
+          "airdate": "2013-11-30"
+        },
+        {
+          "num": 10,
+          "title": "It's Trust",
+          "desc": "The match against Kirisaki Daiichi continues.",
+          "duration": "30M",
+          "airdate": "2013-12-07"
+        },
+        {
+          "num": 11,
+          "title": "Don't Be Ridiculous",
+          "desc": "Seirin managed to break free of Kirisaki Daiichi's 'spider web'. However, the game is still not over with Hanamiya having another card up his sleeves. Will Seirin still get their berth at the Winter Cup or is it over for them?",
+          "duration": "30M",
+          "airdate": "2013-12-14"
+        },
+        {
+          "num": 12,
+          "title": "I Look Forward to It",
+          "desc": "After the winter cup prelimenaries, Seirin are relaxing at a hot spring as Tōō Academy suddenly shows up.",
+          "duration": "30M",
+          "airdate": "2013-12-21"
+        },
+        {
+          "num": 13,
+          "title": "Definitely This Time",
+          "desc": "Before the Winter Cup starts, Akashi summons the rest of the Generation of Miracles, along with Kuroko. The highly anticipated match between Seirin and Tōō Academy starts.",
+          "duration": "30M",
+          "airdate": "2014-01-04"
+        },
+        {
+          "num": 14,
+          "title": "Useless Effort",
+          "desc": "Seirin managed to keep on pace with Tōō Academy. However, things just don't go right when Kuroko has both his moves being stopped consecutively by Aomine.Will Seirin find a way to make a comeback in this game?",
+          "duration": "30M",
+          "airdate": "2014-01-11"
+        },
+        {
+          "num": 15,
+          "title": "I Think He's Extremely Happy",
+          "desc": "Only down by 2, Seirin seem to be able to keep pace with Tōō Academy. However the match is far from over and Seirin faces a new problem.",
+          "duration": "30M",
+          "airdate": "2014-01-18"
+        },
+        {
+          "num": 16,
+          "title": "We Win Now!",
+          "desc": "Still behind, can Seirin make a comeback against Tōō?",
+          "duration": "30M",
+          "airdate": "2014-01-25"
+        },
+        {
+          "num": 17,
+          "title": "I Believe in Him",
+          "desc": "The intense match against Tōō Academy continues.",
+          "duration": "30M",
+          "airdate": "2014-02-01"
+        },
+        {
+          "num": 18,
+          "title": "I Won't Lose",
+          "desc": "The battle between the Aces of their teams, Aomine and Kagami, will decide the outcome of the match.",
+          "duration": "30M",
+          "airdate": "2014-02-08"
+        },
+        {
+          "num": 19,
+          "title": "Tell Me",
+          "desc": "After the tough and close win over Tōō, Kagami invites the team to his house. The Seirin team then goes to watch the Winter Cup match between Onita and Shutoku.",
+          "duration": "30M",
+          "airdate": "2014-02-15"
+        },
+        {
+          "num": 20,
+          "title": "Of Course It's Not Easy",
+          "desc": "The second round of the Winter Cup starts with Seirin vs. Nakamiya South and Seirin advances to the quarter final where they will face Yōsen.",
+          "duration": "30M",
+          "airdate": "2014-02-22"
+        },
+        {
+          "num": 21,
+          "title": "First Basket!!",
+          "desc": "Still unable to score against the Yōsen team, Seirin resort to Kuroko taking shots and are back on track in the game.",
+          "duration": "30M",
+          "airdate": "2014-03-01"
+        },
+        {
+          "num": 22,
+          "title": "No Question",
+          "desc": "The thrilling match against Yōsen continues.",
+          "duration": "30M",
+          "airdate": "2014-03-08"
+        },
+        {
+          "num": 23,
+          "title": "I Don't Want to Lose",
+          "desc": "With Murasakibara finally appearing on the offensive side, Seirin is slowly losing hope of having the chance to win against Yōsen and move onto the Finals.",
+          "duration": "30M",
+          "airdate": "2014-03-15"
+        },
+        {
+          "num": 24,
+          "title": "Enough",
+          "desc": "The Seirin players face tough times scoring any points, however, Kagami's spirit to win gets him into the Zone once again.",
+          "duration": "30M",
+          "airdate": "2014-03-22"
+        },
+        {
+          "num": 25,
+          "title": "Win",
+          "desc": "In the last minute of the fourth quarter it is decided which team enters the semifinals.",
+          "duration": "30M",
+          "airdate": "2014-03-29"
+        }
+      ],
+      "3": [
+        {
+          "num": 1,
+          "title": "I'm Just Going at Full Strength",
+          "desc": "After defeating Yōsen High, Seirin is interviewed for Basketball Monthly. The final quarterfinal will feature a showdown between Kise and Haizaki, with the winner moving on to face Seirin in the semifinals.",
+          "duration": "30M",
+          "airdate": "2015-01-10"
+        },
+        {
+          "num": 2,
+          "title": "This is Mine",
+          "desc": "Kise and Haizaki face each other head-to-head for the right to advance to face Seirin.",
+          "duration": "30M",
+          "airdate": "2015-01-17"
+        },
+        {
+          "num": 3,
+          "title": "Don't You Get in My Way",
+          "desc": "Even Kise, who has a variety of moves thanks to his Copy skill, starts to run out of stock moves as the game progresses. Furthermore, the fierce game pace puts Kise's leg close to its limit.",
+          "duration": "30M",
+          "airdate": "2015-01-24"
+        },
+        {
+          "num": 4,
+          "title": "I'll Take This for Now",
+          "desc": "The final four of Winter Cup has finally been decided: Rakuzan, Shutoku, Seirin, and Kaijo. However, on the day of the semi-finals, Kuroko and Kagami both realized their basketball shoes were broken.",
+          "duration": "30M",
+          "airdate": "2015-01-31"
+        },
+        {
+          "num": 5,
+          "title": "I Know None of That",
+          "desc": "The first semifinal match is between Shutoku and Rakuzan. The offense and defense are both at high levels, creating a see-saw game, but the tides shift in the second quarter.",
+          "duration": "30M",
+          "airdate": "2015-02-07"
+        },
+        {
+          "num": 6,
+          "title": "I Will Offer Them",
+          "desc": "The first semifinal match continues and Akashi performs an ankle break on Midorima.",
+          "duration": "30M",
+          "airdate": "2015-02-14"
+        },
+        {
+          "num": 7,
+          "title": "It Makes Me Laugh",
+          "desc": "Rakuzan wins with the score of 86 - 70 against Shūtoku and Seirin warms up for their match.",
+          "duration": "30M",
+          "airdate": "2015-02-21"
+        },
+        {
+          "num": 8,
+          "title": "True Light",
+          "desc": "The Seirin-Kaijo game finally begins.",
+          "duration": "30M",
+          "airdate": "2015-02-28"
+        },
+        {
+          "num": 9,
+          "title": "Don't Underestimate Us!",
+          "desc": "With the defense and offense reversed now, Seirin goes on the offensive.",
+          "duration": "30M",
+          "airdate": "2015-03-07"
+        },
+        {
+          "num": 10,
+          "title": "In Order to Win",
+          "desc": "Kagami shows extraordinary growth and treats the Kaijo double-team as if it is nothing, overwhelming them as their ace player Kise remains on the bench. Kaijo stays determined to stay within reach of Seirin, but they cannot stop the momentum that favors Seirin and start to gradually fall behind.",
+          "duration": "30M",
+          "airdate": "2015-03-14"
+        },
+        {
+          "num": 11,
+          "title": "This Time, for Sure",
+          "desc": "Kaijo fiercely fights back with the return of their ace player Kise. The crowd goes wild from their all-out efforts to make a comeback and all start to cheer only for Kaijo.",
+          "duration": "30M",
+          "airdate": "2015-03-21"
+        },
+        {
+          "num": 12,
+          "title": "He is the Best Player",
+          "desc": "Seirin begins the counter attack using their run-and-gun method, suprising the Kaijo players and the audience.",
+          "duration": "30M",
+          "airdate": "2015-03-28"
+        },
+        {
+          "num": 13,
+          "title": "A Day with Blue Skies",
+          "desc": "No synopsis archived for this episode.",
+          "duration": "30M",
+          "airdate": "2015-04-04"
+        },
+        {
+          "num": 14,
+          "title": "...Sorry",
+          "desc": "No synopsis archived for this episode.",
+          "duration": "30M",
+          "airdate": "2015-04-11"
+        },
+        {
+          "num": 15,
+          "title": "We Already",
+          "desc": "No synopsis archived for this episode.",
+          "duration": "30M",
+          "airdate": "2015-04-18"
+        },
+        {
+          "num": 16,
+          "title": "What is Victory?",
+          "desc": "No synopsis archived for this episode.",
+          "duration": "30M",
+          "airdate": "2015-04-25"
+        },
+        {
+          "num": 17,
+          "title": "Final Tip Off",
+          "desc": "No synopsis archived for this episode.",
+          "duration": "30M",
+          "airdate": "2015-05-02"
+        },
+        {
+          "num": 18,
+          "title": "Isn't It the Best?",
+          "desc": "Kagami dangerously continues using up his stamina in the zone, Riko swaps Kuroko for Mitobe so that Kagami can focus on offence.",
+          "duration": "30M",
+          "airdate": "2015-05-09"
+        },
+        {
+          "num": 19,
+          "title": "A Miracle Will Not Happen",
+          "desc": "Seirin subs in first-year Furihata to lure Rakuzan, but he quickly gets tired after facing Akashi.",
+          "duration": "30M",
+          "airdate": "2015-05-16"
+        },
+        {
+          "num": 20,
+          "title": "Weight of Resolve",
+          "desc": "The third quarter starts with Kuroko remaining on the sidelines.",
+          "duration": "30M",
+          "airdate": "2015-05-23"
+        },
+        {
+          "num": 21,
+          "title": "In My Own Way, I'm Desperate",
+          "desc": "No synopsis archived for this episode.",
+          "duration": "30M",
+          "airdate": "2015-05-30"
+        },
+        {
+          "num": 22,
+          "title": "A Warning",
+          "desc": "No synopsis archived for this episode.",
+          "duration": "30M",
+          "airdate": "2015-06-06"
+        },
+        {
+          "num": 23,
+          "title": "Why Don't We Give Up?",
+          "desc": "No synopsis archived for this episode.",
+          "duration": "30M",
+          "airdate": "2015-06-13"
+        },
+        {
+          "num": 24,
+          "title": "So It Was You",
+          "desc": "No synopsis archived for this episode.",
+          "duration": "30M",
+          "airdate": "2015-06-20"
+        },
+        {
+          "num": 25,
+          "title": "Many Times Over",
+          "desc": "No synopsis archived for this episode.",
+          "duration": "30M",
+          "airdate": "2015-06-30"
+        }
+      ]
+    },
+    "awards": false,
+    "country": "JP"
+  },
+  {
+    "id": "BC-184",
+    "code": "184",
+    "title": "Better Call Saul",
+    "type": "shows",
+    "genre": "crime",
+    "genreLabel": "CRIME / DARK THRILLER",
+    "year": "2015",
+    "seasons": "6 SEASONS",
+    "rating": "U/A 16+",
+    "subheading": "STREAMING NOW · 6 SEASONS",
+    "description": "Six years before Walter White, struggling lawyer Jimmy McGill transforms into small-town criminal lawyer Saul Goodman in this Breaking Bad prequel.",
+    "cast": "Jimmy McGill, Michael \"Mike\" Ehrmantraut, Kim Wexler, Howard Hamlin, Ignacio \"Nacho\" Varga",
+    "genresFull": "CRIME / DARK THRILLER",
+    "characteristics": "OMINOUS / DARK / CHARACTER STUDY",
+    "advisory": "Rating depends on region; check the title page on Netflix.",
+    "duration": "6 SEASONS",
+    "progressPercent": "0%",
+    "progressText": "—",
+    "isFeatured": false,
+    "episodes": [],
+    "rank": 184,
+    "total_seasons": 6,
+    "total_episodes": 63,
+    "seasons_data": {
+      "1": [
+        {
+          "num": 1,
+          "title": "Uno",
+          "desc": "Jimmy works his magic in the courtroom. Unexpected inspiration leads him to an unconventional pursuit of potential clients.",
+          "duration": "60M",
+          "airdate": "2015-02-08"
+        },
+        {
+          "num": 2,
+          "title": "Mijo",
+          "desc": "As his troubles escalate to a boiling point, Jimmy finds himself in dire straits. An act of carelessness puts Chuck at risk.",
+          "duration": "60M",
+          "airdate": "2015-02-09"
+        },
+        {
+          "num": 3,
+          "title": "Nacho",
+          "desc": "Jimmy pulls out all the stops to prove that a dangerous client is innocent, even though it causes some friction with Kim.",
+          "duration": "60M",
+          "airdate": "2015-02-16"
+        },
+        {
+          "num": 4,
+          "title": "Hero",
+          "desc": "Jimmy conjures up a bold plan to solicit new clients, but has to face the consequences when the scheme strains his relationship with a rival firm.",
+          "duration": "60M",
+          "airdate": "2015-02-23"
+        },
+        {
+          "num": 5,
+          "title": "Alpine Shepherd Boy",
+          "desc": "When his efforts to drum up new business are interrupted by alarming news, Jimmy is pressured to make a difficult choice.",
+          "duration": "60M",
+          "airdate": "2015-03-02"
+        },
+        {
+          "num": 6,
+          "title": "Five-O",
+          "desc": "Mike's tragic past comes back to haunt him, and he's forced to seek help from an unusual source. Meanwhile, Jimmy's moral compass is put to the test.",
+          "duration": "60M",
+          "airdate": "2015-03-09"
+        },
+        {
+          "num": 7,
+          "title": "Bingo",
+          "desc": "Jimmy meets with potential new clients. Then, when given the opportunity to do the right thing, he cashes in a favor from an unlikely ally.",
+          "duration": "60M",
+          "airdate": "2015-03-16"
+        },
+        {
+          "num": 8,
+          "title": "Rico",
+          "desc": "Jimmy shows Chuck that he's willing to do almost anything to win a case, even if it means getting his hands dirty.",
+          "duration": "60M",
+          "airdate": "2015-03-23"
+        },
+        {
+          "num": 9,
+          "title": "Pimento",
+          "desc": "Chuck urges Jimmy to accept a harsh truth. Meanwhile, a deal threatens to go off the rails when Mike's ability to complete a job is called into question.",
+          "duration": "60M",
+          "airdate": "2015-03-30"
+        },
+        {
+          "num": 10,
+          "title": "Marco",
+          "desc": "In the aftermath of recent events, Jimmy seizes the opportunity to reconnect with an old friend. Meanwhile, Chuck adjusts to a new way of life.",
+          "duration": "60M",
+          "airdate": "2015-04-06"
+        }
+      ],
+      "2": [
+        {
+          "num": 1,
+          "title": "Switch",
+          "desc": "Jimmy and Kim's relationship takes a new turn. Mike decides it's for the best to sever his affiliation with an unrestrained associate.",
+          "duration": "60M",
+          "airdate": "2016-02-15"
+        },
+        {
+          "num": 2,
+          "title": "Cobbler",
+          "desc": "Mike brokers a deal in order to keep a potentially messy situation intact; Jimmy tries to exonerate an eccentric client.",
+          "duration": "60M",
+          "airdate": "2016-02-22"
+        },
+        {
+          "num": 3,
+          "title": "Amarillo",
+          "desc": "Jimmy's client outreach efforts succeed, and he exhibits new heights of showmanship; Mike is puzzled by Stacey's upsetting news.",
+          "duration": "60M",
+          "airdate": "2016-02-29"
+        },
+        {
+          "num": 4,
+          "title": "Gloves Off",
+          "desc": "Jimmy's actions unexpectedly create waves for Kim. Meanwhile, Mike cautiously weighs a lucrative proposal that might bring about dire consequences.",
+          "duration": "60M",
+          "airdate": "2016-03-07"
+        },
+        {
+          "num": 5,
+          "title": "Rebecca",
+          "desc": "Jimmy becomes frustrated with his restrictive work environment. Meanwhile, Kim pulls out all the stops to dig herself out of a seemingly bottomless hole at HHM.",
+          "duration": "60M",
+          "airdate": "2016-03-14"
+        },
+        {
+          "num": 6,
+          "title": "Bali Ha'i",
+          "desc": "Jimmy finds comfort in familiarity; Kim receives a life-changing proposal; when he is threatened, Mike finds himself pushed to the limit.",
+          "duration": "60M",
+          "airdate": "2016-03-21"
+        },
+        {
+          "num": 7,
+          "title": "Inflatable",
+          "desc": "Mike's growing frustration shows when his hand is forced, but with Jimmy's help, he works to keep the peace. Meanwhile, Jimmy boldly forges a new path forward.",
+          "duration": "60M",
+          "airdate": "2016-03-28"
+        },
+        {
+          "num": 8,
+          "title": "Fifi",
+          "desc": "Mike is determined to settle the score with a dangerous adversary. An unexpected opportunity to gain a competitive edge falls in Jimmy's lap.",
+          "duration": "60M",
+          "airdate": "2016-04-04"
+        },
+        {
+          "num": 9,
+          "title": "Nailed",
+          "desc": "Mike takes a methodical approach to his mission. Someone questions Chuck's capabilities. Jimmy faces a personal dilemma.",
+          "duration": "60M",
+          "airdate": "2016-04-11"
+        },
+        {
+          "num": 10,
+          "title": "Klick",
+          "desc": "Jimmy is forced to make a hard choice. Mike takes matters into his own hands. Hamlin relays shocking news while Chuck's condition continues to evolve.",
+          "duration": "60M",
+          "airdate": "2016-04-18"
+        }
+      ],
+      "3": [
+        {
+          "num": 1,
+          "title": "Mabel",
+          "desc": "Jimmy and Chuck's relationship deteriorates; Kim feels the pressure of running her own firm; Mike investigates the note left on his car.",
+          "duration": "70M",
+          "airdate": "2017-04-10"
+        },
+        {
+          "num": 2,
+          "title": "Witness",
+          "desc": "Jimmy and Kim hire an assistant; Mike seeks out a mysterious acquaintance; Chuck uses the law to gain an advantage over Jimmy.",
+          "duration": "70M",
+          "airdate": "2017-04-17"
+        },
+        {
+          "num": 3,
+          "title": "Sunk Costs",
+          "desc": "Jimmy decides to represent a new client to Kim's dismay; Mike meets a formidable ally who gives a tempting offer.",
+          "duration": "70M",
+          "airdate": "2017-04-24"
+        },
+        {
+          "num": 4,
+          "title": "Sabrosito",
+          "desc": "Jimmy asks a favor of Mike; new complications disrupt Salamancas' business; Chuck and Jimmy struggle with a compromise.",
+          "duration": "70M",
+          "airdate": "2017-05-01"
+        },
+        {
+          "num": 5,
+          "title": "Chicanery",
+          "desc": "Kim and Jimmy face off with an adversary; Jimmy looks to Chuck's past to secure his future; Jimmy loses an ally and gains another.",
+          "duration": "70M",
+          "airdate": "2017-05-08"
+        },
+        {
+          "num": 6,
+          "title": "Off Brand",
+          "desc": "Jimmy has a new endeavor; Chuck pushes himself to the limit; Nacho finds himself in a power struggle.",
+          "duration": "70M",
+          "airdate": "2017-05-15"
+        },
+        {
+          "num": 7,
+          "title": "Expenses",
+          "desc": "Jimmy tries to settle debts; Nacho reunites with an acquaintance; Mike helps Stacey with a project and makes a connection.",
+          "duration": "70M",
+          "airdate": "2017-05-22"
+        },
+        {
+          "num": 8,
+          "title": "Slip",
+          "desc": "Jimmy is pushed to desperate measures; Nacho picks up a skill; Mike explores an alliance; Kim stands up to Hamlin.",
+          "duration": "70M",
+          "airdate": "2017-06-05"
+        },
+        {
+          "num": 9,
+          "title": "Fall",
+          "desc": "Jimmy visits a friend and takes up an old pastime; Chuck and Hamlin argue over the future of the firm; Kim faces challenges.",
+          "duration": "77M",
+          "airdate": "2017-06-12"
+        },
+        {
+          "num": 10,
+          "title": "Lantern",
+          "desc": "Kim takes time off; Jimmy tries to make amends; Nacho gambles with his future; Hamlin pushes Chuck to make a decision.",
+          "duration": "76M",
+          "airdate": "2017-06-19"
+        }
+      ],
+      "4": [
+        {
+          "num": 1,
+          "title": "Smoke",
+          "desc": "Jimmy struggles to cope with Chuck's tragic death; Mike ponders his role at Madrigal; Howard makes a startling confession.",
+          "duration": "60M",
+          "airdate": "2018-08-06"
+        },
+        {
+          "num": 2,
+          "title": "Breathe",
+          "desc": "Jimmy seeks new employment; Gus navigates the fallout from Hector's collapse; Kim endeavors to support Jimmy in the wake of Chuck's death.",
+          "duration": "60M",
+          "airdate": "2018-08-13"
+        },
+        {
+          "num": 3,
+          "title": "Something Beautiful",
+          "desc": "Jimmy puts a risky plan into motion; as alliances shift, Nacho finds himself in the crosshairs; Kim contemplates her future.",
+          "duration": "60M",
+          "airdate": "2018-08-20"
+        },
+        {
+          "num": 4,
+          "title": "Talk",
+          "desc": "A restless Jimmy embarks on a new endeavor while Mike burns bridges; Kim pursues her bliss; Nacho tries to survive a turf war.",
+          "duration": "60M",
+          "airdate": "2018-08-27"
+        },
+        {
+          "num": 5,
+          "title": "Quite a Ride",
+          "desc": "Jimmy identifies a new market for his talents; Mike vets a potential partnership; Kim drives a hard bargain.",
+          "duration": "60M",
+          "airdate": "2018-09-03"
+        },
+        {
+          "num": 6,
+          "title": "Piñata",
+          "desc": "While Jimmy dreams of Wexler-McGill, Kim makes a bold move; Mike puts a plan into motion for Gus.",
+          "duration": "60M",
+          "airdate": "2018-09-10"
+        },
+        {
+          "num": 7,
+          "title": "Something Stupid",
+          "desc": "Jimmy expands his business, but runs into a problem that only Kim can solve; Gus intervenes in Hector's medical care; Mike deals with a setback.",
+          "duration": "60M",
+          "airdate": "2018-09-17"
+        },
+        {
+          "num": 8,
+          "title": "Coushatta",
+          "desc": "Jimmy goes to great lengths to right a wrong, as Kim pulls out all the stops for a case; Mike lets his team blow off steam; Nacho receives a visitor.",
+          "duration": "60M",
+          "airdate": "2018-09-24"
+        },
+        {
+          "num": 9,
+          "title": "Wiedersehen",
+          "desc": "Jimmy and Kim unburden themselves, risking their relationship in the process; Nacho is forced to make the rounds with Lalo; Mike has cause to worry.",
+          "duration": "60M",
+          "airdate": "2018-10-01"
+        },
+        {
+          "num": 10,
+          "title": "Winner",
+          "desc": "Jimmy turns the page on his reputation; Lalo tracks a loose end in Gus' operation; Mike is forced to make a difficult decision.",
+          "duration": "60M",
+          "airdate": "2018-10-08"
+        }
+      ],
+      "5": [
+        {
+          "num": 1,
+          "title": "Magic Man",
+          "desc": "Now doing business as Saul Goodman, Jimmy unveils an unorthodox strategy for client development that tests Kim's tolerance of his new legal persona. Lalo searches for the mysterious Michael, only to discover a problem within his own operation.",
+          "duration": "75M",
+          "airdate": "2020-02-23"
+        },
+        {
+          "num": 2,
+          "title": "50% Off",
+          "desc": "Jimmy's promotional stunt has unintended consequences. Nacho takes extreme measures to earn Lalo's trust. Saul is a success at the courthouse, but still has yet to win Kim over. Simmering with rage and self-loathing, Mike loses his temper.",
+          "duration": "60M",
+          "airdate": "2020-02-24"
+        },
+        {
+          "num": 3,
+          "title": "The Guy for This",
+          "desc": "Kim's confidence is tested when she's faced with a legal problem only she can solve.",
+          "duration": "75M",
+          "airdate": "2020-03-02"
+        },
+        {
+          "num": 4,
+          "title": "Namaste",
+          "desc": "As Jimmy doubles down on Saul Goodman, a deeply conflicted Kim brings him an interesting proposition. Gus makes a sacrifice in order to play the long game. Mike attempts to smooth things over with his family.",
+          "duration": "60M",
+          "airdate": "2020-03-09"
+        },
+        {
+          "num": 5,
+          "title": "Dedicado a Max",
+          "desc": "Mike makes an unexpected trip out of town; Kim makes a surprising decision as she grows closer to Jimmy over their determination to help a client.",
+          "duration": "70M",
+          "airdate": "2020-03-16"
+        },
+        {
+          "num": 6,
+          "title": "Wexler v. Goodman",
+          "desc": "Kim fears she is too late to stop Saul as she tries to reign in Jimmy's newest scheme; Mike increases the pressure on Lalo; Nacho struggles to gain support.",
+          "duration": "70M",
+          "airdate": "2020-03-23"
+        },
+        {
+          "num": 7,
+          "title": "JMM",
+          "desc": "Kim and Jimmy turn to Huell for help with a legal firewall; Jimmy is compromised as Kim struggles to work things out with her clients; despite the issues he faces, Gus navigates his way to build an empire; Mike tries to do damage control.",
+          "duration": "68M",
+          "airdate": "2020-03-30"
+        },
+        {
+          "num": 8,
+          "title": "Bagman",
+          "desc": "Jimmy is pushed to his limit as he strives to help a client only for the simple task to go awry; Mike tries to deal with angry cartel members; a surprise visitor meets Lalo.",
+          "duration": "75M",
+          "airdate": "2020-04-06"
+        },
+        {
+          "num": 9,
+          "title": "Bad Choice Road",
+          "desc": "In the wake of Jimmy's traumatic misadventure, Kim takes stock of what is important. Jimmy attempts to return to business as usual, but it's more difficult than anticipated. Gus and Mike set a plan in motion.",
+          "duration": "85M",
+          "airdate": "2020-04-13"
+        },
+        {
+          "num": 10,
+          "title": "Something Unforgivable",
+          "desc": "Jimmy and Kim make a sideways move that takes a serious turn; Nacho gets closer to the cartel.",
+          "duration": "85M",
+          "airdate": "2020-04-20"
+        }
+      ],
+      "6": [
+        {
+          "num": 1,
+          "title": "Wine and Roses",
+          "desc": "Nacho runs for his life. Jimmy and Kim hatch a plan. Mike questions his allegiances.",
+          "duration": "60M",
+          "airdate": "2022-04-18"
+        },
+        {
+          "num": 2,
+          "title": "Carrot and Stick",
+          "desc": "Harsh realities dawn on Nacho. Gus investigates his suspicions.",
+          "duration": "60M",
+          "airdate": "2022-04-18"
+        },
+        {
+          "num": 3,
+          "title": "Rock and Hard Place",
+          "desc": "Still on the run, Nacho is forced to choose where his loyalties lie. Jimmy doubles down.",
+          "duration": "60M",
+          "airdate": "2022-04-25"
+        },
+        {
+          "num": 4,
+          "title": "Hit and Run",
+          "desc": "Gus takes extreme measures. Jimmy and Kim enlist a local pro to put on a show.",
+          "duration": "60M",
+          "airdate": "2022-05-02"
+        },
+        {
+          "num": 5,
+          "title": "Black and Blue",
+          "desc": "While business booms for Jimmy, the vise tightens on the cat-and-mouse game between Gus and Lalo.",
+          "duration": "60M",
+          "airdate": "2022-05-09"
+        },
+        {
+          "num": 6,
+          "title": "Axe and Grind",
+          "desc": "Kim and Jimmy enlist a knowledgeable contact. Howard scrutinizes Jimmy's business practices. Mike refuses to compromise as tensions mount within Gus' operation. Lalo interrogates a witness.",
+          "duration": "60M",
+          "airdate": "2022-05-16"
+        },
+        {
+          "num": 7,
+          "title": "Plan and Execution",
+          "desc": "Jimmy and Kim deal with a last-minute snag in their plan.",
+          "duration": "60M",
+          "airdate": "2022-05-23"
+        },
+        {
+          "num": 8,
+          "title": "Point and Shoot",
+          "desc": "An unexpected visitor forces Jimmy and Kim to face the consequences of their actions.",
+          "duration": "60M",
+          "airdate": "2022-07-11"
+        },
+        {
+          "num": 9,
+          "title": "Fun and Games",
+          "desc": "Gus attempts to smooth things over with the cartel while Mike ties up loose ends north of the border.",
+          "duration": "60M",
+          "airdate": "2022-07-18"
+        },
+        {
+          "num": 10,
+          "title": "Nippy",
+          "desc": "A new player gets in the game.",
+          "duration": "60M",
+          "airdate": "2022-07-25"
+        },
+        {
+          "num": 11,
+          "title": "Breaking Bad",
+          "desc": "Emboldened by recent successes, partners throw caution to the wind and escalate their enterprise to new levels.",
+          "duration": "60M",
+          "airdate": "2022-08-01"
+        },
+        {
+          "num": 12,
+          "title": "Waterworks",
+          "desc": "The stakes are raised when a discovery is made that will send shockwaves far and wide.",
+          "duration": "60M",
+          "airdate": "2022-08-08"
+        },
+        {
+          "num": 13,
+          "title": "Saul Gone",
+          "desc": "The series finale.",
+          "duration": "72M",
+          "airdate": "2022-08-15"
+        }
+      ]
+    },
+    "awards": false,
+    "country": "US"
   }
 ]

@@ -2134,5 +2134,29 @@
     "episodes": [],
     "rank": 89,
     "awards": false
+  },
+  {
+    "id": "AS-090",
+    "code": "90",
+    "title": "The Amazing Spider-Man",
+    "type": "movies",
+    "genre": "action",
+    "genreLabel": "ACTION / SUPERHERO",
+    "year": "2012",
+    "seasons": "FEATURE FILM",
+    "rating": "U/A 13+",
+    "subheading": "STREAMING NOW",
+    "description": "A teenage Peter Parker grapples with both high school and amazing super-human crises as his alter-ego Spider-Man.",
+    "cast": "Andrew Garfield, Emma Stone, Rhys Ifans",
+    "genresFull": "ACTION / SUPERHERO",
+    "characteristics": "ACTION-PACKED / HEARTWARMING",
+    "advisory": "Rating depends on region; check the title page on Netflix.",
+    "duration": "FEATURE FILM",
+    "progressPercent": "0%",
+    "progressText": "—",
+    "isFeatured": false,
+    "episodes": [],
+    "rank": 90,
+    "awards": false
   }
 ]
